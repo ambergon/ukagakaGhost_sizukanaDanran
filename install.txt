@@ -1,7 +1,7 @@
 charset,UTF-8
-name,Ghost_Kohaku
+name,静かな団欒
 type,ghost
-directory,ukagakaGhost_Mine
+directory,ukagakaGhost_sizukanaDanran
 
 
 

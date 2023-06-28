@@ -39,7 +39,7 @@ file,ghost/master/yaya/shiori3.dic7b160527c0bf1702ead85c2f22640db7size=51282d
 file,ghost/master/yaya/yaya_tmpl_util.dic6ef77bb4b051cb0114a7b11dc1fd5791size=8589date=2022-07-13T00:55:46
 file,ghost/master/yaya_emerg.txt7f772d1c0e0ce8dc4f643cd52de2ce97size=188date=2023-06-04T10:56:22
 file,ghost/master/yaya_emerg.uka08eea7009aed1ad54ef94df889515ee4size=301date=2023-06-04T12:30:40
-file,install.txt6635f34087689271f7a557487716e3dcsize=74date=2022-10-24T12:14:38
+file,install.txtdce8f13c2affe678bf71c4d143c6a0aasize=87date=2023-06-29T08:13:23
 file,shell/master/base.pnge784cdd928284ec86fbefd01888517ecsize=158722date=2023-06-26T11:45:32
 file,shell/master/book/BookOpen/book_00000.pngc6c5dcc82927effe31c387d475b57659size=16367date=2022-07-13T00:55:47
 file,shell/master/book/BookOpen/book_00001.png2243b5654ae9a6fdd60694c56119da0asize=16406date=2022-07-13T00:55:47
