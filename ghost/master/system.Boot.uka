@@ -6,6 +6,11 @@
 OnBoot {
     HelloWorld()
 }
+//OnBoot呼ばれなかったぞ。
+OnFirstBoot {
+    HelloWorld()
+}
+
 //呼ばれた
 OnGhostCalled {
     HelloWorld()
