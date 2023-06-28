@@ -1,0 +1,11 @@
+
+
+AutoLoad.system_Mouse_Book {
+}
+
+AutoUnload.system_Mouse_Book {
+}
+
+MouseDoubleClick_0Book {
+    Menu
+}

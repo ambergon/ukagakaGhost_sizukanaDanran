@@ -1,0 +1,28 @@
+
+version {
+    "origin/0.0.0"
+}
+
+
+
+OnGhostLoad {
+    //SHIORI3FW.Pathが存在しない可能性がある。
+    //ssp/ghost/ghost_name/ghost/master
+    GHOSTPATH = REPLACE( SHIORI3FW.Path , '\' , '/' )
+    //proxy_ex.dll初期化
+    //FUNCTIONEX("./dll/proxy_ex.dll" ,  "/charset" , "UTF-8"  )
+
+    _loadFunction = GETFUNCLIST( "AutoLoad." )
+    for _i = 0 ; _i < ARRAYSIZE( _loadFunction ) ; _i++ {
+        EVAL( _loadFunction[_i] )
+    }
+}
+
+
+OnGhostUnload {
+    _unloadFunction = GETFUNCLIST( "AutoUnload." )
+    for _i = 0 ; _i < ARRAYSIZE( _unloadFunction ) ; _i++ {
+        EVAL( _unloadFunction[_i] )
+    }
+    ERASEVAR( 'GHOSTPATH' )
+}

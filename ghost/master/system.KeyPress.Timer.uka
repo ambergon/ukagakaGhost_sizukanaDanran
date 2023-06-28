@@ -1,0 +1,42 @@
+
+
+AutoLoad.system_Timer{
+    TimerCount = 0
+}
+
+AutoUnload.system_Timer{
+    ERASEVAR( 'TimerCount' )
+}
+
+
+
+//毎秒ごとにタイマーをマイナス1する。
+//0なら読み上げ。
+CheckSecond.Timer {
+    //0以降の場合常に発生する危険性
+    if ( TimerCount > 0 ) {
+        TimerCount = TimerCount - 1
+        if ( TimerCount == 0 ) {
+            "時間だよー"
+        } 
+    }
+}
+
+
+AddTimerCount {
+    _i = _argv[0]
+    if ( _i == "0" ){
+        _i = "10"
+    }
+	_count = TOINT( _i ) * 60 
+    TimerCount = TOINT( TimerCount ) + TOINT( _count )
+    _say = TimerCount / 60
+    "残り時間 約 %( _say )分"
+}
+
+
+ExitTimer {
+    "残り時間 : %( TimerCount ) -> 解除したよ～"
+    TimerCount = 0
+}
+

@@ -1,0 +1,63 @@
+charset,UTF-8
+
+descript 
+{
+    version,1
+}
+
+//status_FaceUp
+//100
+
+surface100-199 {
+    //face to you
+    element0,base,status/FaceUp.png,0,0
+    //本を開きっぱなしに。
+    element10,base,book/BookOpen/book_00000.png,0,0
+}
+
+surface.append100-199 {
+    //random eye you close 
+	animation0.interval,random,30
+	animation0.pattern0,overlayfast,1001,50,0,0
+	animation0.pattern1,overlayfast,1002,50,0,0
+	animation0.pattern2,overlayfast,-1,60,0,0
+}
+
+surface.append100-199 {
+    //move eye you to book
+	animation1.interval,runonce
+	animation1.pattern1,overlay,1001,0,0,0
+	animation1.pattern2,overlay,1002,820,0,0
+	animation1.pattern3,overlay,1003,60,0,0
+	animation1.pattern4,overlay,-1,820,0,0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,178 @@
+
+AutoLoad.system_Surfece {
+    //初期表情
+    //TalkMode = "STATUS_FaceUp"
+    //起動時のトークに表情をつけたいので
+    TalkMode = "STATUS_TalkingYou"
+
+    //状態継続の初期値
+    SurfaceSec = 20
+    //介入ごとに状態が継続する追加秒数。
+    SurfaceSecAdd = 10
+    //状態が維持される最大秒数
+    SurfaceSecMax = 120 
+    //SurfaceSecMax = 180 
+}
+
+AutoUnload.system_Surfece {
+    ERASEVAR( 'TalkMode' )
+    ERASEVAR( 'SurfaceSec' )
+    ERASEVAR( 'SurfaceSecAdd' )
+    ERASEVAR( 'SurfaceSecMax' )
+}
+
+
+//defaultで発言から15秒後表情を戻す
+//が、バルーンと一緒に消えるのは気に食わないのでずらす。
+//これは自分で使っている状態を戻すコードとは分離しているので、遅延の長さは致命的にならないはずだ。
+OnSurfaceRestore {
+    "\0\__w[2000]\s[%(fc)]\e"
+}
+
+
+
+//sec時間経過で表情を戻す。手動呼び出し。
+SurfaceRestore {
+    "\0\s[%(fc)]"
+}
+
+
+//時間経過によって段階を戻していく。
+//これには発言(空送信)が発生する。
+CheckSecond.Surface {
+    if ( SurfaceSec > 0 ) {
+        SurfaceSec = SurfaceSec - 1
+    }
+
+    //読書継続
+    if ( TalkMode == "STATUS_ReadingBook" ) {
+
+
+    //本を開いて読み始める
+    } elseif ( SurfaceSec == 0 && TalkMode == "STATUS_ReturnBookOpen" ) {
+        TalkMode = "STATUS_ReadingBook"
+        SurfaceSec = 3
+        SurfaceRestore
+
+
+    //本に視線を戻す。
+    }elseif ( SurfaceSec == 0  && TalkMode == "STATUS_FaceUp" ) {
+        TalkMode = "STATUS_ReadingBook"
+        SurfaceRestore
+
+
+    //読書状態へ戻る
+    }elseif ( SurfaceSec == 0  && TalkMode == "STATUS_TalkingYou" ) || ( SurfaceSec == 0 && TalkMode == "STATUS_CloseBook" ) {
+        TalkMode = "STATUS_ReturnBookOpen"
+        SurfaceSec = 3
+        SurfaceRestore
+    }
+}
+
+
+//刺激に対してモード変更を行う。
+MouseReaction.TalkModes {
+    //顔を上げる。
+    if TalkMode == "STATUS_ReadingBook" || TalkMode == "STATUS_ReturnBookOpen" {
+        TalkMode = "STATUS_FaceUp"
+
+    //本を閉じる。
+    } elseif TalkMode == "STATUS_FaceUp" {
+        TalkMode = "STATUS_CloseBook"
+
+    //話を聞く
+    } elseif TalkMode == "STATUS_CloseBook" {
+        TalkMode = "STATUS_TalkingYou"
+
+    //最高レベル。維持
+    } elseif TalkMode == "STATUS_TalkingYou" {
+    }
+
+    //現在の状態が継続される秒数を追加。
+    SurfaceSec = SurfaceSec + SurfaceSecAdd
+    if ( SurfaceSec > SurfaceSecMax ) {
+        SurfaceSec = SurfaceSecMax
+    }
+}
+
+
+//文字列送信では''が必要。
+//"\0\s[%(fc('照れ'))]"
+//"\0\s[%(fc('じっ'))]"
+//"\0\s[%(fc('照れ'))]"
+//FaceControl
+fc {
+    _status = 000
+    _face = _argv[0]
+
+	if ( TalkMode == "STATUS_ReadingBook" ) {
+		_status = 000
+
+	} elseif ( TalkMode == "STATUS_FaceUp" ) {
+		_status = 100
+
+	} elseif ( TalkMode == "STATUS_CloseBook" ) {
+		_status = 200
+
+    //トーク状態の時のみ表情に変化をつける。
+	} elseif ( TalkMode == "STATUS_TalkingYou" ) {
+        _face = _argv[0]
+        if _face == "" {
+            _face = 0
+        } elseif _face == "じっ" {
+            _face = 1
+        } elseif _face == "疑い" {
+            _face = 2
+        } elseif _face == "泣き顔" {
+            _face = 3
+        } elseif _face == "泣き始め" {
+            _face = 4
+        } elseif _face == "驚き" {
+            _face = 5
+        } elseif _face == "月の微笑み" {
+            _face = 6
+        } elseif _face == "嫌" {
+            _face = 7
+        } elseif _face == "困り笑い" {
+            _face = 8
+        } elseif _face == "困り笑い2" {
+            _face = 9
+        } elseif _face == "困る" {
+            _face = 10
+        } elseif _face == "視線そらし" {
+            _face = 11
+        } elseif _face == "笑顔" {
+            _face = 12
+        } elseif _face == "照れ笑い" {
+            _face = 13
+        } elseif _face == "怒り" {
+            _face = 14
+        } elseif _face == "微笑み" {
+            _face = 15
+        } elseif _face == "不満" {
+            _face = 16
+        } elseif _face == "呆れ" {
+            _face = 17
+        } elseif _face == "目閉じ" {
+            _face = 18
+        } elseif _face == "脱力" {
+            _face = 19
+        //} elseif _face ==  {
+        } else {
+            _face = 0
+        }
+		_status = 300
+        _status = _status + _face
+
+	} elseif ( TalkMode == "STATUS_ReturnBookOpen" ) {
+		_status = 400
+	}
+    _status
+}
+
+
+
+
+
+
+

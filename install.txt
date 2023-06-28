@@ -1,0 +1,7 @@
+charset,UTF-8
+name,Ghost_Kohaku
+type,ghost
+directory,ukagakaGhost_Mine
+
+
+

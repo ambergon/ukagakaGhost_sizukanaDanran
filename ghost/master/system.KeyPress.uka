@@ -1,0 +1,36 @@
+//使用されるグローバル変数
+//OldKeyPress
+OnKeyPress {
+    _text = ""
+    _KEY = reference[0]
+
+    //デバッグ他
+    if ( OldKeyPress == "back" ) {
+        //reload
+        if ( _KEY == "r" ) {
+            _text = '\1\s[100000]\0\ \![reload,shiori]\0\s[0]\_qReloaded.\_q\e'
+
+        //folder open
+        } elseif ( _KEY == "o" ) {
+            _text = "\0\j[file:///%( GHOSTPATH )]開くよ～\e"
+        }
+
+
+    //ショートカット
+    } elseif ( OldKeyPress == "space" ) {
+
+        if RE_MATCH(_KEY, '[a-z]' ) {
+            _text = CallShortCut( _KEY )
+        }
+    }
+
+    //タイマー関係
+    if ( _KEY == "0" || _KEY == "1" || _KEY == "2" || _KEY == "3" || _KEY == "4" || _KEY == "5" || _KEY == "6" || _KEY == "7" || _KEY == "8" || _KEY == "9" ) {
+        _text = AddTimerCount( _KEY )
+    } elseif ( _KEY == "escape" ) {
+        _text = ExitTimer
+    }
+
+    OldKeyPress = _KEY
+    _text
+}

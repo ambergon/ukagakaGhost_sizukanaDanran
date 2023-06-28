@@ -1,0 +1,24 @@
+
+
+AutoLoad.system_Menu {
+    _loadMenu = GETFUNCLIST( "OnFunctionMenu." )
+    MenuText = "\_q\n[half]【 メニュー 一覧 】\n"
+
+    for _i = 0 ; _i < ARRAYSIZE( _loadMenu ) ; _i++ {
+        _text = REPLACE( _loadMenu[_i] , "OnFunctionMenu." , ""  )
+        MenuText = MenuText + "\![*]\q[" + _text + "," + _loadMenu[_i] +"]\n"
+    }
+    MenuText = MenuText + "\![*]\q[特にない,]\n[half]\e"
+}
+AutoUnload.system_Menu {
+    ERASEVAR( 'MenuText' )
+}
+Menu { 
+    MenuText
+}
+
+
+
+
+
+

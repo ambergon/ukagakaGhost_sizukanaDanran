@@ -1,0 +1,93 @@
+charset,UTF-8
+
+descript 
+{
+    version,1
+}
+
+
+//status_TalkingYou
+//300
+//run onceを使えば status_CloseBookを省略できるが
+//talkで話しかけるたびにbookopenが呼ばれてしまうのでこのまま。
+
+
+
+//surface300 {
+surface300-399 {
+    //element face to you
+    element0,base,status/TalkingYou.png,0,0
+    //本を閉じっぱなしに
+    element10,base,book/BookOpen/book_00150.png,0,0
+}
+
+surface.append300-399 {
+    //random eye you close 
+	//animation0.interval,random,30
+	//animation0.pattern0,overlayfast,1001,50,0,0
+	//animation0.pattern1,overlayfast,1002,50,0,0
+	//animation0.pattern2,overlayfast,-1,60,0,0
+}
+
+
+////対話状態で使用するsurface。胴体が必要。
+surface.append301 {
+    element1,overlay,face/じっ.png,0,0
+}
+surface.append302 {
+    element1,overlay,face/疑い.png,0,0
+}
+surface.append303 {
+    element1,overlay,face/泣き顔.png,0,0
+}
+surface.append304 {
+    element1,overlay,face/泣き始め.png,0,0
+}
+surface.append305 {
+    element1,overlay,face/驚き.png,0,0
+}
+surface.append306 {
+    element1,overlay,face/月の微笑み.png,0,0
+}
+surface.append307 {
+    element1,overlay,face/嫌.png,0,0
+}
+surface.append308 {
+    element1,overlay,face/困り笑い.png,0,0
+}
+surface.append309 {
+    element1,overlay,face/困り笑い2.png,0,0
+}
+surface.append310 {
+    element1,overlay,face/困る.png,0,0
+}
+surface.append311 {
+    element1,overlay,face/視線そらし.png,0,0
+}
+surface.append312 {
+    element1,overlay,face/笑顔.png,0,0
+}
+surface.append313 {
+    element1,overlay,face/照れ笑い.png,0,0
+}
+surface.append314 {
+    element1,overlay,face/怒り.png,0,0
+}
+surface.append315 {
+    element1,overlay,face/微笑み.png,0,0
+}
+surface.append316 {
+    element1,overlay,face/不満.png,0,0
+}
+surface.append317 {
+    element1,overlay,face/呆れ.png,0,0
+}
+surface.append318 {
+    element1,overlay,face/目閉じ.png,0,0
+}
+surface.append319 {
+    element1,overlay,face/脱力.png,0,0
+}
+
+
+

@@ -1,0 +1,98 @@
+
+
+AutoLoad.system_Mouse {
+    LoadMouseReaction = GETFUNCLIST( "MouseReaction." )
+    PreviousParts = ""
+    StrokeCount = 0
+    StrokeSensitivity = 60
+    WheelSensitivity = 10
+}
+
+AutoUnload.system_Mouse {
+    ERASEVAR( 'LoadMouseReaction' )
+    ERASEVAR( 'PreviousParts' )
+    ERASEVAR( 'StrokeCount' )
+    ERASEVAR( 'StrokeSensitivity' )
+    ERASEVAR( 'WheelSensitivity' )
+}
+
+
+OnMouseMove {
+    _CharID = reference[3]
+    _Parts = reference[4]
+    StrokeFunction( _CharID , _Parts , StrokeSensitivity ,"Move" )
+}
+
+
+OnMouseWheel {
+    _CharID = reference[3]
+    _Parts = reference[4]
+    StrokeFunction( _CharID , _Parts , WheelSensitivity , "Wheel" )
+}
+
+
+//現状本以外にダブルクリックを実装する予定はない。
+OnMouseDoubleClick {
+    _CharID = reference[3]
+    _Parts = reference[4]
+    _Action = "DoubleClick"
+    //これを有効かすることによって、ダブルクリックでも本読みの状態変更が起きる。
+    //fcを正しく運用したテキストを用いるようになったら解禁すること。
+    //現在撫で反応自体も切って頭名での身に実装。
+    //MouseAction( _Action , _Parts )
+    EVAL("MouseDoubleClick_%( _CharID )%( _Parts )")
+}
+
+
+//WheelとMoveの統合関数。
+StrokeFunction {
+    _CharID = _argv[0]
+    _Parts = _argv[1]
+    _Stroke = _argv[2]
+    _Action = _argv[3]
+
+    //名称のついた部位かどうか
+    if _Parts != "" {
+        //継続
+        if ( _Parts == PreviousParts ) {
+            StrokeCount++
+            if ( StrokeCount > _Stroke ) {
+                //MouseAction( _Action , _Parts )
+                if _Parts == "Head" {
+                    MouseAction( _Action , _Parts )
+                }
+                StrokeCount = 0
+                EVAL("MouseStroke_%( _CharID )%(_Parts)")
+            }
+        //新規
+        } else {
+            StrokeCount = 0
+        }
+        PreviousParts = _Parts
+
+    //名前のない場所
+    } else {
+    }
+}
+
+
+//Userの行動によって反応する関数。
+//発言はさせない。
+//各種情報収集や反応用。
+MouseAction {
+    _Action = _argv[0]
+    _Parts  = _argv[1]
+    for _i = 0 ; _i < ARRAYSIZE( LoadMouseReaction ) ; _i++ {
+        EVAL( LoadMouseReaction[_i] )
+    }
+}
+
+
+//メインキャラの当たり判定が無い部分
+//MouseDoubleClick_0 {
+//    //"CPU消費具合:%property[system.cpu.load]"
+//    //_cpu = "%property[system.cpu.load]"
+//    //_cpu
+//}
+
+

@@ -1,0 +1,29 @@
+// 緊急時辞書
+OnBoot {
+	'\0\s[0]\1\s[-1]\0致命的エラー発生\e'
+}
+
+
+OnMouseDoubleClick {
+	OnBoot()
+}
+
+
+OnKeyPress {
+	if ISFUNC('sys.key.' + reference[0]) {
+		EVAL('sys.key.' + reference[0])
+	}
+}
+
+
+sys.key.r {
+	'\![reload,shiori]\0\s[0]\_qReloaded.\1\s[-1]\0\_q\e'
+}
+
+
+On_homeurl {
+	''
+}
+
+
+

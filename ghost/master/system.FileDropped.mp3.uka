@@ -1,0 +1,22 @@
+
+
+
+
+
+SetMp3Config {
+    _PATH = _argv[0]
+	"\b[2]\_q\n[half]/
+	%( _PATH )\n/
+	\![*]\q[ 休憩時間の音楽を設定する ,OnSetMp3File,%( _PATH ),BreakTimeBGM]\n/
+	\n[half]\e"
+}
+
+
+OnSetMp3File {
+    _PATH   = reference[0] 
+    _Name   = reference[1]
+    EVAL( _Name + ' = "' + _PATH + '"' )
+    "%( _Name ) の設定ファイルは %( _PATH ) だね。"
+}
+
+

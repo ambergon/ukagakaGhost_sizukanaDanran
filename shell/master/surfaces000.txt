@@ -1,0 +1,199 @@
+charset,UTF-8
+
+descript 
+{
+    version,1
+}
+
+
+
+//status_ReadingBook
+//000
+surface.append000-099 {
+    element0,base,status/ReadingBook.png,0,0
+    //本を開きっぱなしに。
+    element10,base,book/BookOpen/book_00000.png,0,0
+}
+
+//Book eye Close
+surface.append000-099 {
+    //random eye close
+	animation0.interval,random,70
+	animation0.pattern0,overlayfast,1001,60,0,0
+	animation0.pattern1,overlayfast,-1,6000,0,0
+}
+
+//random eye book to you to book
+surface.append000-099 {
+	animation1.interval,random,70
+	animation1.pattern1,overlayfast,1001,150,0,0
+	animation1.pattern2,overlayfast,1002,820,0,0
+	animation1.pattern3,overlayfast,1003,60,0,0
+	animation1.pattern4,overlayfast,1002,3800,0,0
+	animation1.pattern5,overlayfast,1001,78,0,0
+	animation1.pattern6,overlayfast,-1,950,0,0
+}
+
+//戻ってきたときに目線を本に戻す。
+surface.append000-099 {
+	animation2.interval,runonce
+	animation2.pattern4,overlayfast,1002,0,0,0
+	animation2.pattern5,overlayfast,1001,78,0,0
+	animation2.pattern6,overlayfast,-1,950,0,0
+}
+
+//Book_next
+surface.append000-099 {
+	animation500.interval,random,200
+	animation500.pattern1,overlay,5001,1,0,0
+	animation500.pattern2,overlay,5002,1,0,0
+	animation500.pattern3,overlay,5003,1,0,0
+	animation500.pattern4,overlay,5004,1,0,0
+	animation500.pattern5,overlay,5005,1,0,0
+	animation500.pattern6,overlay,5006,1,0,0
+	animation500.pattern7,overlay,5007,1,0,0
+	animation500.pattern8,overlay,5008,1,0,0
+	animation500.pattern9,overlay,5009,1,0,0
+	animation500.pattern10,overlay,5010,1,0,0
+	animation500.pattern11,overlay,5011,1,0,0
+	animation500.pattern12,overlay,5012,1,0,0
+	animation500.pattern13,overlay,5013,1,0,0
+	animation500.pattern14,overlay,5014,1,0,0
+	animation500.pattern15,overlay,5015,1,0,0
+	animation500.pattern16,overlay,5016,1,0,0
+	animation500.pattern17,overlay,5017,1,0,0
+	animation500.pattern18,overlay,5018,1,0,0
+	animation500.pattern19,overlay,5019,1,0,0
+	animation500.pattern20,overlay,5020,1,0,0
+	animation500.pattern21,overlay,5021,1,0,0
+	animation500.pattern22,overlay,5022,1,0,0
+	animation500.pattern23,overlay,5023,1,0,0
+	animation500.pattern24,overlay,5024,1,0,0
+	animation500.pattern25,overlay,5025,1,0,0
+	animation500.pattern26,overlay,5026,1,0,0
+	animation500.pattern27,overlay,5027,1,0,0
+	animation500.pattern28,overlay,5028,1,0,0
+	animation500.pattern29,overlay,5029,1,0,0
+	animation500.pattern30,overlay,5030,1,0,0
+	animation500.pattern31,overlay,5031,1,0,0
+	animation500.pattern32,overlay,5032,1,0,0
+	animation500.pattern33,overlay,5033,1,0,0
+	animation500.pattern34,overlay,5034,1,0,0
+	animation500.pattern35,overlay,5035,1,0,0
+	animation500.pattern36,overlay,5036,1,0,0
+	animation500.pattern37,overlay,5037,1,0,0
+	animation500.pattern38,overlay,5038,1,0,0
+	animation500.pattern39,overlay,5039,1,0,0
+	animation500.pattern40,overlay,5040,1,0,0
+	animation500.pattern41,overlay,5041,1,0,0
+	animation500.pattern42,overlay,5042,1,0,0
+	animation500.pattern43,overlay,5043,1,0,0
+	animation500.pattern44,overlay,5044,1,0,0
+	animation500.pattern45,overlay,5045,1,0,0
+	animation500.pattern46,overlay,5046,1,0,0
+	animation500.pattern47,overlay,5047,1,0,0
+	animation500.pattern48,overlay,5048,1,0,0
+	animation500.pattern49,overlay,5049,1,0,0
+	animation500.pattern50,overlay,5050,1,0,0
+	animation500.pattern51,overlay,5051,1,0,0
+	animation500.pattern52,overlay,5052,1,0,0
+	animation500.pattern53,overlay,5053,1,0,0
+	animation500.pattern54,overlay,5054,1,0,0
+	animation500.pattern55,overlay,5055,1,0,0
+	animation500.pattern56,overlay,5056,1,0,0
+	animation500.pattern57,overlay,5057,1,0,0
+	animation500.pattern58,overlay,5058,1,0,0
+	animation500.pattern59,overlay,5059,1,0,0
+	animation500.pattern60,overlay,5060,1,0,0
+	animation500.pattern61,overlay,5061,1,0,0
+	animation500.pattern62,overlay,5062,1,0,0
+	animation500.pattern63,overlay,5063,1,0,0
+	animation500.pattern64,overlay,5064,1,0,0
+	animation500.pattern65,overlay,5065,1,0,0
+	animation500.pattern66,overlay,5066,1,0,0
+	animation500.pattern67,overlay,5067,1,0,0
+	animation500.pattern68,overlay,5068,1,0,0
+	animation500.pattern69,overlay,5069,1,0,0
+	animation500.pattern70,overlay,5070,1,0,0
+	animation500.pattern71,overlay,5071,1,0,0
+	animation500.pattern72,overlay,5072,1,0,0
+	animation500.pattern73,overlay,5073,1,0,0
+	animation500.pattern74,overlay,5074,1,0,0
+	animation500.pattern75,overlay,5075,1,0,0
+	animation500.pattern76,overlay,5076,1,0,0
+	animation500.pattern77,overlay,5077,1,0,0
+	animation500.pattern78,overlay,5078,1,0,0
+	animation500.pattern79,overlay,5079,1,0,0
+	animation500.pattern80,overlay,5080,1,0,0
+	animation500.pattern81,overlay,5081,1,0,0
+	animation500.pattern82,overlay,5082,1,0,0
+	animation500.pattern83,overlay,5083,1,0,0
+	animation500.pattern84,overlay,5084,1,0,0
+	animation500.pattern85,overlay,5085,1,0,0
+	animation500.pattern86,overlay,5086,1,0,0
+	animation500.pattern87,overlay,5087,1,0,0
+	animation500.pattern88,overlay,5088,1,0,0
+	animation500.pattern89,overlay,5089,1,0,0
+	animation500.pattern90,overlay,5090,1,0,0
+	animation500.pattern91,overlay,5091,1,0,0
+	animation500.pattern92,overlay,5092,1,0,0
+	animation500.pattern93,overlay,5093,1,0,0
+	animation500.pattern94,overlay,5094,1,0,0
+	animation500.pattern95,overlay,5095,1,0,0
+	animation500.pattern96,overlay,5096,1,0,0
+	animation500.pattern97,overlay,5097,1,0,0
+	animation500.pattern98,overlay,5098,1,0,0
+	animation500.pattern99,overlay,5099,1,0,0
+	animation500.pattern100,overlay,5100,1,0,0
+	animation500.pattern101,overlay,5101,1,0,0
+	animation500.pattern102,overlay,5102,1,0,0
+	animation500.pattern103,overlay,5103,1,0,0
+	animation500.pattern104,overlay,5104,1,0,0
+	animation500.pattern105,overlay,5105,1,0,0
+	animation500.pattern106,overlay,5106,1,0,0
+	animation500.pattern107,overlay,5107,1,0,0
+	animation500.pattern108,overlay,5108,1,0,0
+	animation500.pattern109,overlay,5109,1,0,0
+	animation500.pattern110,overlay,5110,1,0,0
+	animation500.pattern111,overlay,5111,1,0,0
+	animation500.pattern112,overlay,5112,1,0,0
+	animation500.pattern113,overlay,5113,1,0,0
+	animation500.pattern114,overlay,5114,1,0,0
+	animation500.pattern115,overlay,5115,1,0,0
+	animation500.pattern116,overlay,5116,1,0,0
+	animation500.pattern117,overlay,5117,1,0,0
+	animation500.pattern118,overlay,5118,1,0,0
+	animation500.pattern119,overlay,5119,1,0,0
+	animation500.pattern120,overlay,5120,1,0,0
+	animation500.pattern121,overlay,5121,1,0,0
+	animation500.pattern122,overlay,5122,1,0,0
+	animation500.pattern123,overlay,5123,1,0,0
+	animation500.pattern124,overlay,5124,1,0,0
+	animation500.pattern125,overlay,5125,1,0,0
+	animation500.pattern126,overlay,5126,1,0,0
+	animation500.pattern127,overlay,5127,1,0,0
+	animation500.pattern128,overlay,5128,1,0,0
+	animation500.pattern129,overlay,5129,1,0,0
+	animation500.pattern130,overlay,5130,1,0,0
+	animation500.pattern131,overlay,5131,1,0,0
+	animation500.pattern132,overlay,5132,1,0,0
+	animation500.pattern133,overlay,5133,1,0,0
+	animation500.pattern134,overlay,5134,1,0,0
+	animation500.pattern135,overlay,5135,1,0,0
+	animation500.pattern136,overlay,5136,1,0,0
+	animation500.pattern137,overlay,5137,1,0,0
+	animation500.pattern138,overlay,5138,1,0,0
+	animation500.pattern139,overlay,5139,1,0,0
+	animation500.pattern140,overlay,5140,1,0,0
+	animation500.pattern141,overlay,5141,1,0,0
+	animation500.pattern142,overlay,5142,1,0,0
+	animation500.pattern143,overlay,5143,1,0,0
+	animation500.pattern144,overlay,5144,1,0,0
+	animation500.pattern145,overlay,5145,1,0,0
+	animation500.pattern146,overlay,5146,1,0,0
+	animation500.pattern147,overlay,5147,1,0,0
+	animation500.pattern148,overlay,5148,1,0,0
+	animation500.pattern149,overlay,5149,1,0,0
+	animation500.pattern150,overlay,5150,1,0,0
+}
+

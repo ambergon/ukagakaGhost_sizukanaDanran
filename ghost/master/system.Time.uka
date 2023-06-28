@@ -1,0 +1,75 @@
+
+
+//処理リストを生成して時・分・秒の処理が必要なそれぞれの関数に対応する。
+AutoLoad.system_Time {
+    BootCountMinute = 0 
+    CheckSeconds    = GETFUNCLIST( "CheckSecond." )
+    CheckMinutes    = GETFUNCLIST( "CheckMinute." )
+    CheckHours      = GETFUNCLIST( "CheckHour." )
+}
+
+AutoUnload.system_Time {
+    ERASEVAR( 'BootCountMinute' )
+    ERASEVAR( 'CheckSeconds' )
+    ERASEVAR( 'CheckMinutes' )
+    ERASEVAR( 'CheckHours' )
+}
+
+
+OnSecondChange {
+    _secondText = ""
+    for _i = 0 ; _i < ARRAYSIZE( CheckSeconds ) ; _i++ {
+        _text = EVAL(CheckSeconds[_i])
+        if ( _text != "") {
+            _secondText = _secondText + _text + "\n\n"
+        }
+    }
+    _secondText
+}
+
+
+OnMinuteChange {
+    //not notify
+    if reference[3] == 1 {
+        _minuteText = ""
+        for _i = 0 ; _i < ARRAYSIZE( CheckMinutes ) ; _i++ {
+            _text = EVAL(CheckMinutes[_i])
+            if ( _text != "") {
+                _minuteText = _minuteText + _text + "\n\n"
+            }
+        }
+        _minuteText
+        //MAX99
+        if BootCountMinute < 100 {
+            BootCountMinute++
+        }
+    }
+}
+
+
+//現状、hourで関数を実行することはあるが、トークをする予定はない。
+OnHourTimeSignal {
+    _hourText = ""
+    for _i = 0 ; _i < ARRAYSIZE( CheckHours ) ; _i++ {
+        _text = EVAL(CheckHours[_i])
+        if ( _text != "") {
+            _hourText = _hourText + _text + "\n\n"
+        }
+    }
+    _hourText
+}
+
+
+CheckHours.SleepTime {
+    _h = TOINT( "%(hour)" ) 
+    if _h == 2 || _h == 3 {
+        "もう・・・だめ・・・・。おやすみ。\w9\w9\w9\-\e"
+    }
+}
+
+
+
+
+
+
+

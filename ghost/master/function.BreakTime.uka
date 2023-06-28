@@ -1,0 +1,141 @@
+
+
+AutoLoad.function_BreakTime {
+    BreakTimeFlag = 0
+}
+
+AutoUnload.function_BreakTime {
+    ERASEVAR( 'BreakTimeFlag' )
+    ERASEVAR( 'BreakTimeCount' )
+}
+
+
+OnFunctionMenu.BreakTime {
+    _BgmFile = SPLITPATH( BreakTimeBGM )
+
+    "\_q\n[half]/
+	 【 休憩の設定 】\n/
+    BGM : %( _BgmFile[2] )\n\n/
+	\![*]\q[ 休憩用BGMを解除する      ,ClearBreakTimeBGM]\n/
+	\![*]\q[ 休憩時間の長さを指定する ,OnSetBreakTime]\n/
+	\![*]\q[ 休憩開始時間を指定する   ,OnSetBreakTimeHM]\n/
+	\![*]\q[ 休憩開始時間を削除する   ,OnClearBreakTimeHM]\n/
+	\![*]\q[ 特にない ,]\n/
+	\n[half]\e"
+}
+
+
+CheckMinute.BreakTime {
+    //休憩時間外で休憩時間の指定が0で無ければ。
+    //Notifyを考えるとこのような形になってしまった。
+    if ( BreakTimeFlag == 0 ) {
+        if ( hour == BreakTimeHour && minute == BreakTimeMin && BreakTimeMinute != 0 ){
+            BreakTimeFlag = 1
+            BreakTimeCount  = BreakTimeMinute
+            if ISVAR( "BreakTimeBGM" ) == 1 {
+                _soundText = SoundStart( BreakTimeBGM )
+                _text = "\1テレビから、いつもの番組が流れ出した。\0" + _soundText
+                _text
+            } else {
+                "休憩時間だよー"
+            }
+        }
+
+    //休憩時間中ならば
+    } else {
+        //終了
+        if ( 0 >= BreakTimeCount){
+            BreakTimeFlag = 0
+            _soundText = SoundStop( BreakTimeBGM )
+            _text = "もう時間だね。" + _soundText
+            _text
+        }
+        BreakTimeCount = BreakTimeCount - 1
+    }
+}
+
+
+ClearBreakTimeBGM {
+    ERASEVAR( 'BreakTimeBGM' )
+    "解除したよ。"
+}
+
+
+OnClearBreakTimeHM {
+    BreakTimeHour = 99
+    BreakTimeMin  = 99
+    "解除したよ。"
+}
+
+
+OnSetBreakTimeHM {
+    "4桁の半角数字で時間を入力してね。\n【例】2230 -> 22時30分\![open,inputbox,OnInputBreakTimeHM]"
+}
+//四桁数字を受け取って二桁に分割する。
+OnInputBreakTimeHM {
+    _time = TOSTR( reference0 )
+    //_time = TOSTR( "1234" )
+    if RE_MATCH( _time , '[0-9]...' ) {
+
+        _hour   = SUBSTR( _time , 0 , 2)
+        _min    = SUBSTR( _time , 2 , 2)
+
+        if ( _hour >= 24 || _min >= 60 ) {
+            "ちょっと数字が大きいかな。"
+
+        } else {
+            BreakTimeHour   = _hour
+            BreakTimeMin    = _min
+            "%( BreakTimeHour )時%( BreakTimeMin )分に設定したよ。"
+        }
+    } else {
+        "設定できなかったよ。"
+    }
+}
+
+
+//休憩する時間をminで指定する。
+OnSetBreakTime {
+    "休憩時間を何分にするか指定してね。\![open,inputbox,OnInputBreakTime]"
+}
+OnInputBreakTime {
+    _time = TOSTR( reference0 )
+    //_time = TOSTR( "1234" )
+    if RE_MATCH( _time , '[0-9]+' ) {
+        BreakTimeMinute   = _time
+        "%( BreakTimeMinute )分に設定したよ。"
+
+    } else {
+        "設定できなかったよ。"
+    }
+}
+
+
+//音楽の再生の関数。
+SoundStart {
+    _file = _argv[0]
+
+    //フェードイン
+    _fadeIn = "\![sound,loop,%( _file ),--volume=0]"
+    for _i = 0 ; _i < 100 ; _i++ ; {
+        _fadeInText = "\_w[50]\![sound,option,%( _file ),--volume=%(_i)]"
+        _fadeIn = _fadeIn + _fadeInText
+    }
+    _fadeIn
+}
+SoundStop {
+    _file = _argv[0]
+
+    //フェードアウト
+    _fadeOut = ""
+    for _i = 100 ; _i > O ; _i = _i - 1 ; {
+        _fadeOutText = "\_w[50]\![sound,option,%( _file ),--volume=%(_i)]"
+        _fadeOut = _fadeOut + _fadeOutText
+    }
+    _fadeOut = _fadeOut + "\![sound,stop]"
+    _fadeOut
+}
+
+
+
+

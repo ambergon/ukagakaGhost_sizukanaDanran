@@ -1,0 +1,11 @@
+
+//.を変換してしまうとFilePath等に干渉してひどいことになった。
+OnTranslate {
+    _text = reference[0]
+    _text = REPLACE( _text , "。" , "。\w9\w9\n" )
+    _text = REPLACE( _text , "、" , "、\w9" )
+    _text = REPLACE( _text , "?" , "?\w9\w9\n" )
+    _text = REPLACE( _text , "・" , "・\w9" )
+    _text
+}
+

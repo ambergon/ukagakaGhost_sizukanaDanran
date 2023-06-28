@@ -1,0 +1,72 @@
+charset,UTF-8
+
+descript 
+{
+    version,1
+}
+
+//使用する表情パターン全ての番号と全ポーズ共通の当たり判定を設定します。
+//範囲が重なると番号（collision○○,の部分）が小さいほど優先されます。
+//残り４つの数値は当たり判定の四隅の座標です。
+
+//touch section
+surface0-400 {
+	collision200,83,307,250,453,Book
+	collision300,207,48,335,100,Head
+	//collision301,216,134,239,160,Eye
+	//collision302,267,144,297,165,Eye
+	//collision303,240,178,254,189,Mouth
+	//collision304,215,154,292,186,Face
+	//collision305,314,462,364,495,Hand
+	//collision306,10,431,210,495,Leg
+	collision307,198,261,273,317,Bust
+    //横,縦,横,縦
+}
+
+
+
+surface1000 {
+    element0,base,base.png,0,0
+}
+
+
+//瞬き/視線の移動
+//アニメーション用なので胴体はいらない。
+surface1001 {
+    element1,overlay,eye/close.png,0,0
+}
+surface1002 {
+    element1,overlay,eye/harf.png,0,0
+}
+surface1003 {
+    element1,overlay,eye/open.png,0,0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

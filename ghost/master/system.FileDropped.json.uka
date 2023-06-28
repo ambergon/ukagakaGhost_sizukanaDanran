@@ -1,0 +1,29 @@
+
+
+
+//設定項目を並べておくか。
+SetJsonConfig {
+    _PATH = _argv[0]
+	"\b[2]\_q\n[half]/
+	%( _PATH )\n/
+	\![*]\q[ GoogleCalendarJsonを設定する ,OnSetJsonFile,%( _PATH ),GoogleCalendarJson]\n/
+	\n[half]\e"
+}
+
+OnSetJsonFile {
+    _PATH   = reference[0] 
+    _Name   = reference[1]
+    EVAL( _Name + ' = "' + _PATH + '"' )
+    "%( _Name ) の設定ファイルは %( _PATH ) だね。"
+}
+
+
+
+
+
+
+
+
+
+
+

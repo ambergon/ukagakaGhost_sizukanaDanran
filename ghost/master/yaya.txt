@@ -1,0 +1,84 @@
+
+
+//how to calender url
+//home url
+
+
+//いつの間にか一緒に暮らすようになったゴースト。
+//多分同じこたつにいるぐらいの距離感。
+
+//このようにファイル名を指定することで、
+//yaya.txtを追記することが可能。
+//include, file_name
+
+charset.dic, UTF-8
+charset.cfg, UTF-8
+charset.output, UTF-8
+charset.file, UTF-8
+charset.save, UTF-8
+charset.save.old, UTF-8
+charset.extension, UTF-8
+
+
+dicdir, yaya
+
+
+//system
+//  関数のまとまりであり、ユーザーから認知されない機能
+//function
+//  ユーザーから実際に認識される機能
+
+dic, function.BreakTime.uka
+dic, function.Calendar.uka
+dic, function.KeyShortCut.uka
+dic, function.Weather.uka
+dic, plugin.uka
+dic, system.Base.uka
+dic, system.Boot.uka
+dic, system.ChainTalk.uka
+dic, system.Communicate.uka
+dic, system.FileDropped.json.uka
+dic, system.FileDropped.mp3.uka
+dic, system.FileDropped.uka
+dic, system.KeyPress.Timer.uka
+dic, system.KeyPress.uka
+dic, system.Menu.uka
+dic, system.Mouse.Book.uka
+dic, system.Mouse.Head.uka
+dic, system.Mouse.uka
+dic, system.Surface.uka
+dic, system.Time.uka
+dic, system.Translate.uka
+
+
+dic, TEST.uka
+
+
+
+
+
+
+
+////logを出力しないようにコメントアウト
+//log, ../../../../kohaku.log
+ignoreiolog, ID: OnSecondChange
+ignoreiolog, ID: OnMouse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

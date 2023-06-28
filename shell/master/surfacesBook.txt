@@ -1,0 +1,914 @@
+
+
+//{{{ book animation 5000 - 5150
+surface5000 {
+	element10,overlay,book/BookPage/book_00000.png,0,0
+}
+surface5001 {
+	element10,overlay,book/BookPage/book_00001.png,0,0
+}
+surface5002 {
+	element10,overlay,book/BookPage/book_00002.png,0,0
+}
+surface5003 {
+	element10,overlay,book/BookPage/book_00003.png,0,0
+}
+surface5004 {
+	element10,overlay,book/BookPage/book_00004.png,0,0
+}
+surface5005 {
+	element10,overlay,book/BookPage/book_00005.png,0,0
+}
+surface5006 {
+	element10,overlay,book/BookPage/book_00006.png,0,0
+}
+surface5007 {
+	element10,overlay,book/BookPage/book_00007.png,0,0
+}
+surface5008 {
+	element10,overlay,book/BookPage/book_00008.png,0,0
+}
+surface5009 {
+	element10,overlay,book/BookPage/book_00009.png,0,0
+}
+surface5010 {
+	element10,overlay,book/BookPage/book_00010.png,0,0
+}
+surface5011 {
+	element10,overlay,book/BookPage/book_00011.png,0,0
+}
+surface5012 {
+	element10,overlay,book/BookPage/book_00012.png,0,0
+}
+surface5013 {
+	element10,overlay,book/BookPage/book_00013.png,0,0
+}
+surface5014 {
+	element10,overlay,book/BookPage/book_00014.png,0,0
+}
+surface5015 {
+	element10,overlay,book/BookPage/book_00015.png,0,0
+}
+surface5016 {
+	element10,overlay,book/BookPage/book_00016.png,0,0
+}
+surface5017 {
+	element10,overlay,book/BookPage/book_00017.png,0,0
+}
+surface5018 {
+	element10,overlay,book/BookPage/book_00018.png,0,0
+}
+surface5019 {
+	element10,overlay,book/BookPage/book_00019.png,0,0
+}
+surface5020 {
+	element10,overlay,book/BookPage/book_00020.png,0,0
+}
+surface5021 {
+	element10,overlay,book/BookPage/book_00021.png,0,0
+}
+surface5022 {
+	element10,overlay,book/BookPage/book_00022.png,0,0
+}
+surface5023 {
+	element10,overlay,book/BookPage/book_00023.png,0,0
+}
+surface5024 {
+	element10,overlay,book/BookPage/book_00024.png,0,0
+}
+surface5025 {
+	element10,overlay,book/BookPage/book_00025.png,0,0
+}
+surface5026 {
+	element10,overlay,book/BookPage/book_00026.png,0,0
+}
+surface5027 {
+	element10,overlay,book/BookPage/book_00027.png,0,0
+}
+surface5028 {
+	element10,overlay,book/BookPage/book_00028.png,0,0
+}
+surface5029 {
+	element10,overlay,book/BookPage/book_00029.png,0,0
+}
+surface5030 {
+	element10,overlay,book/BookPage/book_00030.png,0,0
+}
+surface5031 {
+	element10,overlay,book/BookPage/book_00031.png,0,0
+}
+surface5032 {
+	element10,overlay,book/BookPage/book_00032.png,0,0
+}
+surface5033 {
+	element10,overlay,book/BookPage/book_00033.png,0,0
+}
+surface5034 {
+	element10,overlay,book/BookPage/book_00034.png,0,0
+}
+surface5035 {
+	element10,overlay,book/BookPage/book_00035.png,0,0
+}
+surface5036 {
+	element10,overlay,book/BookPage/book_00036.png,0,0
+}
+surface5037 {
+	element10,overlay,book/BookPage/book_00037.png,0,0
+}
+surface5038 {
+	element10,overlay,book/BookPage/book_00038.png,0,0
+}
+surface5039 {
+	element10,overlay,book/BookPage/book_00039.png,0,0
+}
+surface5040 {
+	element10,overlay,book/BookPage/book_00040.png,0,0
+}
+surface5041 {
+	element10,overlay,book/BookPage/book_00041.png,0,0
+}
+surface5042 {
+	element10,overlay,book/BookPage/book_00042.png,0,0
+}
+surface5043 {
+	element10,overlay,book/BookPage/book_00043.png,0,0
+}
+surface5044 {
+	element10,overlay,book/BookPage/book_00044.png,0,0
+}
+surface5045 {
+	element10,overlay,book/BookPage/book_00045.png,0,0
+}
+surface5046 {
+	element10,overlay,book/BookPage/book_00046.png,0,0
+}
+surface5047 {
+	element10,overlay,book/BookPage/book_00047.png,0,0
+}
+surface5048 {
+	element10,overlay,book/BookPage/book_00048.png,0,0
+}
+surface5049 {
+	element10,overlay,book/BookPage/book_00049.png,0,0
+}
+surface5050 {
+	element10,overlay,book/BookPage/book_00050.png,0,0
+}
+surface5051 {
+	element10,overlay,book/BookPage/book_00051.png,0,0
+}
+surface5052 {
+	element10,overlay,book/BookPage/book_00052.png,0,0
+}
+surface5053 {
+	element10,overlay,book/BookPage/book_00053.png,0,0
+}
+surface5054 {
+	element10,overlay,book/BookPage/book_00054.png,0,0
+}
+surface5055 {
+	element10,overlay,book/BookPage/book_00055.png,0,0
+}
+surface5056 {
+	element10,overlay,book/BookPage/book_00056.png,0,0
+}
+surface5057 {
+	element10,overlay,book/BookPage/book_00057.png,0,0
+}
+surface5058 {
+	element10,overlay,book/BookPage/book_00058.png,0,0
+}
+surface5059 {
+	element10,overlay,book/BookPage/book_00059.png,0,0
+}
+surface5060 {
+	element10,overlay,book/BookPage/book_00060.png,0,0
+}
+surface5061 {
+	element10,overlay,book/BookPage/book_00061.png,0,0
+}
+surface5062 {
+	element10,overlay,book/BookPage/book_00062.png,0,0
+}
+surface5063 {
+	element10,overlay,book/BookPage/book_00063.png,0,0
+}
+surface5064 {
+	element10,overlay,book/BookPage/book_00064.png,0,0
+}
+surface5065 {
+	element10,overlay,book/BookPage/book_00065.png,0,0
+}
+surface5066 {
+	element10,overlay,book/BookPage/book_00066.png,0,0
+}
+surface5067 {
+	element10,overlay,book/BookPage/book_00067.png,0,0
+}
+surface5068 {
+	element10,overlay,book/BookPage/book_00068.png,0,0
+}
+surface5069 {
+	element10,overlay,book/BookPage/book_00069.png,0,0
+}
+surface5070 {
+	element10,overlay,book/BookPage/book_00070.png,0,0
+}
+surface5071 {
+	element10,overlay,book/BookPage/book_00071.png,0,0
+}
+surface5072 {
+	element10,overlay,book/BookPage/book_00072.png,0,0
+}
+surface5073 {
+	element10,overlay,book/BookPage/book_00073.png,0,0
+}
+surface5074 {
+	element10,overlay,book/BookPage/book_00074.png,0,0
+}
+surface5075 {
+	element10,overlay,book/BookPage/book_00075.png,0,0
+}
+surface5076 {
+	element10,overlay,book/BookPage/book_00076.png,0,0
+}
+surface5077 {
+	element10,overlay,book/BookPage/book_00077.png,0,0
+}
+surface5078 {
+	element10,overlay,book/BookPage/book_00078.png,0,0
+}
+surface5079 {
+	element10,overlay,book/BookPage/book_00079.png,0,0
+}
+surface5080 {
+	element10,overlay,book/BookPage/book_00080.png,0,0
+}
+surface5081 {
+	element10,overlay,book/BookPage/book_00081.png,0,0
+}
+surface5082 {
+	element10,overlay,book/BookPage/book_00082.png,0,0
+}
+surface5083 {
+	element10,overlay,book/BookPage/book_00083.png,0,0
+}
+surface5084 {
+	element10,overlay,book/BookPage/book_00084.png,0,0
+}
+surface5085 {
+	element10,overlay,book/BookPage/book_00085.png,0,0
+}
+surface5086 {
+	element10,overlay,book/BookPage/book_00086.png,0,0
+}
+surface5087 {
+	element10,overlay,book/BookPage/book_00087.png,0,0
+}
+surface5088 {
+	element10,overlay,book/BookPage/book_00088.png,0,0
+}
+surface5089 {
+	element10,overlay,book/BookPage/book_00089.png,0,0
+}
+surface5090 {
+	element10,overlay,book/BookPage/book_00090.png,0,0
+}
+surface5091 {
+	element10,overlay,book/BookPage/book_00091.png,0,0
+}
+surface5092 {
+	element10,overlay,book/BookPage/book_00092.png,0,0
+}
+surface5093 {
+	element10,overlay,book/BookPage/book_00093.png,0,0
+}
+surface5094 {
+	element10,overlay,book/BookPage/book_00094.png,0,0
+}
+surface5095 {
+	element10,overlay,book/BookPage/book_00095.png,0,0
+}
+surface5096 {
+	element10,overlay,book/BookPage/book_00096.png,0,0
+}
+surface5097 {
+	element10,overlay,book/BookPage/book_00097.png,0,0
+}
+surface5098 {
+	element10,overlay,book/BookPage/book_00098.png,0,0
+}
+surface5099 {
+	element10,overlay,book/BookPage/book_00099.png,0,0
+}
+surface5100 {
+	element10,overlay,book/BookPage/book_00100.png,0,0
+}
+surface5101 {
+	element10,overlay,book/BookPage/book_00101.png,0,0
+}
+surface5102 {
+	element10,overlay,book/BookPage/book_00102.png,0,0
+}
+surface5103 {
+	element10,overlay,book/BookPage/book_00103.png,0,0
+}
+surface5104 {
+	element10,overlay,book/BookPage/book_00104.png,0,0
+}
+surface5105 {
+	element10,overlay,book/BookPage/book_00105.png,0,0
+}
+surface5106 {
+	element10,overlay,book/BookPage/book_00106.png,0,0
+}
+surface5107 {
+	element10,overlay,book/BookPage/book_00107.png,0,0
+}
+surface5108 {
+	element10,overlay,book/BookPage/book_00108.png,0,0
+}
+surface5109 {
+	element10,overlay,book/BookPage/book_00109.png,0,0
+}
+surface5110 {
+	element10,overlay,book/BookPage/book_00110.png,0,0
+}
+surface5111 {
+	element10,overlay,book/BookPage/book_00111.png,0,0
+}
+surface5112 {
+	element10,overlay,book/BookPage/book_00112.png,0,0
+}
+surface5113 {
+	element10,overlay,book/BookPage/book_00113.png,0,0
+}
+surface5114 {
+	element10,overlay,book/BookPage/book_00114.png,0,0
+}
+surface5115 {
+	element10,overlay,book/BookPage/book_00115.png,0,0
+}
+surface5116 {
+	element10,overlay,book/BookPage/book_00116.png,0,0
+}
+surface5117 {
+	element10,overlay,book/BookPage/book_00117.png,0,0
+}
+surface5118 {
+	element10,overlay,book/BookPage/book_00118.png,0,0
+}
+surface5119 {
+	element10,overlay,book/BookPage/book_00119.png,0,0
+}
+surface5120 {
+	element10,overlay,book/BookPage/book_00120.png,0,0
+}
+surface5121 {
+	element10,overlay,book/BookPage/book_00121.png,0,0
+}
+surface5122 {
+	element10,overlay,book/BookPage/book_00122.png,0,0
+}
+surface5123 {
+	element10,overlay,book/BookPage/book_00123.png,0,0
+}
+surface5124 {
+	element10,overlay,book/BookPage/book_00124.png,0,0
+}
+surface5125 {
+	element10,overlay,book/BookPage/book_00125.png,0,0
+}
+surface5126 {
+	element10,overlay,book/BookPage/book_00126.png,0,0
+}
+surface5127 {
+	element10,overlay,book/BookPage/book_00127.png,0,0
+}
+surface5128 {
+	element10,overlay,book/BookPage/book_00128.png,0,0
+}
+surface5129 {
+	element10,overlay,book/BookPage/book_00129.png,0,0
+}
+surface5130 {
+	element10,overlay,book/BookPage/book_00130.png,0,0
+}
+surface5131 {
+	element10,overlay,book/BookPage/book_00131.png,0,0
+}
+surface5132 {
+	element10,overlay,book/BookPage/book_00132.png,0,0
+}
+surface5133 {
+	element10,overlay,book/BookPage/book_00133.png,0,0
+}
+surface5134 {
+	element10,overlay,book/BookPage/book_00134.png,0,0
+}
+surface5135 {
+	element10,overlay,book/BookPage/book_00135.png,0,0
+}
+surface5136 {
+	element10,overlay,book/BookPage/book_00136.png,0,0
+}
+surface5137 {
+	element10,overlay,book/BookPage/book_00137.png,0,0
+}
+surface5138 {
+	element10,overlay,book/BookPage/book_00138.png,0,0
+}
+surface5139 {
+	element10,overlay,book/BookPage/book_00139.png,0,0
+}
+surface5140 {
+	element10,overlay,book/BookPage/book_00140.png,0,0
+}
+surface5141 {
+	element10,overlay,book/BookPage/book_00141.png,0,0
+}
+surface5142 {
+	element10,overlay,book/BookPage/book_00142.png,0,0
+}
+surface5143 {
+	element10,overlay,book/BookPage/book_00143.png,0,0
+}
+surface5144 {
+	element10,overlay,book/BookPage/book_00144.png,0,0
+}
+surface5145 {
+	element10,overlay,book/BookPage/book_00145.png,0,0
+}
+surface5146 {
+	element10,overlay,book/BookPage/book_00146.png,0,0
+}
+surface5147 {
+	element10,overlay,book/BookPage/book_00147.png,0,0
+}
+surface5148 {
+	element10,overlay,book/BookPage/book_00148.png,0,0
+}
+surface5149 {
+	element10,overlay,book/BookPage/book_00149.png,0,0
+}
+surface5150 {
+	element10,overlay,book/BookPage/book_00150.png,0,0
+}
+//}}}
+
+//{{{ book close - open 4000
+surface4000 {
+	element10,overlay,book/BookOpen/book_00000.png,0,0
+}
+surface4001 {
+	element10,overlay,book/BookOpen/book_00001.png,0,0
+}
+surface4002 {
+	element10,overlay,book/BookOpen/book_00002.png,0,0
+}
+surface4003 {
+	element10,overlay,book/BookOpen/book_00003.png,0,0
+}
+surface4004 {
+	element10,overlay,book/BookOpen/book_00004.png,0,0
+}
+surface4005 {
+	element10,overlay,book/BookOpen/book_00005.png,0,0
+}
+surface4006 {
+	element10,overlay,book/BookOpen/book_00006.png,0,0
+}
+surface4007 {
+	element10,overlay,book/BookOpen/book_00007.png,0,0
+}
+surface4008 {
+	element10,overlay,book/BookOpen/book_00008.png,0,0
+}
+surface4009 {
+	element10,overlay,book/BookOpen/book_00009.png,0,0
+}
+surface4010 {
+	element10,overlay,book/BookOpen/book_00010.png,0,0
+}
+surface4011 {
+	element10,overlay,book/BookOpen/book_00011.png,0,0
+}
+surface4012 {
+	element10,overlay,book/BookOpen/book_00012.png,0,0
+}
+surface4013 {
+	element10,overlay,book/BookOpen/book_00013.png,0,0
+}
+surface4014 {
+	element10,overlay,book/BookOpen/book_00014.png,0,0
+}
+surface4015 {
+	element10,overlay,book/BookOpen/book_00015.png,0,0
+}
+surface4016 {
+	element10,overlay,book/BookOpen/book_00016.png,0,0
+}
+surface4017 {
+	element10,overlay,book/BookOpen/book_00017.png,0,0
+}
+surface4018 {
+	element10,overlay,book/BookOpen/book_00018.png,0,0
+}
+surface4019 {
+	element10,overlay,book/BookOpen/book_00019.png,0,0
+}
+surface4020 {
+	element10,overlay,book/BookOpen/book_00020.png,0,0
+}
+surface4021 {
+	element10,overlay,book/BookOpen/book_00021.png,0,0
+}
+surface4022 {
+	element10,overlay,book/BookOpen/book_00022.png,0,0
+}
+surface4023 {
+	element10,overlay,book/BookOpen/book_00023.png,0,0
+}
+surface4024 {
+	element10,overlay,book/BookOpen/book_00024.png,0,0
+}
+surface4025 {
+	element10,overlay,book/BookOpen/book_00025.png,0,0
+}
+surface4026 {
+	element10,overlay,book/BookOpen/book_00026.png,0,0
+}
+surface4027 {
+	element10,overlay,book/BookOpen/book_00027.png,0,0
+}
+surface4028 {
+	element10,overlay,book/BookOpen/book_00028.png,0,0
+}
+surface4029 {
+	element10,overlay,book/BookOpen/book_00029.png,0,0
+}
+surface4030 {
+	element10,overlay,book/BookOpen/book_00030.png,0,0
+}
+surface4031 {
+	element10,overlay,book/BookOpen/book_00031.png,0,0
+}
+surface4032 {
+	element10,overlay,book/BookOpen/book_00032.png,0,0
+}
+surface4033 {
+	element10,overlay,book/BookOpen/book_00033.png,0,0
+}
+surface4034 {
+	element10,overlay,book/BookOpen/book_00034.png,0,0
+}
+surface4035 {
+	element10,overlay,book/BookOpen/book_00035.png,0,0
+}
+surface4036 {
+	element10,overlay,book/BookOpen/book_00036.png,0,0
+}
+surface4037 {
+	element10,overlay,book/BookOpen/book_00037.png,0,0
+}
+surface4038 {
+	element10,overlay,book/BookOpen/book_00038.png,0,0
+}
+surface4039 {
+	element10,overlay,book/BookOpen/book_00039.png,0,0
+}
+surface4040 {
+	element10,overlay,book/BookOpen/book_00040.png,0,0
+}
+surface4041 {
+	element10,overlay,book/BookOpen/book_00041.png,0,0
+}
+surface4042 {
+	element10,overlay,book/BookOpen/book_00042.png,0,0
+}
+surface4043 {
+	element10,overlay,book/BookOpen/book_00043.png,0,0
+}
+surface4044 {
+	element10,overlay,book/BookOpen/book_00044.png,0,0
+}
+surface4045 {
+	element10,overlay,book/BookOpen/book_00045.png,0,0
+}
+surface4046 {
+	element10,overlay,book/BookOpen/book_00046.png,0,0
+}
+surface4047 {
+	element10,overlay,book/BookOpen/book_00047.png,0,0
+}
+surface4048 {
+	element10,overlay,book/BookOpen/book_00048.png,0,0
+}
+surface4049 {
+	element10,overlay,book/BookOpen/book_00049.png,0,0
+}
+surface4050 {
+	element10,overlay,book/BookOpen/book_00050.png,0,0
+}
+surface4051 {
+	element10,overlay,book/BookOpen/book_00051.png,0,0
+}
+surface4052 {
+	element10,overlay,book/BookOpen/book_00052.png,0,0
+}
+surface4053 {
+	element10,overlay,book/BookOpen/book_00053.png,0,0
+}
+surface4054 {
+	element10,overlay,book/BookOpen/book_00054.png,0,0
+}
+surface4055 {
+	element10,overlay,book/BookOpen/book_00055.png,0,0
+}
+surface4056 {
+	element10,overlay,book/BookOpen/book_00056.png,0,0
+}
+surface4057 {
+	element10,overlay,book/BookOpen/book_00057.png,0,0
+}
+surface4058 {
+	element10,overlay,book/BookOpen/book_00058.png,0,0
+}
+surface4059 {
+	element10,overlay,book/BookOpen/book_00059.png,0,0
+}
+surface4060 {
+	element10,overlay,book/BookOpen/book_00060.png,0,0
+}
+surface4061 {
+	element10,overlay,book/BookOpen/book_00061.png,0,0
+}
+surface4062 {
+	element10,overlay,book/BookOpen/book_00062.png,0,0
+}
+surface4063 {
+	element10,overlay,book/BookOpen/book_00063.png,0,0
+}
+surface4064 {
+	element10,overlay,book/BookOpen/book_00064.png,0,0
+}
+surface4065 {
+	element10,overlay,book/BookOpen/book_00065.png,0,0
+}
+surface4066 {
+	element10,overlay,book/BookOpen/book_00066.png,0,0
+}
+surface4067 {
+	element10,overlay,book/BookOpen/book_00067.png,0,0
+}
+surface4068 {
+	element10,overlay,book/BookOpen/book_00068.png,0,0
+}
+surface4069 {
+	element10,overlay,book/BookOpen/book_00069.png,0,0
+}
+surface4070 {
+	element10,overlay,book/BookOpen/book_00070.png,0,0
+}
+surface4071 {
+	element10,overlay,book/BookOpen/book_00071.png,0,0
+}
+surface4072 {
+	element10,overlay,book/BookOpen/book_00072.png,0,0
+}
+surface4073 {
+	element10,overlay,book/BookOpen/book_00073.png,0,0
+}
+surface4074 {
+	element10,overlay,book/BookOpen/book_00074.png,0,0
+}
+surface4075 {
+	element10,overlay,book/BookOpen/book_00075.png,0,0
+}
+surface4076 {
+	element10,overlay,book/BookOpen/book_00076.png,0,0
+}
+surface4077 {
+	element10,overlay,book/BookOpen/book_00077.png,0,0
+}
+surface4078 {
+	element10,overlay,book/BookOpen/book_00078.png,0,0
+}
+surface4079 {
+	element10,overlay,book/BookOpen/book_00079.png,0,0
+}
+surface4080 {
+	element10,overlay,book/BookOpen/book_00080.png,0,0
+}
+surface4081 {
+	element10,overlay,book/BookOpen/book_00081.png,0,0
+}
+surface4082 {
+	element10,overlay,book/BookOpen/book_00082.png,0,0
+}
+surface4083 {
+	element10,overlay,book/BookOpen/book_00083.png,0,0
+}
+surface4084 {
+	element10,overlay,book/BookOpen/book_00084.png,0,0
+}
+surface4085 {
+	element10,overlay,book/BookOpen/book_00085.png,0,0
+}
+surface4086 {
+	element10,overlay,book/BookOpen/book_00086.png,0,0
+}
+surface4087 {
+	element10,overlay,book/BookOpen/book_00087.png,0,0
+}
+surface4088 {
+	element10,overlay,book/BookOpen/book_00088.png,0,0
+}
+surface4089 {
+	element10,overlay,book/BookOpen/book_00089.png,0,0
+}
+surface4090 {
+	element10,overlay,book/BookOpen/book_00090.png,0,0
+}
+surface4091 {
+	element10,overlay,book/BookOpen/book_00091.png,0,0
+}
+surface4092 {
+	element10,overlay,book/BookOpen/book_00092.png,0,0
+}
+surface4093 {
+	element10,overlay,book/BookOpen/book_00093.png,0,0
+}
+surface4094 {
+	element10,overlay,book/BookOpen/book_00094.png,0,0
+}
+surface4095 {
+	element10,overlay,book/BookOpen/book_00095.png,0,0
+}
+surface4096 {
+	element10,overlay,book/BookOpen/book_00096.png,0,0
+}
+surface4097 {
+	element10,overlay,book/BookOpen/book_00097.png,0,0
+}
+surface4098 {
+	element10,overlay,book/BookOpen/book_00098.png,0,0
+}
+surface4099 {
+	element10,overlay,book/BookOpen/book_00099.png,0,0
+}
+surface4100 {
+	element10,overlay,book/BookOpen/book_00100.png,0,0
+}
+surface4101 {
+	element10,overlay,book/BookOpen/book_00101.png,0,0
+}
+surface4102 {
+	element10,overlay,book/BookOpen/book_00102.png,0,0
+}
+surface4103 {
+	element10,overlay,book/BookOpen/book_00103.png,0,0
+}
+surface4104 {
+	element10,overlay,book/BookOpen/book_00104.png,0,0
+}
+surface4105 {
+	element10,overlay,book/BookOpen/book_00105.png,0,0
+}
+surface4106 {
+	element10,overlay,book/BookOpen/book_00106.png,0,0
+}
+surface4107 {
+	element10,overlay,book/BookOpen/book_00107.png,0,0
+}
+surface4108 {
+	element10,overlay,book/BookOpen/book_00108.png,0,0
+}
+surface4109 {
+	element10,overlay,book/BookOpen/book_00109.png,0,0
+}
+surface4110 {
+	element10,overlay,book/BookOpen/book_00110.png,0,0
+}
+surface4111 {
+	element10,overlay,book/BookOpen/book_00111.png,0,0
+}
+surface4112 {
+	element10,overlay,book/BookOpen/book_00112.png,0,0
+}
+surface4113 {
+	element10,overlay,book/BookOpen/book_00113.png,0,0
+}
+surface4114 {
+	element10,overlay,book/BookOpen/book_00114.png,0,0
+}
+surface4115 {
+	element10,overlay,book/BookOpen/book_00115.png,0,0
+}
+surface4116 {
+	element10,overlay,book/BookOpen/book_00116.png,0,0
+}
+surface4117 {
+	element10,overlay,book/BookOpen/book_00117.png,0,0
+}
+surface4118 {
+	element10,overlay,book/BookOpen/book_00118.png,0,0
+}
+surface4119 {
+	element10,overlay,book/BookOpen/book_00119.png,0,0
+}
+surface4120 {
+	element10,overlay,book/BookOpen/book_00120.png,0,0
+}
+surface4121 {
+	element10,overlay,book/BookOpen/book_00121.png,0,0
+}
+surface4122 {
+	element10,overlay,book/BookOpen/book_00122.png,0,0
+}
+surface4123 {
+	element10,overlay,book/BookOpen/book_00123.png,0,0
+}
+surface4124 {
+	element10,overlay,book/BookOpen/book_00124.png,0,0
+}
+surface4125 {
+	element10,overlay,book/BookOpen/book_00125.png,0,0
+}
+surface4126 {
+	element10,overlay,book/BookOpen/book_00126.png,0,0
+}
+surface4127 {
+	element10,overlay,book/BookOpen/book_00127.png,0,0
+}
+surface4128 {
+	element10,overlay,book/BookOpen/book_00128.png,0,0
+}
+surface4129 {
+	element10,overlay,book/BookOpen/book_00129.png,0,0
+}
+surface4130 {
+	element10,overlay,book/BookOpen/book_00130.png,0,0
+}
+surface4131 {
+	element10,overlay,book/BookOpen/book_00131.png,0,0
+}
+surface4132 {
+	element10,overlay,book/BookOpen/book_00132.png,0,0
+}
+surface4133 {
+	element10,overlay,book/BookOpen/book_00133.png,0,0
+}
+surface4134 {
+	element10,overlay,book/BookOpen/book_00134.png,0,0
+}
+surface4135 {
+	element10,overlay,book/BookOpen/book_00135.png,0,0
+}
+surface4136 {
+	element10,overlay,book/BookOpen/book_00136.png,0,0
+}
+surface4137 {
+	element10,overlay,book/BookOpen/book_00137.png,0,0
+}
+surface4138 {
+	element10,overlay,book/BookOpen/book_00138.png,0,0
+}
+surface4139 {
+	element10,overlay,book/BookOpen/book_00139.png,0,0
+}
+surface4140 {
+	element10,overlay,book/BookOpen/book_00140.png,0,0
+}
+surface4141 {
+	element10,overlay,book/BookOpen/book_00141.png,0,0
+}
+surface4142 {
+	element10,overlay,book/BookOpen/book_00142.png,0,0
+}
+surface4143 {
+	element10,overlay,book/BookOpen/book_00143.png,0,0
+}
+surface4144 {
+	element10,overlay,book/BookOpen/book_00144.png,0,0
+}
+surface4145 {
+	element10,overlay,book/BookOpen/book_00145.png,0,0
+}
+surface4146 {
+	element10,overlay,book/BookOpen/book_00146.png,0,0
+}
+surface4147 {
+	element10,overlay,book/BookOpen/book_00147.png,0,0
+}
+surface4148 {
+	element10,overlay,book/BookOpen/book_00148.png,0,0
+}
+surface4149 {
+	element10,overlay,book/BookOpen/book_00149.png,0,0
+}
+surface4150 {
+	element10,overlay,book/BookOpen/book_00150.png,0,0
+}
+//}}}
+

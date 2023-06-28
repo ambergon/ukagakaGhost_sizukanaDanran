@@ -1,0 +1,66 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+CallShortCut {
+    _KEY = _argv[0]
+    _callKey = EVAL( "ShortCutKey_" + _KEY )
+    if ( _callKey == "" ) {
+        "登録されてないよ～"
+    } else {
+        "\0\j[file:///%(_callKey)]呼んだよ～"
+    }
+}
+
+
+SetShortCutMenu{
+    _PATH = _argv[0]
+
+	"\b[2]\_q\n[half]/
+	%( _PATH )\n/
+	\![*]\q[ ショートカットAに登録する ,OnSetShortCutKey,a,%( _PATH )]\n/
+	\![*]\q[ ショートカットBに登録する ,OnSetShortCutKey,b,%( _PATH )]\n/
+	\![*]\q[ ショートカットCに登録する ,OnSetShortCutKey,c,%( _PATH )]\n/
+	\![*]\q[ ショートカットDに登録する ,OnSetShortCutKey,d,%( _PATH )]\n/
+	\![*]\q[ ショートカットEに登録する ,OnSetShortCutKey,e,%( _PATH )]\n/
+	\![*]\q[ ショートカットFに登録する ,OnSetShortCutKey,f,%( _PATH )]\n/
+	\![*]\q[ ショートカットGに登録する ,OnSetShortCutKey,g,%( _PATH )]\n/
+	\![*]\q[ ショートカットHに登録する ,OnSetShortCutKey,h,%( _PATH )]\n/
+	\![*]\q[ ショートカットIに登録する ,OnSetShortCutKey,i,%( _PATH )]\n/
+	\![*]\q[ ショートカットJに登録する ,OnSetShortCutKey,j,%( _PATH )]\n/
+	\![*]\q[ ショートカットKに登録する ,OnSetShortCutKey,k,%( _PATH )]\n/
+	\![*]\q[ ショートカットLに登録する ,OnSetShortCutKey,l,%( _PATH )]\n/
+	\![*]\q[ ショートカットMに登録する ,OnSetShortCutKey,m,%( _PATH )]\n/
+	\![*]\q[ ショートカットNに登録する ,OnSetShortCutKey,n,%( _PATH )]\n/
+	\![*]\q[ ショートカットOに登録する ,OnSetShortCutKey,o,%( _PATH )]\n/
+	\![*]\q[ ショートカットPに登録する ,OnSetShortCutKey,p,%( _PATH )]\n/
+	\![*]\q[ ショートカットQに登録する ,OnSetShortCutKey,q,%( _PATH )]\n/
+	\![*]\q[ ショートカットRに登録する ,OnSetShortCutKey,r,%( _PATH )]\n/
+	\![*]\q[ ショートカットSに登録する ,OnSetShortCutKey,s,%( _PATH )]\n/
+	\![*]\q[ ショートカットTに登録する ,OnSetShortCutKey,t,%( _PATH )]\n/
+	\![*]\q[ ショートカットUに登録する ,OnSetShortCutKey,u,%( _PATH )]\n/
+	\![*]\q[ ショートカットVに登録する ,OnSetShortCutKey,v,%( _PATH )]\n/
+	\![*]\q[ ショートカットWに登録する ,OnSetShortCutKey,w,%( _PATH )]\n/
+	\![*]\q[ ショートカットXに登録する ,OnSetShortCutKey,x,%( _PATH )]\n/
+	\![*]\q[ ショートカットYに登録する ,OnSetShortCutKey,y,%( _PATH )]\n/
+	\![*]\q[ ショートカットZに登録する ,OnSetShortCutKey,z,%( _PATH )]\n/
+	\n[half]\e"
+}
+
+
+OnSetShortCutKey {
+    _ShortCutKey  = reference[0]
+    _ShortCutPath = reference[1]
+    EVAL( "ShortCutKey_" + _ShortCutKey + " = " + '"' + _ShortCutPath + '"')
+    "KEY = %( _ShortCutKey )に%( _ShortCutPath ) をセットしたよ。"
+}
+
