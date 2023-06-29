@@ -1,9 +1,9 @@
 charset,Shift_JIS
 file,.gitignore0b5edef0e2757af80c4bbd1b54b72fffsize=289date=2023-06-28T21:10:48
-file,ReadMe.mddb24a7a960b212469a207e2118821829size=1841date=2023-06-29T11:20:21
-file,ghost/master/ReadMe.txt76ea0a559927258687412f37a41211fbsize=1837date=2023-06-29T11:21:15
+file,ReadMe.mde25276a3ba4c797c7e6f71c56055281fsize=2022date=2023-06-29T21:26:21
+file,ghost/master/ReadMe.txte25276a3ba4c797c7e6f71c56055281fsize=2022date=2023-06-29T21:26:34
 file,ghost/master/TEST.uka9be428c12d31684cc99f9488436f72e6size=179date=2023-06-29T09:01:17
-file,ghost/master/descript.txt4a0de0cc1e430fb21d1b56cd73cc4be6size=394date=2023-06-29T08:01:43
+file,ghost/master/descript.txtedf515cbbf226be62d35b48d78abf3e8size=452date=2023-06-29T21:24:03
 file,ghost/master/dll/proxy_ex.dll6a0dcefa6ad16e4fc1a5912183e5ff1asize=48128date=2022-07-13T00:55:46
 file,ghost/master/dll/ukagakaExe_CheckLnkFile.exe7d4c8a48f4bb7210140e1f6d83d80a7dsize=6144date=2022-07-22T17:03:45
 file,ghost/master/dll/ukagakaExe_getGoogleCalendar.exeadc7e3981d628cd463faac3342e1ce2asize=17743872date=2023-06-16T12:25:49
@@ -28,7 +28,7 @@ file,ghost/master/system.Mouse.Head.ukaa79880a6bfb4f6ebc20155759fdc8176size=18
 file,ghost/master/system.Mouse.uka6a10cbf493d5323bfb49c42bb685f18bsize=2443date=2023-06-27T21:38:39
 file,ghost/master/system.Surface.ukaedff69a68ba8454012551363b6dc46b8size=4513date=2023-06-29T00:32:22
 file,ghost/master/system.Time.ukaa6156c99956a4f84b4bed4b37abfcfd0size=1658date=2023-06-29T00:41:01
-file,ghost/master/system.Translate.ukafa3821508401096740aec92dd770316dsize=338date=2023-06-28T07:34:43
+file,ghost/master/system.Translate.uka1903fb0c65b3ddb1b33f9148a94ba613size=500date=2023-06-29T20:11:03
 file,ghost/master/yaya.dll1737e66621f9c1645cd62699d78e85d8size=880640date=2022-07-13T00:55:46
 file,ghost/master/yaya.txt7b4ba14145a77df9c78cfa83397788bfsize=1173date=2023-06-29T08:22:40
 file,ghost/master/yaya/_loading_order.txtdc3654fe4cec81f89e0aacd744f29c76size=132date=2022-08-08T20:10:13

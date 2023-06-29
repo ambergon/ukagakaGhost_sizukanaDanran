@@ -1,11 +1,16 @@
 
 //.を変換してしまうとFilePath等に干渉してひどいことになった。
+//特定のIDからは置換処理をしないようにしよう
 OnTranslate {
-    _text = reference[0]
-    _text = REPLACE( _text , "。" , "。\w9\w9\n" )
-    _text = REPLACE( _text , "、" , "、\w9" )
-    _text = REPLACE( _text , "?" , "?\w9\w9\n" )
-    _text = REPLACE( _text , "・" , "・\w9" )
+    _ID     = reference[2]
+    _text   = reference[0]
+    if _ID == "OnMinuteChange" {
+    } else {
+        _text = REPLACE( _text , "。" , "。\w9\w9\n" )
+        _text = REPLACE( _text , "、" , "、\w9" )
+        _text = REPLACE( _text , "?" , "?\w9\w9\n" )
+        _text = REPLACE( _text , "・" , "・\w9" )
+    }
     _text
 }
 

@@ -5,7 +5,8 @@ title,KOHAKU
 
 craftman,ambergon
 craftmanw,ambergon
-craftmanurl,https://ambergonslibrary.com/ukagaka/
+craftmanurl,https://github.com/ambergon/ukagakaGhost_sizukanaDanran
+//https://ambergonslibrary.com/ukagaka/
 homeurl,https://raw.githubusercontent.com/ambergon/ukagakaGhost_sizukanaDanran/master/
 
 
