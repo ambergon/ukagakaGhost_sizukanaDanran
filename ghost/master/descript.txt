@@ -5,7 +5,8 @@ title,KOHAKU
 
 craftman,ambergon
 craftmanw,ambergon
-craftmanurl,https://ambergonslibrary.com/ukagaka/
+craftmanurl,https://github.com/ambergon/ukagakaGhost_sizukanaDanran
+//https://ambergonslibrary.com/ukagaka/
 homeurl,https://raw.githubusercontent.com/ambergon/ukagakaGhost_sizukanaDanran/master/
 
 
@@ -14,6 +15,8 @@ name,静かな団欒
 sakura.name,琥珀
 kero.seriko.defaultsurface,100000
 
+icon,icon.ico
+icon.minimize,iconX.ico
 
 
 
