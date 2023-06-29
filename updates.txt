@@ -3,7 +3,7 @@ file,.gitignore0b5edef0e2757af80c4bbd1b54b72fffsize=289date=2023-06-28T21:10:
 file,ReadMe.mde25276a3ba4c797c7e6f71c56055281fsize=2022date=2023-06-29T21:26:21
 file,ghost/master/ReadMe.txte25276a3ba4c797c7e6f71c56055281fsize=2022date=2023-06-29T21:26:34
 file,ghost/master/TEST.uka9be428c12d31684cc99f9488436f72e6size=179date=2023-06-29T09:01:17
-file,ghost/master/descript.txtedf515cbbf226be62d35b48d78abf3e8size=452date=2023-06-29T21:24:03
+file,ghost/master/descript.txtc6ec033f8d59be5102ea6efdd94f8c59size=490date=2023-06-30T00:27:10
 file,ghost/master/dll/proxy_ex.dll6a0dcefa6ad16e4fc1a5912183e5ff1asize=48128date=2022-07-13T00:55:46
 file,ghost/master/dll/ukagakaExe_CheckLnkFile.exe7d4c8a48f4bb7210140e1f6d83d80a7dsize=6144date=2022-07-22T17:03:45
 file,ghost/master/dll/ukagakaExe_getGoogleCalendar.exeadc7e3981d628cd463faac3342e1ce2asize=17743872date=2023-06-16T12:25:49
@@ -12,6 +12,8 @@ file,ghost/master/function.BreakTime.uka7a539026f1f35bb3d6d50543b58d4071size=3
 file,ghost/master/function.Calendar.uka20bbb960f09b1bb8b028d03b2076697esize=2065date=2023-06-29T01:06:11
 file,ghost/master/function.KeyShortCut.uka66935bc6851fe2a738decd8120417124size=2723date=2023-06-16T07:57:32
 file,ghost/master/function.Weather.uka734f5a0ce7edf61f8d1d6620da2f8abcsize=3644date=2023-06-25T00:22:21
+file,ghost/master/icon.ico6b3d7cd903f3713d2c50f3e4b2dfd79csize=3262date=2023-06-30T00:10:31
+file,ghost/master/iconX.icofd65164e096ddbfa3358fac7d3c5e99esize=3262date=2023-06-30T00:22:45
 file,ghost/master/plugin.uka5a5e6e489bcfa0e681ff79ff34fc1c1asize=261date=2023-06-28T07:20:54
 file,ghost/master/system.Base.uka97ec015644c9efeedbc72029b49f3918size=645date=2023-05-30T16:37:32
 file,ghost/master/system.Boot.ukac782c0038ee6746bc6b412980a245aefsize=3807date=2023-06-29T08:09:45
