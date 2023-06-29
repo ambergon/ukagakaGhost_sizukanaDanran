@@ -29,7 +29,7 @@ CheckMinute.BreakTime {
     //休憩時間外で休憩時間の指定が0で無ければ。
     //Notifyを考えるとこのような形になってしまった。
     if ( BreakTimeFlag == 0 ) {
-        if ( hour == BreakTimeHour && minute == BreakTimeMin && BreakTimeMinute != 0 ){
+        if ( hour == TOINT(BreakTimeHour) && minute == TOINT(BreakTimeMin) && BreakTimeMinute != 0 ){
             BreakTimeFlag = 1
             BreakTimeCount  = BreakTimeMinute
             if ISVAR( "BreakTimeBGM" ) == 1 {
