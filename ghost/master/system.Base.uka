@@ -26,3 +26,13 @@ OnGhostUnload {
     }
     ERASEVAR( 'GHOSTPATH' )
 }
+
+
+//userCallSign = reference[0]
+//userName     = reference[1]
+//userBirthDay = reference[2]
+OnNotifyUserInfo {
+    userName = reference[0]
+}
+
+

@@ -7,14 +7,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
 MouseDoubleClick_0 {
-    //"%(hour)"
-    //{{CHAIN
-    //    "aaa"
-    //    "bbb"
-    //    "ccc"
-    //    "ddd"
-    //}}CHAIN
 }
 
 //OnTest {

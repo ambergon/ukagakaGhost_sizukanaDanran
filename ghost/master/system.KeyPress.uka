@@ -5,7 +5,7 @@ OnKeyPress {
     _KEY = reference[0]
 
     //デバッグ他
-    if ( OldKeyPress == "back" ) {
+    if ( OldKeyPress == "back" && userName == "amber" ) {
         //reload
         if ( _KEY == "r" ) {
             _text = '\1\s[100000]\0\ \![reload,shiori]\0\s[0]\_qReloaded.\_q\e'
@@ -13,6 +13,10 @@ OnKeyPress {
         //folder open
         } elseif ( _KEY == "o" ) {
             _text = "\0\j[file:///%( GHOSTPATH )]開くよ～\e"
+
+        //create update file
+        } elseif ( _KEY == "u" ) {
+            _text = "更新ファイルを作成\![execute,createupdatedata]\e"
         }
 
 

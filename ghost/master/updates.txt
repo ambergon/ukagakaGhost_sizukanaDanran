@@ -2,7 +2,7 @@ charset,Shift_JIS
 file,.gitignore0b5edef0e2757af80c4bbd1b54b72fffsize=289date=2023-06-28T21:10:48
 file,ReadMe.mde25276a3ba4c797c7e6f71c56055281fsize=2022date=2023-06-29T21:26:21
 file,ghost/master/ReadMe.txte25276a3ba4c797c7e6f71c56055281fsize=2022date=2023-06-29T21:26:34
-file,ghost/master/TEST.uka9be428c12d31684cc99f9488436f72e6size=179date=2023-06-29T09:01:17
+file,ghost/master/TEST.uka7f9b3c528a3b9776f5c927609bc12517size=80date=2023-07-05T00:23:07
 file,ghost/master/descript.txtc6ec033f8d59be5102ea6efdd94f8c59size=490date=2023-06-30T00:27:10
 file,ghost/master/dll/proxy_ex.dll6a0dcefa6ad16e4fc1a5912183e5ff1asize=48128date=2022-07-13T00:55:46
 file,ghost/master/dll/ukagakaExe_CheckLnkFile.exe7d4c8a48f4bb7210140e1f6d83d80a7dsize=6144date=2022-07-22T17:03:45
@@ -15,7 +15,7 @@ file,ghost/master/function.Weather.uka734f5a0ce7edf61f8d1d6620da2f8abcsize=364
 file,ghost/master/icon.ico6b3d7cd903f3713d2c50f3e4b2dfd79csize=3262date=2023-06-30T00:10:31
 file,ghost/master/iconX.icofd65164e096ddbfa3358fac7d3c5e99esize=3262date=2023-06-30T00:22:45
 file,ghost/master/plugin.uka5a5e6e489bcfa0e681ff79ff34fc1c1asize=261date=2023-06-28T07:20:54
-file,ghost/master/system.Base.uka97ec015644c9efeedbc72029b49f3918size=645date=2023-05-30T16:37:32
+file,ghost/master/system.Base.uka6ba486493b8f8b828c22ebe207a15174size=788date=2023-07-05T00:16:05
 file,ghost/master/system.Boot.ukac782c0038ee6746bc6b412980a245aefsize=3807date=2023-06-29T08:09:45
 file,ghost/master/system.ChainTalk.ukaaa09ff5901ddd704de7b11d4cb93dab9size=5506date=2023-06-28T21:42:11
 file,ghost/master/system.Communicate.uka116b35673b9c2ca5810eda494db959ecsize=38date=2023-06-23T22:56:58
@@ -23,7 +23,7 @@ file,ghost/master/system.FileDropped.json.uka7c647c0471bbc4ec662d6f15cfda3bccs
 file,ghost/master/system.FileDropped.mp3.ukadf92934b178084a58105406fd8f8bb04size=360date=2023-06-25T08:25:52
 file,ghost/master/system.FileDropped.ukadcdc129cd187d13134378f71a15a5a2fsize=1008date=2023-06-25T08:25:48
 file,ghost/master/system.KeyPress.Timer.uka38dcb261a52bebe7844fd93ceac7e6aesize=727date=2023-06-24T08:24:45
-file,ghost/master/system.KeyPress.ukac923c8a6a355acd8c0a950d2c463272bsize=918date=2023-06-15T11:27:16
+file,ghost/master/system.KeyPress.uka1e1ed3254bca873f632ae2753eb4a108size=1086date=2023-07-05T00:22:53
 file,ghost/master/system.Menu.ukad6182ad420a6b0ec435f0007ca1b872bsize=484date=2023-06-23T22:41:52
 file,ghost/master/system.Mouse.Book.ukaac705631bd89ce39fb2d338f249eec94size=104date=2023-06-23T22:41:39
 file,ghost/master/system.Mouse.Head.ukaa79880a6bfb4f6ebc20155759fdc8176size=1823date=2023-06-29T00:32:46
