@@ -1,12 +1,24 @@
 
-OnRecieveClockWorkBlueBird {
-    _User       = reference[0]
-    _Sakura     = reference[1]
-    res_marker  = _User
 
-    _Sakura = RE_REPLACE( _Sakura , "[0-9a-zA-Z./]+?\\n" , "\n" )
-    _Sakura     
-}
-OnClockWorkBlueBirdOpenLink {
+
+
+
+//OnRecieveClockWorkUkadon {
+//    _User       = reference[0]
+//    _Sakura     = reference[1]
+//    res_marker  = _User
+//
+//    //_Sakura = RE_REPLACE( _Sakura , "[0-9a-zA-Z./]+?\\n" , "\n" )
+//    _Sakura     
+//}
+//
+//
+//OnKillTimeClockWorkUkadon {
+//    "Kill"
+//}
+
+OnClockWorkUkadonOpenLink {
     "\j[%( reference[0])]"
 }
+
+
