@@ -5,16 +5,16 @@
 
 
 
-// OnMenuText. から始まる関数名をそれぞれメニュー項目とする。
+// OnMenu. から始まる関数名をそれぞれメニュー項目とする。
 // メニュー項目名ををクリックするとその関数が呼ばれる。
 //{{{
 // 起動-------------------------------------------------------------
 AutoLoad.system_Menu {
-    _loadMenu = GETFUNCLIST( "OnMenuText." )
+    _loadMenu = GETFUNCLIST( "OnMenu." )
     MenuText = "\_q\n[half]【 メニュー 一覧 】\n"
 
     for _i = 0 ; _i < ARRAYSIZE( _loadMenu ) ; _i++ {
-        _text = REPLACE( _loadMenu[_i] , "OnMenuText." , ""  )
+        _text = REPLACE( _loadMenu[_i] , "OnMenu." , ""  )
         MenuText = MenuText + "\![*]\q[" + _text + "," + _loadMenu[_i] +"]\n"
     }
     MenuText = MenuText + "\![*]\q[特にない,]\n[half]\e"

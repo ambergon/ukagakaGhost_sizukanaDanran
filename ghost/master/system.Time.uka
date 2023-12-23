@@ -69,12 +69,6 @@ OnHourTimeSignal {
 //}}}
 
 
-CheckHours.SleepTime {
-    _h = TOINT( "%(hour)" ) 
-    if _h == 2 || _h == 3 {
-        "もう・・・だめ・・・・。おやすみ。\w9\w9\w9\-\e"
-    }
-}
 
 
 

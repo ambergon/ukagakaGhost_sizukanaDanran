@@ -27,7 +27,7 @@ OnFileDropped {
 
     // mp3の場合は音楽再生用ファイルとして運用する。
     if ( RE_SEARCH(_FILE, "mp3$") ) {
-        SetMp3Config( _FILE )
+        BreakTime.DropMp3( _FILE )
 
     // ショートカット登録をする。
     } else {
@@ -35,3 +35,8 @@ OnFileDropped {
     }
 }
 //}}}
+
+
+
+
+

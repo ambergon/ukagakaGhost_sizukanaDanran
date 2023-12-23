@@ -9,7 +9,7 @@ AutoUnload.function_Weather {
 }
 
 
-OnMenuText.Weather {
+OnMenu.Weather {
     "\_q\n[half]/
     【 天気 】\n/
 	\![*]\q[今の天気を確認する,OnGetWeather]\n/

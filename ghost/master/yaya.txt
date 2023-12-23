@@ -24,13 +24,13 @@ dicdir, yaya
 dic, function.BreakTime.uka
 dic, function.KeyShortCut.uka
 dic, function.Weather.uka
+dic, function.Timer.uka
 dic, system.Base.uka
 dic, system.Boot.uka
 dic, system.Close.uka
 dic, system.Other.uka
 dic, system.ChainTalk.uka
 dic, system.FileDropped.uka
-dic, system.KeyPress.Timer.uka
 dic, system.KeyPress.uka
 dic, system.Menu.uka
 dic, system.Mouse.Book.uka

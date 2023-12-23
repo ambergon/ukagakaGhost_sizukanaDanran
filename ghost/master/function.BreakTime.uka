@@ -1,6 +1,10 @@
 
 
 
+// ラジオに使った音楽。晴れの日の私。
+
+
+// 指定時間に自動で音楽がかかる。
 
 
 
@@ -9,47 +13,29 @@
 //{{{
 // 起動処理---------------------------------------------------------
 AutoLoad.function_BreakTime {
-    BreakTimeFlag = 0
+    BreakTime.Bool = 0
 }
 //}}}
 //{{{
 // 終了処理---------------------------------------------------------
 AutoUnload.function_BreakTime {
-    ERASEVAR( 'BreakTimeFlag' )
-    ERASEVAR( 'BreakTimeCount' )
+    ERASEVAR( 'BreakTime.Bool' )
+    ERASEVAR( 'BreakTime.Count' )
 }
 //}}}
 
-
-// 指定時間に自動で音楽がかかる。
 
 //{{{
-// 音楽再生用メニュー-----------------------------------------------
-OnMenuText.BreakTime {
-    _BgmFile = SPLITPATH( BreakTimeBGM )
-
-    "\_q\n[half]/
-	 【 休憩の設定 】\n/
-    BGM : %( _BgmFile[2] )\n\n/
-	\![*]\q[ 休憩用BGMを解除する      ,ClearBreakTimeBGM]\n/
-	\![*]\q[ 休憩時間の長さを指定する ,OnSetBreakTime]\n/
-	\![*]\q[ 休憩開始時間を指定する   ,OnSetBreakTimeHM]\n/
-	\![*]\q[ 休憩開始時間を削除する   ,OnClearBreakTimeHM]\n/
-	\![*]\q[ 特にない ,]\n/
-	\n[half]\e"
-}
-//}}}
-
-
+// 休憩開始関数 : Checkは分単位-------------------------------------
 CheckMinute.BreakTime {
-    //休憩時間外で休憩時間の指定が0で無ければ。
-    //Notifyを考えるとこのような形になってしまった。
-    if ( BreakTimeFlag == 0 ) {
-        if ( hour == TOINT(BreakTimeHour) && minute == TOINT(BreakTimeMin) && BreakTimeMinute != 0 ){
-            BreakTimeFlag = 1
-            BreakTimeCount  = BreakTimeMinute
-            if ISVAR( "BreakTimeBGM" ) == 1 {
-                _soundText = SoundStart( BreakTimeBGM )
+    // 休憩時間外で休憩時間の指定が0で無ければ。
+    // Notifyを考えるとこのような形になってしまった。
+    if ( BreakTime.Bool == 0 ) {
+        if ( hour == BreakTime.CheckHour && minute == BreakTime.CheckMin && BreakTime.Max != 0 ){
+            BreakTime.Bool = 1
+            BreakTime.Count  = BreakTime.Max
+            if ISVAR( "BreakTime.BGMFile" ) == 1 {
+                _soundText = BreakTime.FadeIn( BreakTime.BGMFile )
                 _text = "\1テレビから、いつもの番組が流れ出した。\0" + _soundText
                 _text
             } else {
@@ -59,36 +45,52 @@ CheckMinute.BreakTime {
 
     //休憩時間中ならば
     } else {
-        //終了
-        if ( 0 >= BreakTimeCount){
-            BreakTimeFlag = 0
-            _soundText = SoundStop( BreakTimeBGM )
+        //終了 
+        if ( 0 >= BreakTime.Count){
+            BreakTime.Bool = 0
+            _soundText = BreakTime.FadeOut( BreakTime.BGMFile )
             _text = "もう時間だね。" + _soundText
             _text
         }
-        BreakTimeCount = BreakTimeCount - 1
+        BreakTime.Count = BreakTime.Count - 1
     }
 }
+//}}}
+//{{{
+// 音楽再生用メニュー-----------------------------------------------
+OnMenu.BreakTime {
+    _BgmFile = SPLITPATH( BreakTime.BGMFile )
 
+    "\_q\n[half]/
+	 【 休憩の設定 】\n/
+    BGM : %( _BgmFile[2] )\n\n/
+	\![*]\q[ 休憩用BGMを解除する      ,OnBreakTime.ClearBGM]\n/
+	\![*]\q[ 休憩時間の長さを指定する ,OnBreakTime.InputLength]\n/
+	\![*]\q[ 休憩開始時間を指定する   ,OnBreakTime.InputStartTime]\n/
+	\![*]\q[ 休憩開始時間を削除する   ,OnBreakTime.ClearStartTime]\n/
+	\![*]\q[ 特にない ,]\n/
+	\![*] 備考 : 名前にスペースの入るmp3ファイルは対応していません。\n/
+	\n[half]\e"
+}
+//}}}
 
-ClearBreakTimeBGM {
-    ERASEVAR( 'BreakTimeBGM' )
+//{{{
+// メニュー : BGMファイル削除---------------------------------------
+OnBreakTime.ClearBGM {
+    ERASEVAR( 'BreakTime.BGMFile' )
     "解除したよ。"
 }
-
-
-OnClearBreakTimeHM {
-    BreakTimeHour = 99
-    BreakTimeMin  = 99
-    "解除したよ。"
+//}}}
+//{{{
+// メニュー : 開始時間入力------------------------------------------
+OnBreakTime.InputStartTime {
+    "4桁の半角数字で時間を入力してね。\n【例】2230 -> 22時30分\![open,inputbox,OnBreakTime.SetStartTime]"
 }
-
-
-OnSetBreakTimeHM {
-    "4桁の半角数字で時間を入力してね。\n【例】2230 -> 22時30分\![open,inputbox,OnInputBreakTimeHM]"
-}
+//}}}
+//{{{
+// メニュー : 開始時間登録------------------------------------------
 //四桁数字を受け取って二桁に分割する。
-OnInputBreakTimeHM {
+OnBreakTime.SetStartTime {
     _time = TOSTR( reference0 )
     //_time = TOSTR( "1234" )
     if RE_MATCH( _time , '[0-9]...' ) {
@@ -100,35 +102,50 @@ OnInputBreakTimeHM {
             "ちょっと数字が大きいかな。"
 
         } else {
-            BreakTimeHour   = _hour
-            BreakTimeMin    = _min
-            "%( BreakTimeHour )時%( BreakTimeMin )分に設定したよ。"
+            "%( _hour )時%( _min )分に設定したよ。"
+            BreakTime.CheckHour   = TOINT( _hour )
+            BreakTime.CheckMin    = TOINT( _min  )
         }
     } else {
         "設定できなかったよ。"
     }
 }
-
-
-//休憩する時間をminで指定する。
-OnSetBreakTime {
-    "休憩時間を何分にするか指定してね。\![open,inputbox,OnInputBreakTime]"
+//}}}
+//{{{
+// メニュー : 開始時間削除------------------------------------------
+OnBreakTime.ClearStartTime {
+    // 00:00時は存在する為このようにした。
+    BreakTime.CheckHour = 99
+    BreakTime.CheckMin  = 99
+    "解除したよ。"
 }
-OnInputBreakTime {
+//}}}
+//{{{
+// メニュー : 休憩の長さ入力----------------------------------------
+//休憩する時間をminで指定する。
+OnBreakTime.InputLength {
+    "休憩時間を何分にするか指定してね。\![open,inputbox,OnBreakTime.SetLenght]"
+}
+//}}}
+//{{{
+// メニュー : 休憩の長さ登録----------------------------------------
+OnBreakTime.SetLenght {
     _time = TOSTR( reference0 )
     //_time = TOSTR( "1234" )
     if RE_MATCH( _time , '[0-9]+' ) {
-        BreakTimeMinute   = _time
-        "%( BreakTimeMinute )分に設定したよ。"
+        "%( _time )分に設定したよ。"
+        BreakTime.Max   = TOINT( _time )
 
     } else {
         "設定できなかったよ。"
     }
 }
+//}}}
 
-
-//音楽の再生の関数。
-SoundStart {
+//{{{
+// BGM のフェードイン-----------------------------------------------
+// 第一引数 : BGM FILE PATH
+BreakTime.FadeIn {
     _file = _argv[0]
 
     //フェードイン
@@ -139,7 +156,11 @@ SoundStart {
     }
     _fadeIn
 }
-SoundStop {
+//}}}
+//{{{
+// BGM のフェードアウト---------------------------------------------
+// 第一引数 : BGM FILE PATH
+BreakTime.FadeOut {
     _file = _argv[0]
 
     //フェードアウト
@@ -151,25 +172,26 @@ SoundStop {
     _fadeOut = _fadeOut + "\![sound,stop]"
     _fadeOut
 }
+//}}}
 
-
-
-
-SetMp3Config {
+//{{{
+// D&D MP3ファイル--------------------------------------------------
+BreakTime.DropMp3 {
     _PATH = _argv[0]
 	"\b[2]\_q\n[half]/
 	%( _PATH )\n/
-	\![*]\q[ 休憩時間の音楽を設定する ,OnSetMp3File,%( _PATH ),BreakTimeBGM]\n/
+	\![*]\q[ 休憩時間の音楽を設定する ,OnBreakTime.SetMp3,%( _PATH ),BreakTime.BGMFile]\n/
 	\n[half]\e"
 }
-
-
-OnSetMp3File {
+//}}}
+//{{{
+// BGMファイルの登録------------------------------------------------
+OnBreakTime.SetMp3 {
     _PATH   = reference[0] 
     _Name   = reference[1]
     EVAL( _Name + ' = "' + _PATH + '"' )
     "%( _Name ) の設定ファイルは %( _PATH ) だね。"
 }
-
+//}}}
 
 
