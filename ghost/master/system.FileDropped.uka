@@ -7,46 +7,31 @@
 
 
 
-
-
-
+//{{{
+// ファイルドロップ処理---------------------------------------------
 OnFileDropped {
     _FILE = REPLACE( reference[0], '\' , '/' ) 
 
-    //lnkファイルを受け取ったときにリンク先に挿げ替える。
+    // lnkファイルを受け取ったときにリンク先に挿げ替える。
     if ( RE_SEARCH( _FILE , ".+.lnk$" ) == 1 ) {
         _PATH = '"' + _FILE + '"'
         FUNCTIONEX("./dll/proxy_ex.dll" ,  "/charset" , "sjis"  ) 
         _DestinationPath = FUNCTIONEX( "./dll/proxy_ex.dll" , "./ukagakaExe_CheckLnkFile.exe" ,_PATH)
         _DestinationPath = REPLACE( _DestinationPath , '\' , '/' ) 
 
-        //link先が存在しなかった場合等は何もせずに受け取ったリンクのパスで処理する。
+        // ERROR出なければリンク元のファイルを使用する。
         if ( RE_SEARCH( _DestinationPath , "^[ERROR].*" ) == 0 ) {
             _FILE = _DestinationPath
         }
     }
 
-
-    //jsonファイルは設定ファイルとして処理を変える。
-    if ( RE_SEARCH(_FILE, "json$") ) {
-        SetJsonConfig( _FILE )
-
-    } elseif ( RE_SEARCH(_FILE, "mp3$") ) {
+    // mp3の場合は音楽再生用ファイルとして運用する。
+    if ( RE_SEARCH(_FILE, "mp3$") ) {
         SetMp3Config( _FILE )
 
+    // ショートカット登録をする。
     } else {
         SetShortCutMenu( _FILE )
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
+//}}}

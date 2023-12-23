@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+
+//{{{
+// 誕生日と名前を取得する。-----------------------------------------
+OnNotifyUserInfo {
+    userName = reference[0]
+    _array = SPLIT(reference[2], ",", 0)
+    userBirthYear  = _array[0]
+    userBirthMouth = _array[1]
+    userBirthDay   = _array[2]
+}
+//}}}
+
+//最小化解除
+//バグ回避。
+OnWindowStateRestore {
+    "\1\s[-1]\0\s[1]\b[-1]"
+}
+
+
+
+OnCommunicate {
+    "\![]"
+}
+
+
+
+

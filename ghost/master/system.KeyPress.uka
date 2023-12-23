@@ -5,7 +5,7 @@ OnKeyPress {
     _KEY = reference[0]
 
     //デバッグ他
-    if ( OldKeyPress == "back" && userName == "amber" ) {
+    if ( OldKeyPress == "back" && userName == "アンバー" ) {
         //reload
         if ( _KEY == "r" ) {
             _text = '\1\s[100000]\0\ \![reload,shiori]\0\s[0]\_qReloaded.\_q\e'
@@ -25,6 +25,7 @@ OnKeyPress {
 
         if RE_MATCH(_KEY, '[a-z]' ) {
             _text = CallShortCut( _KEY )
+        //} elseif ( _KEY == "back" ) {
         }
     }
 

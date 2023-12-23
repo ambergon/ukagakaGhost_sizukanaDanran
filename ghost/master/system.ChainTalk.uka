@@ -1,3 +1,33 @@
+
+
+
+
+
+
+
+// 何番までのチェイントークを展開したか保存しておく。
+//{{{
+// 起動処理---------------------------------------------------------
+AutoLoad.system_ChainTalk {
+    if ISVAR( "ChainTalkCount" ) == 0 {
+        ChainTalkCount = 0
+    }
+    CHAIN.Index = ChainTalkCount
+}
+//}}}
+// チェイントークの最大値を手動で管理している。
+//{{{
+// 終了処理---------------------------------------------------------
+AutoUnload.system_ChainTalk {
+    //トーク数の最大値を超えないように制御する。
+    TalkMax = 21
+    if TalkMax <= ChainTalkCount {
+        ChainTalkCount = TalkMax
+    }
+}
+//}}}
+//{{{
+// 頭撫でチェイントーク---------------------------------------------
 Talker {
     {{CHAIN
         "\0\s[%(fc)]ゲームのアレンジアルバムっていいよね。ゼノギアスとかクロノトリガーとかさ。サガフロ2なんかも好き。"
@@ -26,31 +56,9 @@ Talker {
         //MAX21でここまでカット
     }}CHAIN
     //SAVEVAR()
-
-    //"\0\s[%(fc)]"
-    //"\0\s[%(fc)]"
-    //"\0\s[%(fc)]"
-    //"\0\s[%(fc('月の微笑み'))]"
     //"\0\s[%(fc)]"
 }
-//トーク数がわかりやす用に関数をトップに持ってきた。
-
-
-AutoLoad.system_ChainTalk {
-    if ISVAR( "ChainTalkCount" ) == 0 {
-        ChainTalkCount = 0
-    }
-    CHAIN.Index = ChainTalkCount
-}
-
-
-AutoUnload.system_ChainTalk {
-    ////トーク数の最大値を超えないように制御する。
-    TalkMax = 21
-    if TalkMax <= ChainTalkCount {
-        ChainTalkCount = TalkMax
-    }
-}
+//}}}
 
 
 

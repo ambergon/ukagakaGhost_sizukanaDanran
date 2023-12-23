@@ -45,6 +45,11 @@ SPACEを押して離した後に指定したキーを押すと呼び出します
 キャンセルはESCを押すことで可能です。
 
 
+#### クリップボード機能
+現在調整中の機能。
+spaceを押した後にbackspaceを押して、特定の変数の中身をクリップボードにコピーします。
+
+
 ## オート機能
 #### 天気予報機能
 起動後3分後に通知されます。
@@ -58,6 +63,19 @@ SPACEを押して離した後に指定したキーを押すと呼び出します
 本を閉じる動作をもうちょっと自然にしたいです。
 
 
+
+## 試験機能
+#### うかどんChrome拡張連携
+こちらの連携機能として、名前を呼んだ際に、投稿IDをクリップボードにコピーする機能を導入してみました。<br>
+[GitHub - ambergon/chromeExtension_ukagakaClockWorkUkadonForSSP](https://github.com/ambergon/chromeExtension_ukagakaClockWorkUkadonForSSP)
+
+textcopy.dllをお借りしました。<br>
+[ClearBrain Systems](http://koumei.la.coocan.jp/cbs/software/)
+
+
+
+
+## updateログ
 
 
 

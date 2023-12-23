@@ -1,53 +1,52 @@
 
 
+
+
+
+
+// "MouseReaction.関数をまとめて実行できるようにしておく。
+//{{{
+// 起動処理---------------------------------------------------------
 AutoLoad.system_Mouse {
-    LoadMouseReaction = GETFUNCLIST( "MouseReaction." )
     PreviousParts = ""
     StrokeCount = 0
+    // 撫で感度
     StrokeSensitivity = 60
+    // ホイール感度
     WheelSensitivity = 10
 }
-
+//}}}
+//{{{
+// 終了処理---------------------------------------------------------
 AutoUnload.system_Mouse {
-    ERASEVAR( 'LoadMouseReaction' )
     ERASEVAR( 'PreviousParts' )
     ERASEVAR( 'StrokeCount' )
     ERASEVAR( 'StrokeSensitivity' )
     ERASEVAR( 'WheelSensitivity' )
 }
+//}}}
 
-
+//{{{
+// 撫で反応---------------------------------------------------------
 OnMouseMove {
     _CharID = reference[3]
     _Parts = reference[4]
     StrokeFunction( _CharID , _Parts , StrokeSensitivity ,"Move" )
 }
-
-
+//}}}
+//{{{
+// ホイール上下-----------------------------------------------------
 OnMouseWheel {
     _CharID = reference[3]
     _Parts = reference[4]
     StrokeFunction( _CharID , _Parts , WheelSensitivity , "Wheel" )
 }
-
-
-//現状本以外にダブルクリックを実装する予定はない。
-OnMouseDoubleClick {
-    _CharID = reference[3]
-    _Parts = reference[4]
-    _Action = "DoubleClick"
-    //これを有効かすることによって、ダブルクリックでも本読みの状態変更が起きる。
-    //fcを正しく運用したテキストを用いるようになったら解禁すること。
-    //現在撫で反応自体も切って頭名での身に実装。
-    //MouseAction( _Action , _Parts )
-    EVAL("MouseDoubleClick_%( _CharID )%( _Parts )")
-}
-
-
-//WheelとMoveの統合関数。
+//}}}
+//{{{
+// 撫で  ホイール反応 : MouseStrokeClick_0Bust等--------------------
 StrokeFunction {
     _CharID = _argv[0]
-    _Parts = _argv[1]
+    _Parts  = _argv[1]
     _Stroke = _argv[2]
     _Action = _argv[3]
 
@@ -57,9 +56,9 @@ StrokeFunction {
         if ( _Parts == PreviousParts ) {
             StrokeCount++
             if ( StrokeCount > _Stroke ) {
-                //MouseAction( _Action , _Parts )
                 if _Parts == "Head" {
-                    MouseAction( _Action , _Parts )
+                    // 撫でに対して状態変更を実行する。
+                    TalkModeChanger()
                 }
                 StrokeCount = 0
                 EVAL("MouseStroke_%( _CharID )%(_Parts)")
@@ -74,18 +73,18 @@ StrokeFunction {
     } else {
     }
 }
-
-
-//Userの行動によって反応する関数。
-//発言はさせない。
-//各種情報収集や反応用。
-MouseAction {
-    _Action = _argv[0]
-    _Parts  = _argv[1]
-    for _i = 0 ; _i < ARRAYSIZE( LoadMouseReaction ) ; _i++ {
-        EVAL( LoadMouseReaction[_i] )
-    }
+//}}}
+//{{{
+// ダブルクリック反応 : MouseDoubleClick_0Bust等--------------------
+OnMouseDoubleClick {
+    _CharID = reference[3]
+    _Parts = reference[4]
+    EVAL("MouseDoubleClick_%( _CharID )%( _Parts )")
 }
+//}}}
+
+
+
 
 
 //メインキャラの当たり判定が無い部分
@@ -94,5 +93,4 @@ MouseAction {
 //    //_cpu = "%property[system.cpu.load]"
 //    //_cpu
 //}
-
 

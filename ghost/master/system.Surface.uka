@@ -71,7 +71,7 @@ CheckSecond.Surface {
 
 
 //刺激に対してモード変更を行う。
-MouseReaction.TalkModes {
+TalkModeChanger {
     //顔を上げる。
     if TalkMode == "STATUS_ReadingBook" || TalkMode == "STATUS_ReturnBookOpen" {
         TalkMode = "STATUS_FaceUp"

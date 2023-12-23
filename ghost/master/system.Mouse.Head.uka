@@ -1,4 +1,7 @@
 
+
+
+
 //yayaのCHAIN.Indexを直接触っている。
 //辞書の変更に注意すること。
 
@@ -68,6 +71,7 @@ STATUS_TalkingYou.Talk {
 
 
 
+// \a リンク。クリックでおーぷ
 OnOpenHttp {
     _link = reference[0]
     "\j[%(_link)]"

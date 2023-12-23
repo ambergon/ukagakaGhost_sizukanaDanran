@@ -22,16 +22,13 @@ dicdir, yaya
 //  ユーザーから実際に認識される機能
 
 dic, function.BreakTime.uka
-dic, function.Calendar.uka
 dic, function.KeyShortCut.uka
 dic, function.Weather.uka
-dic, plugin.uka
 dic, system.Base.uka
 dic, system.Boot.uka
+dic, system.Close.uka
+dic, system.Other.uka
 dic, system.ChainTalk.uka
-dic, system.Communicate.uka
-dic, system.FileDropped.json.uka
-dic, system.FileDropped.mp3.uka
 dic, system.FileDropped.uka
 dic, system.KeyPress.Timer.uka
 dic, system.KeyPress.uka
@@ -43,8 +40,6 @@ dic, system.Surface.uka
 dic, system.Time.uka
 dic, system.Translate.uka
 
-
-dic, TEST.uka
 
 
 

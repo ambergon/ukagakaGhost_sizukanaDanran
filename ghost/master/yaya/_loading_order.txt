@@ -2,4 +2,6 @@ dic, config.dic, UTF-8
 dic, shiori3.dic, UTF-8
 dic, optional.dic, UTF-8
 dic, compatible.dic, UTF-8
-//dic, yaya_tmpl_util.dic, UTF-8
+
+//今まで解除していたが、pluginリストはここっぽい
+dic, yaya_tmpl_util.dic, UTF-8

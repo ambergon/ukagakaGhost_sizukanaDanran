@@ -54,8 +54,11 @@ SPACEを押して離した後に指定したキーを押すと呼び出します
 起動後6分後に通知されます。
 
 
-## 今後
-本を閉じる動作をもうちょっと自然にしたいです。
+## version up情報
+最新情報はこちらをご確認ください。
+https://github.com/ambergon/ukagakaGhost_sizukanaDanran
+
+
 
 
 

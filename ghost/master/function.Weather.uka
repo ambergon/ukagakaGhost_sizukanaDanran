@@ -1,11 +1,15 @@
 
 
+AutoLoad.function_Weather {
+    WeatherMinuteCount = 0 
+}
+
+AutoUnload.function_Weather {
+    ERASEVAR( 'WeatherMinuteCount' )
+}
 
 
-
-
-
-OnFunctionMenu.Weather {
+OnMenuText.Weather {
     "\_q\n[half]/
     【 天気 】\n/
 	\![*]\q[今の天気を確認する,OnGetWeather]\n/
@@ -17,10 +21,11 @@ OnFunctionMenu.Weather {
 
 //設定されていたら起動時3分後に自動実行してもらうか。
 CheckMinute.Weather {
-    if BootCountMinute == 3 && ISVAR( "WeatherLocation" ) != 0 {
+    if WeatherMinuteCount == 3 && ISVAR( "WeatherLocation" ) != 0 {
         OnGetWeather()
-    //} else {
-    //    "%(BootCountMinute)"
+    }
+    if WeatherMinuteCount < 100 {
+        WeatherMinuteCount++
     }
 }
 
@@ -46,8 +51,7 @@ OnClearWeatherTime {
 
 //住んでいる地域を都道府県コード4桁で設定する。
 OnSetWeatherPrefecture {
-    "\b[2]\_q/
-    \n[half]/
+    "\b[2]\_q/\n[half]/
 	\![*]\q[北海道,OnSetUserLocation,010000]\n/
 	\![*]\q[青森県,OnSetUserLocation,020000]\n/
 	\![*]\q[岩手県,OnSetUserLocation,030000]\n/

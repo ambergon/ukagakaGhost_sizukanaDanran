@@ -1,15 +1,11 @@
 
-# /ghost/xxx/profile/
 ghost.dat
 ghost.dat.bak
+ghost/master/var/
 
-
-# /shell/xxx/profile
 shell.dat
 shell.dat.bak
 
-
-# /ghost/xxx/profile/
 plugin.dat
 plugin.dat.bak
 

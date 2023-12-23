@@ -1,10 +1,18 @@
 
+
+
+
+
+//{{{
+// Version情報--------------------------------------------------
 version {
-    "origin/0.0.0"
+    "origin/1.0.0"
 }
-
-
-
+//}}}
+// GHOSTPATHの取得    : ssp/ghost/ghost_name/ghost/master まで
+// 各種起動処理を実施 : AutoUnload. から始まる関数。
+//{{{
+// 起動処理---------------------------------------------------------
 OnGhostLoad {
     //SHIORI3FW.Pathが存在しない可能性がある。
     //ssp/ghost/ghost_name/ghost/master
@@ -17,8 +25,10 @@ OnGhostLoad {
         EVAL( _loadFunction[_i] )
     }
 }
-
-
+//}}}
+// 各種終了処理を実施 : AutoUnload. から始まる関数。
+//{{{
+// 終了処理---------------------------------------------------------
 OnGhostUnload {
     _unloadFunction = GETFUNCLIST( "AutoUnload." )
     for _i = 0 ; _i < ARRAYSIZE( _unloadFunction ) ; _i++ {
@@ -26,13 +36,5 @@ OnGhostUnload {
     }
     ERASEVAR( 'GHOSTPATH' )
 }
-
-
-//userCallSign = reference[0]
-//userName     = reference[1]
-//userBirthDay = reference[2]
-OnNotifyUserInfo {
-    userName = reference[0]
-}
-
+//}}}
 

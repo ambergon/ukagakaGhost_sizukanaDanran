@@ -1,16 +1,31 @@
 
 
+
+
+
+
+
+
+//{{{
+// 起動処理---------------------------------------------------------
 AutoLoad.function_BreakTime {
     BreakTimeFlag = 0
 }
-
+//}}}
+//{{{
+// 終了処理---------------------------------------------------------
 AutoUnload.function_BreakTime {
     ERASEVAR( 'BreakTimeFlag' )
     ERASEVAR( 'BreakTimeCount' )
 }
+//}}}
 
 
-OnFunctionMenu.BreakTime {
+// 指定時間に自動で音楽がかかる。
+
+//{{{
+// 音楽再生用メニュー-----------------------------------------------
+OnMenuText.BreakTime {
     _BgmFile = SPLITPATH( BreakTimeBGM )
 
     "\_q\n[half]/
@@ -23,6 +38,7 @@ OnFunctionMenu.BreakTime {
 	\![*]\q[ 特にない ,]\n/
 	\n[half]\e"
 }
+//}}}
 
 
 CheckMinute.BreakTime {
@@ -136,6 +152,24 @@ SoundStop {
     _fadeOut
 }
 
+
+
+
+SetMp3Config {
+    _PATH = _argv[0]
+	"\b[2]\_q\n[half]/
+	%( _PATH )\n/
+	\![*]\q[ 休憩時間の音楽を設定する ,OnSetMp3File,%( _PATH ),BreakTimeBGM]\n/
+	\n[half]\e"
+}
+
+
+OnSetMp3File {
+    _PATH   = reference[0] 
+    _Name   = reference[1]
+    EVAL( _Name + ' = "' + _PATH + '"' )
+    "%( _Name ) の設定ファイルは %( _PATH ) だね。"
+}
 
 
 

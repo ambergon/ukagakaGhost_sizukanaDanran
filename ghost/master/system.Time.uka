@@ -1,21 +1,32 @@
 
 
-//処理リストを生成して時・分・秒の処理が必要なそれぞれの関数に対応する。
+
+
+
+
+
+
+
+// それぞれの名前で始まる関数名をリストアップする。
+// "CheckSecond." / "CheckMinute." / "CheckHour."  
+//{{{
+// 起動処理---------------------------------------------------------
 AutoLoad.system_Time {
-    BootCountMinute = 0 
     CheckSeconds    = GETFUNCLIST( "CheckSecond." )
     CheckMinutes    = GETFUNCLIST( "CheckMinute." )
-    CheckHours      = GETFUNCLIST( "CheckHour." )
+    CheckHours      = GETFUNCLIST( "CheckHour."   )
 }
-
+//}}}
+//{{{
+// 終了処理---------------------------------------------------------
 AutoUnload.system_Time {
-    ERASEVAR( 'BootCountMinute' )
     ERASEVAR( 'CheckSeconds' )
     ERASEVAR( 'CheckMinutes' )
     ERASEVAR( 'CheckHours' )
 }
-
-
+//}}}
+//{{{
+// CheckSecond.関数をまとめて実行する。-----------------------------
 OnSecondChange {
     _secondText = ""
     for _i = 0 ; _i < ARRAYSIZE( CheckSeconds ) ; _i++ {
@@ -26,8 +37,9 @@ OnSecondChange {
     }
     _secondText
 }
-
-
+//}}}
+//{{{
+// CheckMinutes.関数をまとめて実行する------------------------------
 OnMinuteChange {
     //not notify
     if reference[3] == 1 {
@@ -39,15 +51,11 @@ OnMinuteChange {
             }
         }
         _minuteText
-        //MAX99
-        if BootCountMinute < 100 {
-            BootCountMinute++
-        }
     }
 }
-
-
-//現状、hourで関数を実行することはあるが、トークをする予定はない。
+//}}}
+//{{{
+// CheckHours.関数をまとめて実行する--------------------------------
 OnHourTimeSignal {
     _hourText = ""
     for _i = 0 ; _i < ARRAYSIZE( CheckHours ) ; _i++ {
@@ -58,6 +66,7 @@ OnHourTimeSignal {
     }
     _hourText
 }
+//}}}
 
 
 CheckHours.SleepTime {
