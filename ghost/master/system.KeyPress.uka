@@ -3,13 +3,17 @@
 
 
 
-//使用されるグローバル変数
-//OldKeyPress
+// キー入力関係
+
+
+
+// reference0 : 入力キー
 OnKeyPress {
     _text = ""
     _KEY = reference[0]
 
-    //デバッグ他
+//{{{
+    // デバッグ機能-------------------------------------------------
     if ( OldKeyPress == "back" && userName == "アンバー" ) {
         //reload
         if ( _KEY == "r" ) {
@@ -23,24 +27,32 @@ OnKeyPress {
         } elseif ( _KEY == "u" ) {
             _text = "更新ファイルを作成\![execute,createupdatedata]\e"
         }
-
-
-    //ショートカット
+//}}}
+//{{{
+    // [a-z] ショートカット機能-------------------------------------
     } elseif ( OldKeyPress == "space" ) {
 
         if RE_MATCH(_KEY, '[a-z]' ) {
-            _text = CallShortCut( _KEY )
+            _text = InputKey.CallShortCut( _KEY )
         //} elseif ( _KEY == "back" ) {
         }
     }
-
-    //タイマー関係
+//}}}
+//{{{
+    // [0-9] タイマー機能-------------------------------------------
     if ( _KEY == "0" || _KEY == "1" || _KEY == "2" || _KEY == "3" || _KEY == "4" || _KEY == "5" || _KEY == "6" || _KEY == "7" || _KEY == "8" || _KEY == "9" ) {
         _text = InputKey.Timer( _KEY )
     } elseif ( _KEY == "escape" ) {
         _text = InputKey.TimerExit()
     }
+//}}}
 
     OldKeyPress = _KEY
     _text
 }
+
+
+
+
+
+

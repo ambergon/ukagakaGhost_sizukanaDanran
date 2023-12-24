@@ -1,0 +1,75 @@
+
+
+
+
+
+
+// ファイルランチャー
+
+
+
+
+
+
+//{{{
+// キーに対応するショートカットを呼び出す機能。---------------------
+// 第一引数 : 押された[a-z]
+InputKey.CallShortCut {
+    _KEY = _argv[0]
+    _callKey = EVAL( "ShortCutKey_" + _KEY )
+    if ( _callKey == "" ) {
+        "登録されてないよ～"
+    } else {
+        "\0\j[file:///%(_callKey)]呼んだよ～"
+    }
+}
+//}}}
+//{{{
+// D&D されたファイルを登録するメニュー-----------------------------
+// 第一引数 : 投げられたファイルパス。
+FileDrop.ShortCutMenu {
+    _PATH = _argv[0]
+
+	"\b[2]\_q\n[half]/
+	%( _PATH )\n/
+	\![*]\q[ ショートカットAに登録する ,OnShortCut.Set,a,%( _PATH )]\n/
+	\![*]\q[ ショートカットBに登録する ,OnShortCut.Set,b,%( _PATH )]\n/
+	\![*]\q[ ショートカットCに登録する ,OnShortCut.Set,c,%( _PATH )]\n/
+	\![*]\q[ ショートカットDに登録する ,OnShortCut.Set,d,%( _PATH )]\n/
+	\![*]\q[ ショートカットEに登録する ,OnShortCut.Set,e,%( _PATH )]\n/
+	\![*]\q[ ショートカットFに登録する ,OnShortCut.Set,f,%( _PATH )]\n/
+	\![*]\q[ ショートカットGに登録する ,OnShortCut.Set,g,%( _PATH )]\n/
+	\![*]\q[ ショートカットHに登録する ,OnShortCut.Set,h,%( _PATH )]\n/
+	\![*]\q[ ショートカットIに登録する ,OnShortCut.Set,i,%( _PATH )]\n/
+	\![*]\q[ ショートカットJに登録する ,OnShortCut.Set,j,%( _PATH )]\n/
+	\![*]\q[ ショートカットKに登録する ,OnShortCut.Set,k,%( _PATH )]\n/
+	\![*]\q[ ショートカットLに登録する ,OnShortCut.Set,l,%( _PATH )]\n/
+	\![*]\q[ ショートカットMに登録する ,OnShortCut.Set,m,%( _PATH )]\n/
+	\![*]\q[ ショートカットNに登録する ,OnShortCut.Set,n,%( _PATH )]\n/
+	\![*]\q[ ショートカットOに登録する ,OnShortCut.Set,o,%( _PATH )]\n/
+	\![*]\q[ ショートカットPに登録する ,OnShortCut.Set,p,%( _PATH )]\n/
+	\![*]\q[ ショートカットQに登録する ,OnShortCut.Set,q,%( _PATH )]\n/
+	\![*]\q[ ショートカットRに登録する ,OnShortCut.Set,r,%( _PATH )]\n/
+	\![*]\q[ ショートカットSに登録する ,OnShortCut.Set,s,%( _PATH )]\n/
+	\![*]\q[ ショートカットTに登録する ,OnShortCut.Set,t,%( _PATH )]\n/
+	\![*]\q[ ショートカットUに登録する ,OnShortCut.Set,u,%( _PATH )]\n/
+	\![*]\q[ ショートカットVに登録する ,OnShortCut.Set,v,%( _PATH )]\n/
+	\![*]\q[ ショートカットWに登録する ,OnShortCut.Set,w,%( _PATH )]\n/
+	\![*]\q[ ショートカットXに登録する ,OnShortCut.Set,x,%( _PATH )]\n/
+	\![*]\q[ ショートカットYに登録する ,OnShortCut.Set,y,%( _PATH )]\n/
+	\![*]\q[ ショートカットZに登録する ,OnShortCut.Set,z,%( _PATH )]\n/
+	\n[half]\e"
+}
+//}}}
+//{{{
+// D&D されたファイルを登録する機能---------------------------------
+OnShortCut.Set {
+    _ShortCutKey  = reference[0]
+    _ShortCutPath = reference[1]
+    EVAL( "ShortCutKey_" + _ShortCutKey + " = " + '"' + _ShortCutPath + '"')
+    "KEY = %( _ShortCutKey )に%( _ShortCutPath ) をセットしたよ。"
+}
+//}}}
+
+
+

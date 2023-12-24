@@ -22,23 +22,23 @@ dicdir, yaya
 //  ユーザーから実際に認識される機能
 
 dic, function.BreakTime.uka
-dic, function.KeyShortCut.uka
+dic, function.ShortCut.uka
 dic, function.Weather.uka
 dic, function.Timer.uka
 dic, system.Base.uka
 dic, system.Boot.uka
 dic, system.Close.uka
 dic, system.Other.uka
-dic, system.ChainTalk.uka
 dic, system.FileDropped.uka
 dic, system.KeyPress.uka
 dic, system.Menu.uka
-dic, system.Mouse.Book.uka
-dic, system.Mouse.Head.uka
 dic, system.Mouse.uka
+dic, talk.Chain.uka
+dic, talk.uka
 dic, system.Surface.uka
 dic, system.Time.uka
 dic, system.Translate.uka
+dic, TEST.uka
 
 
 

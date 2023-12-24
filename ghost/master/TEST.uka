@@ -1,0 +1,31 @@
+
+
+AutoLoad.TEST {
+    // 存在しなければ
+    if ISVAR( "" ) == 0 {
+    }
+}
+
+AutoUnload.TEST {
+    //ERASEVAR( '' )
+}
+
+
+
+
+
+//"CPU消費具合:%property[system.cpu.load]"
+//_cpu = "%property[system.cpu.load]"
+//_cpu
+
+
+
+// 返す内容がある時だけ表示される。---------------------------------
+// 無ければ通常トーク等
+TEST.test {
+    //""
+}
+
+
+
+

@@ -1,114 +1,125 @@
 
 
+
+
+// 天気情報を取得する辞書。
+
+
+//{{{
+// 起動処理---------------------------------------------------------
 AutoLoad.function_Weather {
-    WeatherMinuteCount = 0 
+    Weather.Count = 0 
 }
-
+//}}}
+//{{{
+// 終了処理---------------------------------------------------------
 AutoUnload.function_Weather {
-    ERASEVAR( 'WeatherMinuteCount' )
+    ERASEVAR( 'Weather.Count' )
 }
-
-
+//}}}
+//{{{
+// 設定画面---------------------------------------------------------
 OnMenu.Weather {
     "\_q\n[half]/
     【 天気 】\n/
-	\![*]\q[今の天気を確認する,OnGetWeather]\n/
-	\![*]\q[天気を取得する地域を指定する,OnSetWeatherPrefecture]\n/
-	\![*]\q[天気を取得する地域を削除する,OnClearWeatherTime]\n/
+	\![*]\q[今の天気を確認する,OnWeather.Get]\n/
+	\![*]\q[天気を取得する地域を指定する,OnWeather.ChoiceLocation]\n/
+	\![*]\q[天気を取得する地域を削除する,OnWeather.ClearLocation]\n/
 	\n[half]\e"
 }
-
-
-//設定されていたら起動時3分後に自動実行してもらうか。
-CheckMinute.Weather {
-    if WeatherMinuteCount == 3 && ISVAR( "WeatherLocation" ) != 0 {
-        OnGetWeather()
-    }
-    if WeatherMinuteCount < 100 {
-        WeatherMinuteCount++
-    }
+//}}}
+//{{{
+// 地域情報指定-----------------------------------------------------
+OnWeather.ChoiceLocation {
+    "\b[2]\_q/\n[half]/
+	\![*]\q[北海道,OnWeather.SetLocation,010000]\n/
+	\![*]\q[青森県,OnWeather.SetLocation,020000]\n/
+	\![*]\q[岩手県,OnWeather.SetLocation,030000]\n/
+	\![*]\q[宮城県,OnWeather.SetLocation,040000]\n/
+	\![*]\q[秋田県,OnWeather.SetLocation,050000]\n/
+	\![*]\q[山形県,OnWeather.SetLocation,060000]\n/
+	\![*]\q[福島県,OnWeather.SetLocation,070000]\n/
+	\![*]\q[茨城県,OnWeather.SetLocation,080000]\n/
+	\![*]\q[栃木県,OnWeather.SetLocation,090000]\n/
+	\![*]\q[群馬県,OnWeather.SetLocation,100000]\n/
+	\![*]\q[埼玉県,OnWeather.SetLocation,110000]\n/
+	\![*]\q[千葉県,OnWeather.SetLocation,120000]\n/
+	\![*]\q[東京都,OnWeather.SetLocation,130000]\n/
+  \![*]\q[神奈川県,OnWeather.SetLocation,140000]\n/
+	\![*]\q[新潟県,OnWeather.SetLocation,150000]\n/
+	\![*]\q[富山県,OnWeather.SetLocation,160000]\n/
+	\![*]\q[石川県,OnWeather.SetLocation,170000]\n/
+	\![*]\q[福井県,OnWeather.SetLocation,180000]\n/
+	\![*]\q[山梨県,OnWeather.SetLocation,190000]\n/
+	\![*]\q[長野県,OnWeather.SetLocation,200000]\n/
+	\![*]\q[岐阜県,OnWeather.SetLocation,210000]\n/
+	\![*]\q[静岡県,OnWeather.SetLocation,220000]\n/
+	\![*]\q[愛知県,OnWeather.SetLocation,230000]\n/
+	\![*]\q[三重県,OnWeather.SetLocation,240000]\n/
+	\![*]\q[滋賀県,OnWeather.SetLocation,250000]\n/
+	\![*]\q[京都府,OnWeather.SetLocation,260000]\n/
+	\![*]\q[大阪府,OnWeather.SetLocation,270000]\n/
+	\![*]\q[兵庫県,OnWeather.SetLocation,280000]\n/
+	\![*]\q[奈良県,OnWeather.SetLocation,290000]\n/
+  \![*]\q[和歌山県,OnWeather.SetLocation,300000]\n/
+	\![*]\q[鳥取県,OnWeather.SetLocation,310000]\n/
+	\![*]\q[島根県,OnWeather.SetLocation,320000]\n/
+	\![*]\q[岡山県,OnWeather.SetLocation,330000]\n/
+	\![*]\q[広島県,OnWeather.SetLocation,340000]\n/
+	\![*]\q[山口県,OnWeather.SetLocation,350000]\n/
+	\![*]\q[徳島県,OnWeather.SetLocation,360000]\n/
+	\![*]\q[香川県,OnWeather.SetLocation,370000]\n/
+	\![*]\q[愛媛県,OnWeather.SetLocation,380000]\n/
+	\![*]\q[高知県,OnWeather.SetLocation,390000]\n/
+	\![*]\q[福岡県,OnWeather.SetLocation,400000]\n/
+	\![*]\q[佐賀県,OnWeather.SetLocation,410000]\n/
+	\![*]\q[長崎県,OnWeather.SetLocation,420000]\n/
+	\![*]\q[熊本県,OnWeather.SetLocation,430000]\n/
+	\![*]\q[大分県,OnWeather.SetLocation,440000]\n/
+	\![*]\q[宮崎県,OnWeather.SetLocation,450000]\n/
+  \![*]\q[鹿児島県,OnWeather.SetLocation,460100]\n/
+	\![*]\q[沖縄県,OnWeather.SetLocation,471000]\n/
+	\n[half]\e"
 }
-
-
-//天気を取得する
-//バルーンは三番のデカいやつを使用する。
-OnGetWeather {
-    if ( ISVAR( "WeatherLocation" ) == 0 ){
+//}}}
+//{{{
+// 地域情報登録-----------------------------------------------------
+OnWeather.SetLocation {
+    Weather.Location = reference[0]
+    "地域設定 : %( Weather.Location ) が設定されたよ。"
+}
+//}}}
+//{{{
+// 地域情報削除-----------------------------------------------------
+OnWeather.ClearLocation {
+    ERASEVAR( 'Weather.Location' )
+    "解除したよ。"
+}
+//}}}
+//{{{
+// 天気を取得する---------------------------------------------------
+OnWeather.Get {
+    if ( ISVAR( "Weather.Location" ) == 0 ){
         "地域設定がされてないよ～。"
     } else {
+        // バルーンは2番のデカいやつを使用する。
         FUNCTIONEX("./dll/proxy_ex.dll" ,  "/charset" , "UTF-8"  )
-        _weatherText = FUNCTIONEX( "./dll/proxy_ex.dll" , "./ukagakaExe_getWeather.exe" , WeatherLocation ) 
+        _weatherText = FUNCTIONEX( "./dll/proxy_ex.dll" , "./ukagakaExe_getWeather.exe" , Weather.Location ) 
         "\1ラジオが小さく鳴っている。\0\_q\b[2]%( _weatherText )\_q"
     }
 }
-
-
-OnClearWeatherTime {
-    ERASEVAR( 'WeatherLocation' )
-    "解除したよ。"
+//}}}
+//{{{
+// 起動後三分で発火する天気予報-------------------------------------
+CheckMinute.Weather {
+    if Weather.Count == 3 && ISVAR( "Weather.Location" ) != 0 {
+        OnWeather.Get()
+    }
+    if Weather.Count < 100 {
+        Weather.Count++
+    }
 }
-
-
-//住んでいる地域を都道府県コード4桁で設定する。
-OnSetWeatherPrefecture {
-    "\b[2]\_q/\n[half]/
-	\![*]\q[北海道,OnSetUserLocation,010000]\n/
-	\![*]\q[青森県,OnSetUserLocation,020000]\n/
-	\![*]\q[岩手県,OnSetUserLocation,030000]\n/
-	\![*]\q[宮城県,OnSetUserLocation,040000]\n/
-	\![*]\q[秋田県,OnSetUserLocation,050000]\n/
-	\![*]\q[山形県,OnSetUserLocation,060000]\n/
-	\![*]\q[福島県,OnSetUserLocation,070000]\n/
-	\![*]\q[茨城県,OnSetUserLocation,080000]\n/
-	\![*]\q[栃木県,OnSetUserLocation,090000]\n/
-	\![*]\q[群馬県,OnSetUserLocation,100000]\n/
-	\![*]\q[埼玉県,OnSetUserLocation,110000]\n/
-	\![*]\q[千葉県,OnSetUserLocation,120000]\n/
-	\![*]\q[東京都,OnSetUserLocation,130000]\n/
-  \![*]\q[神奈川県,OnSetUserLocation,140000]\n/
-	\![*]\q[新潟県,OnSetUserLocation,150000]\n/
-	\![*]\q[富山県,OnSetUserLocation,160000]\n/
-	\![*]\q[石川県,OnSetUserLocation,170000]\n/
-	\![*]\q[福井県,OnSetUserLocation,180000]\n/
-	\![*]\q[山梨県,OnSetUserLocation,190000]\n/
-	\![*]\q[長野県,OnSetUserLocation,200000]\n/
-	\![*]\q[岐阜県,OnSetUserLocation,210000]\n/
-	\![*]\q[静岡県,OnSetUserLocation,220000]\n/
-	\![*]\q[愛知県,OnSetUserLocation,230000]\n/
-	\![*]\q[三重県,OnSetUserLocation,240000]\n/
-	\![*]\q[滋賀県,OnSetUserLocation,250000]\n/
-	\![*]\q[京都府,OnSetUserLocation,260000]\n/
-	\![*]\q[大阪府,OnSetUserLocation,270000]\n/
-	\![*]\q[兵庫県,OnSetUserLocation,280000]\n/
-	\![*]\q[奈良県,OnSetUserLocation,290000]\n/
-  \![*]\q[和歌山県,OnSetUserLocation,300000]\n/
-	\![*]\q[鳥取県,OnSetUserLocation,310000]\n/
-	\![*]\q[島根県,OnSetUserLocation,320000]\n/
-	\![*]\q[岡山県,OnSetUserLocation,330000]\n/
-	\![*]\q[広島県,OnSetUserLocation,340000]\n/
-	\![*]\q[山口県,OnSetUserLocation,350000]\n/
-	\![*]\q[徳島県,OnSetUserLocation,360000]\n/
-	\![*]\q[香川県,OnSetUserLocation,370000]\n/
-	\![*]\q[愛媛県,OnSetUserLocation,380000]\n/
-	\![*]\q[高知県,OnSetUserLocation,390000]\n/
-	\![*]\q[福岡県,OnSetUserLocation,400000]\n/
-	\![*]\q[佐賀県,OnSetUserLocation,410000]\n/
-	\![*]\q[長崎県,OnSetUserLocation,420000]\n/
-	\![*]\q[熊本県,OnSetUserLocation,430000]\n/
-	\![*]\q[大分県,OnSetUserLocation,440000]\n/
-	\![*]\q[宮崎県,OnSetUserLocation,450000]\n/
-  \![*]\q[鹿児島県,OnSetUserLocation,460100]\n/
-	\![*]\q[沖縄県,OnSetUserLocation,471000]\n/
-	\n[half]\e"
-}
-
-
-OnSetUserLocation {
-    WeatherLocation = reference[0]
-    "地域設定 : %( WeatherLocation ) が設定されたよ。"
-}
-
-
+//}}}
 
 
 

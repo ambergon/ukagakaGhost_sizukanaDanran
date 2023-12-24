@@ -1,6 +1,8 @@
 
 
 
+// 終了トーク
+// 指定時間になったら寝落ちする。
 
 
 
@@ -21,7 +23,7 @@ AutoUnload.system_Close {
 // この状態ではstatusを保証できないため表情はつけない。
 OnClose {
     // 状態変更
-    TalkModeChanger()
+    Surface.GearUp()
     _text = "\0\s[%(fc)]" + Close + "\w9\w9\w9\-\e"
     _text
 }
@@ -81,12 +83,14 @@ Close {
 }
 //}}}
 
+//{{{
+// ゴーストが勝手に寝ちゃう機能-------------------------------------
 CheckHours.SleepTime {
     _h = TOINT( "%(hour)" ) 
     if _h == 2 || _h == 3 {
         "もう・・・だめ・・・・。おやすみ。\w9\w9\w9\-\e"
     }
 }
-
+//}}}
 
 

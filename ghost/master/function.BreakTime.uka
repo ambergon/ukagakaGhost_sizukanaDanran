@@ -176,7 +176,7 @@ BreakTime.FadeOut {
 
 //{{{
 // D&D MP3ファイル--------------------------------------------------
-BreakTime.DropMp3 {
+FileDrop.BreakTime {
     _PATH = _argv[0]
 	"\b[2]\_q\n[half]/
 	%( _PATH )\n/

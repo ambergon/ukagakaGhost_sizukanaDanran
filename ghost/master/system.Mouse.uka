@@ -4,7 +4,6 @@
 
 
 
-// "MouseReaction.関数をまとめて実行できるようにしておく。
 //{{{
 // 起動処理---------------------------------------------------------
 AutoLoad.system_Mouse {
@@ -58,7 +57,7 @@ StrokeFunction {
             if ( StrokeCount > _Stroke ) {
                 if _Parts == "Head" {
                     // 撫でに対して状態変更を実行する。
-                    TalkModeChanger()
+                    Surface.GearUp()
                 }
                 StrokeCount = 0
                 EVAL("MouseStroke_%( _CharID )%(_Parts)")
@@ -86,11 +85,24 @@ OnMouseDoubleClick {
 
 
 
+// 頭撫で反応-------------------------------------------------------
+MouseStroke_0Head {
+    HeadNade()
+}
 
-//メインキャラの当たり判定が無い部分
-//MouseDoubleClick_0 {
-//    //"CPU消費具合:%property[system.cpu.load]"
-//    //_cpu = "%property[system.cpu.load]"
-//    //_cpu
-//}
+// 本ダブルクリック反応---------------------------------------------
+MouseDoubleClick_0Book {
+    Menu
+}
+
+// 当たり判定が無いところをダブルクリック---------------------------
+MouseDoubleClick_0 {
+    _test = TEST.test()
+    if _test == "" {
+        test = ""
+
+    //} elseif xx == yy {
+    }
+    _test
+}
 

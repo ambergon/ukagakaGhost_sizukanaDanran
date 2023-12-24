@@ -3,6 +3,7 @@
 
 
 
+// ファイルのD&D関係の辞書。
 
 
 
@@ -27,11 +28,11 @@ OnFileDropped {
 
     // mp3の場合は音楽再生用ファイルとして運用する。
     if ( RE_SEARCH(_FILE, "mp3$") ) {
-        BreakTime.DropMp3( _FILE )
+        FileDrop.BreakTime( _FILE )
 
     // ショートカット登録をする。
     } else {
-        SetShortCutMenu( _FILE )
+        FileDrop.ShortCutMenu( _FILE )
     }
 }
 //}}}

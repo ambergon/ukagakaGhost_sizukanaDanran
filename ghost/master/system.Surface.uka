@@ -1,122 +1,132 @@
 
+
+//
+
+
+
+
+
+//{{{
+// 起動処理---------------------------------------------------------
 AutoLoad.system_Surfece {
-    //初期表情
-    //TalkMode = "STATUS_FaceUp"
-    //起動時のトークに表情をつけたいので
-    TalkMode = "STATUS_TalkingYou"
+    // 初期表情
+    // ゴーストの状態を表す。
+    Surface.TalkMode = "MODE_TalkingYou"
 
-    //状態継続の初期値
-    SurfaceSec = 20
-    //介入ごとに状態が継続する追加秒数。
-    SurfaceSecAdd = 10
+    // 状態継続秒数の初期値
+    Surface.Sec = 20
+    // アクションごとに追加する秒数。
+    Surface.AddSec = 10
     //状態が維持される最大秒数
-    SurfaceSecMax = 120 
-    //SurfaceSecMax = 180 
+    Surface.MaxSec = 120 
+    //Surface.MaxSec = 180 
 }
-
+//}}}
+//{{{
+// 終了処理---------------------------------------------------------
 AutoUnload.system_Surfece {
-    ERASEVAR( 'TalkMode' )
-    ERASEVAR( 'SurfaceSec' )
-    ERASEVAR( 'SurfaceSecAdd' )
-    ERASEVAR( 'SurfaceSecMax' )
+    ERASEVAR( 'Surface.TalkMode' )
+    ERASEVAR( 'Surface.Sec' )
+    ERASEVAR( 'Surface.AddSec' )
+    ERASEVAR( 'Surface.MaxSec' )
 }
-
-
+//}}}
+//{{{
+// トーク等で発生した表情の変化を戻す関数。-------------------------
 //defaultで発言から15秒後表情を戻す
 //が、バルーンと一緒に消えるのは気に食わないのでずらす。
 //これは自分で使っている状態を戻すコードとは分離しているので、遅延の長さは致命的にならないはずだ。
 OnSurfaceRestore {
     "\0\__w[2000]\s[%(fc)]\e"
 }
+//}}}
+//{{{
+// 刺激に対して     : 1段階ギアを上げる。---------------------------
+Surface.GearUp {
 
+    // 顔を上げる。
+    if Surface.TalkMode == "MODE_ReadingBook" || Surface.TalkMode == "MODE_ReturnBookOpen" {
+        Surface.TalkMode = "MODE_FaceUp"
 
+    // 本を閉じる。
+    } elseif Surface.TalkMode == "MODE_FaceUp" {
+        Surface.TalkMode = "MODE_CloseBook"
 
-//sec時間経過で表情を戻す。手動呼び出し。
-SurfaceRestore {
-    "\0\s[%(fc)]"
-}
+    // 話を聞く
+    } elseif Surface.TalkMode == "MODE_CloseBook" {
+        Surface.TalkMode = "MODE_TalkingYou"
 
-
-//時間経過によって段階を戻していく。
-//これには発言(空送信)が発生する。
-CheckSecond.Surface {
-    if ( SurfaceSec > 0 ) {
-        SurfaceSec = SurfaceSec - 1
+    // 最高レベル。維持
+    } elseif Surface.TalkMode == "MODE_TalkingYou" {
     }
 
-    //読書継続
-    if ( TalkMode == "STATUS_ReadingBook" ) {
-
-
-    //本を開いて読み始める
-    } elseif ( SurfaceSec == 0 && TalkMode == "STATUS_ReturnBookOpen" ) {
-        TalkMode = "STATUS_ReadingBook"
-        SurfaceSec = 3
-        SurfaceRestore
-
-
-    //本に視線を戻す。
-    }elseif ( SurfaceSec == 0  && TalkMode == "STATUS_FaceUp" ) {
-        TalkMode = "STATUS_ReadingBook"
-        SurfaceRestore
-
-
-    //読書状態へ戻る
-    }elseif ( SurfaceSec == 0  && TalkMode == "STATUS_TalkingYou" ) || ( SurfaceSec == 0 && TalkMode == "STATUS_CloseBook" ) {
-        TalkMode = "STATUS_ReturnBookOpen"
-        SurfaceSec = 3
-        SurfaceRestore
+    // 現在の状態が継続される秒数を追加。
+    Surface.Sec = Surface.Sec + Surface.AddSec
+    if ( Surface.Sec > Surface.MaxSec ) {
+        Surface.Sec = Surface.MaxSec
     }
 }
+//}}}
+//{{{
+// 時間経過によって : 1段階をギアを落とす。-------------------------
+// これには発言(空送信)が発生する。
+CheckSecond.GearDown {
 
-
-// 刺激に対してモード変更を行う。
-TalkModeChanger {
-    //顔を上げる。
-    if TalkMode == "STATUS_ReadingBook" || TalkMode == "STATUS_ReturnBookOpen" {
-        TalkMode = "STATUS_FaceUp"
-
-    //本を閉じる。
-    } elseif TalkMode == "STATUS_FaceUp" {
-        TalkMode = "STATUS_CloseBook"
-
-    //話を聞く
-    } elseif TalkMode == "STATUS_CloseBook" {
-        TalkMode = "STATUS_TalkingYou"
-
-    //最高レベル。維持
-    } elseif TalkMode == "STATUS_TalkingYou" {
+    // 状態継続秒数。0になると各種発火。
+    if ( 0 < Surface.Sec ) {
+        Surface.Sec = Surface.Sec - 1
     }
 
-    //現在の状態が継続される秒数を追加。
-    SurfaceSec = SurfaceSec + SurfaceSecAdd
-    if ( SurfaceSec > SurfaceSecMax ) {
-        SurfaceSec = SurfaceSecMax
+    // 読書継続
+    if ( Surface.TalkMode == "MODE_ReadingBook" ) {
+
+
+    // 本を開いて読み始める
+    } elseif ( Surface.Sec == 0 && Surface.TalkMode == "MODE_ReturnBookOpen" ) {
+        Surface.TalkMode = "MODE_ReadingBook"
+        Surface.Sec = 3
+        "\0\s[%(fc)]\b[-1]"
+
+
+    // 本に視線を戻す。
+    }elseif ( Surface.Sec == 0  && Surface.TalkMode == "MODE_FaceUp" ) {
+        Surface.TalkMode = "MODE_ReadingBook"
+        "\0\s[%(fc)]\b[-1]"
+
+
+    // 読書状態へ戻る
+    }elseif ( Surface.Sec == 0  && Surface.TalkMode == "MODE_TalkingYou" ) || ( Surface.Sec == 0 && Surface.TalkMode == "MODE_CloseBook" ) {
+        Surface.TalkMode = "MODE_ReturnBookOpen"
+        Surface.Sec = 3
+        "\0\s[%(fc)]\b[-1]"
     }
 }
-
-
-//文字列送信では''が必要。
-//"\0\s[%(fc('照れ'))]"
-//"\0\s[%(fc('じっ'))]"
-//"\0\s[%(fc('照れ'))]"
-//FaceControl
+//}}}
+//{{{
+// 現在のギアに応じてSurface番号を出力してくれる関数。--------------
+// 第一引数 : surfaceに対応する表情名
+// FaceControl
+// "\0\s[%(fc('じっ'))]"
+// "\0\s[%(fc('照れ'))]"
 fc {
+
+    // 現在の状態及び最終のsurfaceの出力
     _status = 000
     _face = _argv[0]
 
-	if ( TalkMode == "STATUS_ReadingBook" ) {
+	if ( Surface.TalkMode == "MODE_ReadingBook" ) {
 		_status = 000
 
-	} elseif ( TalkMode == "STATUS_FaceUp" ) {
+	} elseif ( Surface.TalkMode == "MODE_FaceUp" ) {
 		_status = 100
 
-	} elseif ( TalkMode == "STATUS_CloseBook" ) {
+	} elseif ( Surface.TalkMode == "MODE_CloseBook" ) {
 		_status = 200
 
-    //トーク状態の時のみ表情に変化をつける。
-	} elseif ( TalkMode == "STATUS_TalkingYou" ) {
-        _face = _argv[0]
+    // 表情を使用できるのは MODE_TalkingYou モードだけ。
+	} elseif ( Surface.TalkMode == "MODE_TalkingYou" ) {
+		_status = 300
+
         if _face == "" {
             _face = 0
         } elseif _face == "じっ" {
@@ -157,21 +167,21 @@ fc {
             _face = 18
         } elseif _face == "脱力" {
             _face = 19
+
         //} elseif _face ==  {
         } else {
             _face = 0
         }
-		_status = 300
+
         _status = _status + _face
 
-	} elseif ( TalkMode == "STATUS_ReturnBookOpen" ) {
+	} elseif ( Surface.TalkMode == "MODE_ReturnBookOpen" ) {
 		_status = 400
 	}
+
     _status
 }
-
-
-
+//}}}
 
 
 
