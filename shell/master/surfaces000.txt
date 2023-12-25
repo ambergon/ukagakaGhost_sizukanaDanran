@@ -6,24 +6,33 @@ descript
 }
 
 
-
-//status_ReadingBook
-//000
+//{{{
+// MODE_ReadingBook 000 - 099---------------------------------------
 surface.append000-099 {
     element0,base,status/ReadingBook.png,0,0
-    //本を開きっぱなしに。
+    // 本を開きっぱなしに。
     element10,base,book/BookOpen/book_00000.png,0,0
 }
-
-//Book eye Close
+//}}}
+//{{{
+// 戻ってきたときに目線を本に戻す。---------------------------------
 surface.append000-099 {
-    //random eye close
+	animation2.interval,runonce
+	animation2.pattern4,overlayfast,1002,0,0,0
+	animation2.pattern5,overlayfast,1001,78,0,0
+	animation2.pattern6,overlayfast,-1,950,0,0
+}
+//}}}
+//{{{
+// 瞬き-------------------------------------------------------------
+surface.append000-099 {
 	animation0.interval,random,70
 	animation0.pattern0,overlayfast,1001,60,0,0
 	animation0.pattern1,overlayfast,-1,6000,0,0
 }
-
-//random eye book to you to book
+//}}}
+//{{{
+// 貴方を見て本に視線を戻す。---------------------------------------
 surface.append000-099 {
 	animation1.interval,random,70
 	animation1.pattern1,overlayfast,1001,150,0,0
@@ -33,16 +42,9 @@ surface.append000-099 {
 	animation1.pattern5,overlayfast,1001,78,0,0
 	animation1.pattern6,overlayfast,-1,950,0,0
 }
-
-//戻ってきたときに目線を本に戻す。
-surface.append000-099 {
-	animation2.interval,runonce
-	animation2.pattern4,overlayfast,1002,0,0,0
-	animation2.pattern5,overlayfast,1001,78,0,0
-	animation2.pattern6,overlayfast,-1,950,0,0
-}
-
-//Book_next
+//}}}
+//{{{
+// ページめくり処理。-----------------------------------------------
 surface.append000-099 {
 	animation500.interval,random,200
 	animation500.pattern1,overlay,5001,1,0,0
@@ -196,4 +198,9 @@ surface.append000-099 {
 	animation500.pattern149,overlay,5149,1,0,0
 	animation500.pattern150,overlay,5150,1,0,0
 }
+//}}}
+
+
+
+
 

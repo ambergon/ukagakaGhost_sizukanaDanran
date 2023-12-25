@@ -5,25 +5,14 @@ descript
     version,1
 }
 
-
-//status_CloseBook
-//200
-
+//{{{
+// MODE_CloseBook 200 - 299-----------------------------------------
 surface200-299 {
-    //element face to you
     element0,base,status/CloseBook.png,0,0
 }
-
-surface.append200-299 {
-    //random eye you close 
-	animation0.interval,random,30
-	animation0.pattern0,overlayfast,1001,50,0,0
-	animation0.pattern1,overlayfast,1002,50,0,0
-	animation0.pattern2,overlayfast,-1,60,0,0
-}
-
-
-//Book Close
+//}}}
+//{{{
+// 本を閉じる処理。-------------------------------------------------
 surface.append200-299 {
 	animation500.interval,runonce
 	animation500.pattern0,overlay,4000,0,0,0
@@ -179,3 +168,18 @@ surface.append200-299 {
 	animation500.pattern150,overlay,4150,1,0,0
 	animation500.pattern151,overlay,-1,110000,0,0
 }
+//}}}
+//{{{
+// 瞬き処理。-------------------------------------------------------
+surface.append200-299 {
+	animation0.interval,random,30
+	animation0.pattern0,overlayfast,1001,50,0,0
+	animation0.pattern1,overlayfast,1002,50,0,0
+	animation0.pattern2,overlayfast,-1,60,0,0
+}
+//}}}
+
+
+
+
+

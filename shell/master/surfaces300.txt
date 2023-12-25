@@ -6,28 +6,31 @@ descript
 }
 
 
-//status_TalkingYou
 //300
-//run onceを使えば status_CloseBookを省略できるが
+//run onceを使えば MODE_CloseBookを省略できるが
 //talkで話しかけるたびにbookopenが呼ばれてしまうのでこのまま。
 
 
-
-//surface300 {
+//{{{
+// MODE_TalkingYou 300 - 399----------------------------------------
 surface300-399 {
-    //element face to you
+    // 胴体
     element0,base,status/TalkingYou.png,0,0
     //本を閉じっぱなしに
     element10,base,book/BookOpen/book_00150.png,0,0
 }
+//}}}
+////{{{
+//// 瞬きをしないようにしている?
+//surface.append300-399 {
+//    random eye you close 
+//	animation0.interval,random,30
+//	animation0.pattern0,overlayfast,1001,50,0,0
+//	animation0.pattern1,overlayfast,1002,50,0,0
+//	animation0.pattern2,overlayfast,-1,60,0,0
+//}
+////}}}
 
-surface.append300-399 {
-    //random eye you close 
-	//animation0.interval,random,30
-	//animation0.pattern0,overlayfast,1001,50,0,0
-	//animation0.pattern1,overlayfast,1002,50,0,0
-	//animation0.pattern2,overlayfast,-1,60,0,0
-}
 
 
 ////対話状態で使用するsurface。胴体が必要。
@@ -88,6 +91,19 @@ surface.append318 {
 surface.append319 {
     element1,overlay,face/脱力.png,0,0
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
