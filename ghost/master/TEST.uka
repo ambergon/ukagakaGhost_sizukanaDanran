@@ -18,7 +18,10 @@ AutoUnload.TEST {
 //_cpu = "%property[system.cpu.load]"
 //_cpu
 
-
+//送信\![notifyplugin,MailBox,OnSendMail,0,%(year),%(mouth),%(day),送信者名,メールタイトル,メール本文]
+//送信\![notifyplugin,MailBox,OnSendMail,0,2023,12,25,送信者名,メールタイトル,メール本文]
+//送信%(year),%(mouth),%(day)
+//"送信\![notifyplugin,MailBox,OnSendMail,0,2023,12,25,_,晴らせぬ恨み晴らします,> _ENTER <]"
 
 // 返す内容がある時だけ表示される。---------------------------------
 // 無ければ通常トーク等
@@ -26,6 +29,15 @@ TEST.test {
     //""
 }
 
+
+
+// SSTP から送信してみるサンプル。
+//OnTest {
+//    _Sender = "VimのMemo帖"
+//    _Text   = reference[0]
+//    "送信\![notifyplugin,MailBox,OnSendMail,0,%(year),%(mouth), %(day),%(_Sender),%(_Text),メール本文]"
+//    //"送信\![notifyplugin,MailBox,OnSendMail,0,2023,12,25,_,晴らせぬ恨み晴らします,> _ENTER <]"
+//}
 
 
 
