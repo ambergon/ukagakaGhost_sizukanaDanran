@@ -6,191 +6,8 @@ descript
 }
 
 
-// 赤面差分を別に作る。
-sakura.surface.alias 
-{
-
-
-
 //{{{
-// 通常差分 : 300 - 328---------------------------------------------
-// A カラム
-不満,[300]
-にへら,[301]
-怒り,[302]
-目閉じ,[303]
-笑顔,[304]
-脱力,[305]
-困る,[306]
-驚き,[307]
-//None,[]
-
-// B カラム
-あはは,[308]
-怒ったぞ,[309]
-やだー,[310]
-//None,[]
-微笑,[311]
-疑い,[312]
-不安,[313]
-どうかな,[314]
-うーん,[315]
-
-// C カラム
-嫌!,[316]
-しょうがないなー,[317]
-//None,[]
-困ったなー,[318]
-困ったなーA,[319]
-退屈,[320]
-どうしよっかなー,[321]
-否定,[322]
-じとー,[323]
-
-// D カラム
-半目,[324]
-//None,[]
-上機嫌,[325]
-ニカッ,[326]
-//None,[]
-//None,[]
-//None,[]
-泣き始め,[327]
-うわっ,[328]
-//}}}
-//{{{
-// 赤面差分 : 329 - 357---------------------------------------------
-// A カラム
-不満/赤面,[329]
-にへら/赤面,[330]
-怒り/赤面,[331]
-目閉じ/赤面,[332]
-笑顔/赤面,[333]
-脱力/赤面,[334]
-困る/赤面,[335]
-驚き/赤面,[336]
-//None/赤面,[]
-
-// B カラム
-あはは/赤面,[337]
-怒ったぞ/赤面,[338]
-やだー/赤面,[339]
-//None/赤面,[]
-微笑/赤面,[340]
-疑い/赤面,[341]
-不安/赤面,[342]
-どうかな/赤面,[343]
-うーん/赤面,[344]
-
-// C カラム
-嫌!/赤面,[345]
-しょうがないなー/赤面,[346]
-//None/赤面,[]
-困ったなー/赤面,[347]
-困ったなーA/赤面,[348]
-退屈/赤面,[349]
-どうしよっかなー/赤面,[350]
-否定/赤面,[351]
-じとー/赤面,[352]
-
-// D カラム
-半目/赤面,[353]
-//None/赤面,[]
-上機嫌/赤面,[354]
-ニカッ/赤面,[355]
-//None/赤面,[]
-//None/赤面,[]
-//None/赤面,[]
-泣き始め/赤面,[356]
-うわっ/赤面,[357]
-//}}}
-//{{{
-// 汗  差分 : 358 - 386---------------------------------------------
-// A カラム
-不満/汗,[358]
-にへら/汗,[359]
-怒り/汗,[360]
-目閉じ/汗,[361]
-笑顔/汗,[362]
-脱力/汗,[363]
-困る/汗,[364]
-驚き/汗,[365]
-//None/汗,[]
-
-// B カラム
-あはは/汗,[366]
-怒ったぞ/汗,[367]
-やだー/汗,[368]
-//None/汗,[]
-微笑/汗,[369]
-疑い/汗,[370]
-不安/汗,[371]
-どうかな/汗,[372]
-うーん/汗,[373]
-
-// C カラム
-嫌!/汗,[374]
-しょうがないなー/汗,[375]
-//None/汗,[]
-困ったなー/汗,[376]
-困ったなーA/汗,[377]
-退屈/汗,[378]
-どうしよっかなー/汗,[379]
-否定/汗,[380]
-じとー/汗,[381]
-
-// D カラム
-半目/汗,[382]
-//None/汗,[]
-上機嫌/汗,[383]
-ニカッ/汗,[384]
-//None/汗,[]
-//None/汗,[]
-//None/汗,[]
-泣き始め/汗,[385]
-うわっ/汗,[386]
-//}}}
-
-
-
-//	ふつう,[0]
-}
-
-
-// 胴体/表情付き。
-//{{{
-// MODE_TalkingYou 300 - 399----------------------------------------
-surface300-399 {
-    element0,base,status/TalkingYou.png,0,0
-    //本を閉じっぱなしに
-    element10,base,book/BookOpen/book_00150.png,0,0
-}
-//}}}
-
-
-// デフォルト
-surface.append300 {
-}
-surface.append301 {
-    element1,overlay,p005b/じっ.png,0,0
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//{{{
-//// 作業テーブルメモ
+// 作業テーブルメモ-------------------------------------------------
 //a0 : 不満
 //a1 : にへら
 //a2 : 怒り
@@ -229,7 +46,7 @@ surface.append301 {
 //d8 : うわっ
 //}}}
 //{{{
-//// デフォルトネーム
+// デフォルトネーム-------------------------------------------------
 //照れ困り,[301]
 //困り笑い,[302]
 //怒り,[303]
@@ -268,77 +85,701 @@ surface.append301 {
 //衝撃涙,[336]
 //衝撃2,[337]
 //}}}
+
 //{{{
-//// 旧版 
-//////対話状態で使用するsurface。胴体が必要。
-//surface.append301 {
-//    element1,overlay,face/じっ.png,0,0
-//}
-//surface.append302 {
-//    element1,overlay,face/疑い.png,0,0
-//}
-//surface.append303 {
-//    element1,overlay,face/泣き顔.png,0,0
-//}
-//surface.append304 {
-//    element1,overlay,face/泣き始め.png,0,0
-//}
-//surface.append305 {
-//    element1,overlay,face/驚き.png,0,0
-//}
-//surface.append306 {
-//    element1,overlay,face/月の微笑み.png,0,0
-//}
-//surface.append307 {
-//    element1,overlay,face/嫌.png,0,0
-//}
-//surface.append308 {
-//    element1,overlay,face/困り笑い.png,0,0
-//}
-//surface.append309 {
-//    element1,overlay,face/困り笑い2.png,0,0
-//}
-//surface.append310 {
-//    element1,overlay,face/困る.png,0,0
-//}
-//surface.append311 {
-//    element1,overlay,face/視線そらし.png,0,0
-//}
-//surface.append312 {
-//    element1,overlay,face/笑顔.png,0,0
-//}
-//surface.append313 {
-//    element1,overlay,face/照れ笑い.png,0,0
-//}
-//surface.append314 {
-//    element1,overlay,face/怒り.png,0,0
-//}
-//surface.append315 {
-//    element1,overlay,face/微笑み.png,0,0
-//}
-//surface.append316 {
-//    element1,overlay,face/不満.png,0,0
-//}
-//surface.append317 {
-//    element1,overlay,face/呆れ.png,0,0
-//}
-//surface.append318 {
-//    element1,overlay,face/目閉じ.png,0,0
-//}
-//surface.append319 {
-//    element1,overlay,face/脱力.png,0,0
-//}
+// エイリアス-------------------------------------------------------
+sakura.surface.alias 
+{
+// default
+普通,[300]
+//{{{
+// 通常差分 : 301 - 329---------------------------------------------
+// A カラム
+不満,[301]
+にへら,[302]
+怒り,[303]
+目閉じ,[304]
+笑顔,[305]
+脱力,[306]
+困る,[307]
+驚き,[308]
+//None,[]
+
+// B カラム
+あはは,[309]
+怒ったぞ,[310]
+やだー,[311]
+//None,[]
+微笑,[312]
+疑い,[313]
+不安,[314]
+どうかな,[315]
+うーん,[316]
+
+// C カラム
+嫌!,[317]
+しょうがないなー,[318]
+//None,[]
+困ったなー,[319]
+困ったなーA,[320]
+退屈,[321]
+どうしよっかなー,[322]
+否定,[323]
+じとー,[324]
+
+// D カラム
+半目,[325]
+//None,[]
+上機嫌,[326]
+ニカッ,[327]
+//None,[]
+//None,[]
+//None,[]
+泣き始め,[328]
+うわっ,[329]
 //}}}
-////{{{
-//// 瞬き処理は多分いらない。
-//surface.append300-399 {
-//    random eye you close 
-//	animation0.interval,random,30
-//	animation0.pattern0,overlayfast,1001,50,0,0
-//	animation0.pattern1,overlayfast,1002,50,0,0
-//	animation0.pattern2,overlayfast,-1,60,0,0
+//{{{
+// 赤面差分 : 330 - 358---------------------------------------------
+// A カラム
+不満/赤面,[330]
+にへら/赤面,[331]
+怒り/赤面,[332]
+目閉じ/赤面,[333]
+笑顔/赤面,[334]
+脱力/赤面,[335]
+困る/赤面,[336]
+驚き/赤面,[337]
+//None/赤面,[]
+
+// B カラム
+あはは/赤面,[338]
+怒ったぞ/赤面,[339]
+やだー/赤面,[340]
+//None/赤面,[]
+微笑/赤面,[341]
+疑い/赤面,[342]
+不安/赤面,[343]
+どうかな/赤面,[344]
+うーん/赤面,[345]
+
+// C カラム
+嫌!/赤面,[346]
+しょうがないなー/赤面,[347]
+//None/赤面,[]
+困ったなー/赤面,[348]
+困ったなーA/赤面,[349]
+退屈/赤面,[350]
+どうしよっかなー/赤面,[351]
+否定/赤面,[352]
+じとー/赤面,[353]
+
+// D カラム
+半目/赤面,[354]
+//None/赤面,[]
+上機嫌/赤面,[355]
+ニカッ/赤面,[356]
+//None/赤面,[]
+//None/赤面,[]
+//None/赤面,[]
+泣き始め/赤面,[357]
+うわっ/赤面,[358]
+//}}}
+//{{{
+// 汗  差分 : 359 - 387---------------------------------------------
+// A カラム
+不満/汗,[359]
+にへら/汗,[360]
+怒り/汗,[361]
+目閉じ/汗,[362]
+笑顔/汗,[363]
+脱力/汗,[364]
+困る/汗,[365]
+驚き/汗,[366]
+//None/汗,[]
+
+// B カラム
+あはは/汗,[367]
+怒ったぞ/汗,[368]
+やだー/汗,[369]
+//None/汗,[]
+微笑/汗,[370]
+疑い/汗,[371]
+不安/汗,[372]
+どうかな/汗,[373]
+うーん/汗,[374]
+
+// C カラム
+嫌!/汗,[375]
+しょうがないなー/汗,[376]
+//None/汗,[]
+困ったなー/汗,[377]
+困ったなーA/汗,[378]
+退屈/汗,[379]
+どうしよっかなー/汗,[380]
+否定/汗,[381]
+じとー/汗,[382]
+
+// D カラム
+半目/汗,[383]
+//None/汗,[]
+上機嫌/汗,[384]
+ニカッ/汗,[385]
+//None/汗,[]
+//None/汗,[]
+//None/汗,[]
+泣き始め/汗,[386]
+うわっ/汗,[387]
+//}}}
+}
+//}}}
+
+// 胴体/表情付き。
+//{{{
+// MODE_TalkingYou 300 - 399----------------------------------------
+surface300-399 {
+    element0,base,status/TalkingYou.png,0,0
+    //本を閉じっぱなしに
+    element10,base,book/BookOpen/book_00150.png,0,0
+}
+//}}}
+
+
+//{{{
+// surface : デフォルト : 300
+surface.append300 {
+}
+//}}}
+//{{{
+// surface : 通常差分 : 301 - 329-----------------------------------
+// A カラム---------------------------------------------------------
+//不満
+surface.append301 {
+    element1,overlay,p005b/a0.png,0,0
+}
+//にへら
+surface.append302 {
+    element1,overlay,p005b/a1.png,0,0
+}
+//怒り
+surface.append303 {
+    element1,overlay,p005b/a2.png,0,0
+}
+//目閉じ
+surface.append304 {
+    element1,overlay,p005b/a3.png,0,0
+}
+//笑顔
+surface.append305 {
+    element1,overlay,p005b/a4.png,0,0
+}
+//脱力
+surface.append306 {
+    element1,overlay,p005b/a5.png,0,0
+}
+//困る
+surface.append307 {
+    element1,overlay,p005b/a6.png,0,0
+}
+//驚き
+surface.append308 {
+    element1,overlay,p005b/a7.png,0,0
+}
+//None
+//surface.append {
+//  element1,overlay,p005b/a8.png,0,0
 //}
-////}}}
+
+// B カラム---------------------------------------------------------
+//あはは
+surface.append309 {
+    element1,overlay,p005b/b0.png,0,0
+}
+//怒ったぞ
+surface.append310 {
+    element1,overlay,p005b/b1.png,0,0
+}
+//やだー
+surface.append311 {
+    element1,overlay,p005b/b2.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/b3.png,0,0
+//}
+//微笑
+surface.append312 {
+    element1,overlay,p005b/b4.png,0,0
+}
+//疑い
+surface.append313 {
+    element1,overlay,p005b/b5.png,0,0
+}
+//不安
+surface.append314 {
+    element1,overlay,p005b/b6.png,0,0
+}
+//どうかな
+surface.append315 {
+    element1,overlay,p005b/b7.png,0,0
+}
+//うーん
+surface.append316 {
+    element1,overlay,p005b/b8.png,0,0
+}
+
+// C カラム---------------------------------------------------------
+//嫌!
+surface.append317 {
+    element1,overlay,p005b/c0.png,0,0
+}
+//しょうがないなー
+surface.append318 {
+    element1,overlay,p005b/c1.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/c2.png,0,0
+//}
+//困ったなー
+surface.append319 {
+    element1,overlay,p005b/c3.png,0,0
+}
+//困ったなーA
+surface.append320 {
+    element1,overlay,p005b/c4.png,0,0
+}
+//退屈
+surface.append321 {
+    element1,overlay,p005b/c5.png,0,0
+}
+//どうしよっかなー
+surface.append322 {
+    element1,overlay,p005b/c6.png,0,0
+}
+//否定
+surface.append323 {
+    element1,overlay,p005b/c7.png,0,0
+}
+//じとー
+surface.append324 {
+    element1,overlay,p005b/c8.png,0,0
+}
+
+// D カラム---------------------------------------------------------
+//半目
+surface.append325 {
+    element1,overlay,p005b/d0.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/d1.png,0,0
+//}
+//上機嫌
+surface.append326 {
+    element1,overlay,p005b/d2.png,0,0
+}
+//ニカッ
+surface.append327 {
+    element1,overlay,p005b/d3.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/d4.png,0,0
+//}
+////None
+//surface.append {
+//    element1,overlay,p005b/d5.png,0,0
+//}
+////None
+//surface.append {
+//    element1,overlay,p005b/d6.png,0,0
+//}
+//泣き始め
+surface.append328 {
+    element1,overlay,p005b/d7.png,0,0
+}
+//うわっ
+surface.append329 {
+    element1,overlay,p005b/d8.png,0,0
+}
+
+//}}}
+//{{{
+// surface : 赤面差分 : 330 - 358-----------------------------------
+// A カラム---------------------------------------------------------
+//不満
+surface.append330 {
+    element1,overlay,p005b/a0.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//にへら
+surface.append331 {
+    element1,overlay,p005b/a1.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//怒り
+surface.append332 {
+    element1,overlay,p005b/a2.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//目閉じ
+surface.append333 {
+    element1,overlay,p005b/a3.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//笑顔
+surface.append334 {
+    element1,overlay,p005b/a4.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//脱力
+surface.append335 {
+    element1,overlay,p005b/a5.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//困る
+surface.append336 {
+    element1,overlay,p005b/a6.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//驚き
+surface.append337 {
+    element1,overlay,p005b/a7.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//None
+//surface.append {
+//  element1,overlay,p005b/a8.png,0,0
+//}
+
+// B カラム---------------------------------------------------------
+//あはは
+surface.append338 {
+    element1,overlay,p005b/b0.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//怒ったぞ
+surface.append339 {
+    element1,overlay,p005b/b1.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//やだー
+surface.append340 {
+    element1,overlay,p005b/b2.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/b3.png,0,0
+//}
+//微笑
+surface.append341 {
+    element1,overlay,p005b/b4.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//疑い
+surface.append342 {
+    element1,overlay,p005b/b5.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//不安
+surface.append343 {
+    element1,overlay,p005b/b6.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//どうかな
+surface.append344 {
+    element1,overlay,p005b/b7.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//うーん
+surface.append345 {
+    element1,overlay,p005b/b8.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+
+// C カラム---------------------------------------------------------
+//嫌!
+surface.append346 {
+    element1,overlay,p005b/c0.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//しょうがないなー
+surface.append347 {
+    element1,overlay,p005b/c1.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/c2.png,0,0
+//}
+//困ったなー
+surface.append348 {
+    element1,overlay,p005b/c3.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//困ったなーA
+surface.append349 {
+    element1,overlay,p005b/c4.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//退屈
+surface.append350 {
+    element1,overlay,p005b/c5.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//どうしよっかなー
+surface.append351 {
+    element1,overlay,p005b/c6.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//否定
+surface.append352 {
+    element1,overlay,p005b/c7.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//じとー
+surface.append353 {
+    element1,overlay,p005b/c8.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+
+// D カラム---------------------------------------------------------
+//半目
+surface.append354 {
+    element1,overlay,p005b/d0.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/d1.png,0,0
+//}
+//上機嫌
+surface.append355 {
+    element1,overlay,p005b/d2.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//ニカッ
+surface.append356 {
+    element1,overlay,p005b/d3.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/d4.png,0,0
+//}
+////None
+//surface.append {
+//    element1,overlay,p005b/d5.png,0,0
+//}
+////None
+//surface.append {
+//    element1,overlay,p005b/d6.png,0,0
+//}
+//泣き始め
+surface.append357 {
+    element1,overlay,p005b/d7.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+//うわっ
+surface.append358 {
+    element1,overlay,p005b/d8.png,0,0
+    element2,overlay,p005b/p0.png,0,0
+}
+
+//}}}
+//{{{
+// surface : 汗  差分 : 359 - 387-----------------------------------
+// A カラム---------------------------------------------------------
+//不満
+surface.append359 {
+    element1,overlay,p005b/a0.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//にへら
+surface.append360 {
+    element1,overlay,p005b/a1.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//怒り
+surface.append361 {
+    element1,overlay,p005b/a2.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//目閉じ
+surface.append362 {
+    element1,overlay,p005b/a3.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//笑顔
+surface.append363 {
+    element1,overlay,p005b/a4.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//脱力
+surface.append364 {
+    element1,overlay,p005b/a5.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//困る
+surface.append365 {
+    element1,overlay,p005b/a6.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//驚き
+surface.append366 {
+    element1,overlay,p005b/a7.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//None
+//surface.append {
+//  element1,overlay,p005b/a8.png,0,0
+//}
+
+// B カラム---------------------------------------------------------
+//あはは
+surface.append367 {
+    element1,overlay,p005b/b0.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//怒ったぞ
+surface.append368 {
+    element1,overlay,p005b/b1.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//やだー
+surface.append369 {
+    element1,overlay,p005b/b2.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/b3.png,0,0
+//}
+//微笑
+surface.append370 {
+    element1,overlay,p005b/b4.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//疑い
+surface.append371 {
+    element1,overlay,p005b/b5.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//不安
+surface.append372 {
+    element1,overlay,p005b/b6.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//どうかな
+surface.append373 {
+    element1,overlay,p005b/b7.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//うーん
+surface.append374 {
+    element1,overlay,p005b/b8.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+
+// C カラム---------------------------------------------------------
+//嫌!
+surface.append375 {
+    element1,overlay,p005b/c0.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//しょうがないなー
+surface.append376 {
+    element1,overlay,p005b/c1.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/c2.png,0,0
+//}
+//困ったなー
+surface.append377 {
+    element1,overlay,p005b/c3.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//困ったなーA
+surface.append378 {
+    element1,overlay,p005b/c4.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//退屈
+surface.append379 {
+    element1,overlay,p005b/c5.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//どうしよっかなー
+surface.append380 {
+    element1,overlay,p005b/c6.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//否定
+surface.append381 {
+    element1,overlay,p005b/c7.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//じとー
+surface.append382 {
+    element1,overlay,p005b/c8.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+
+// D カラム---------------------------------------------------------
+//半目
+surface.append383 {
+    element1,overlay,p005b/d0.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/d1.png,0,0
+//}
+//上機嫌
+surface.append384 {
+    element1,overlay,p005b/d2.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//ニカッ
+surface.append385 {
+    element1,overlay,p005b/d3.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+////None
+//surface.append {
+//    element1,overlay,p005b/d4.png,0,0
+//}
+////None
+//surface.append {
+//    element1,overlay,p005b/d5.png,0,0
+//}
+////None
+//surface.append {
+//    element1,overlay,p005b/d6.png,0,0
+//}
+//泣き始め
+surface.append386 {
+    element1,overlay,p005b/d7.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+//うわっ
+surface.append387 {
+    element1,overlay,p005b/d8.png,0,0
+    element2,overlay,p005b/p1.png,0,0
+}
+
+//}}}
+//{{{
+// surface : 泣き顔   : 389
+surface.append389 {
+    element1,overlay,p005b/o1.png,0,0
+}
+//}}}
+
+
 
 
 

@@ -1,0 +1,80 @@
+
+
+
+// 普段返ってくる時間を計測する関数。
+// BootCount.Result
+
+//{{{
+// 起動処理---------------------------------------------------------
+AutoLoad.system_BootCount {
+    // 25で初期化しておく。
+    BootCount.Result = 25
+    // 配列が無ければ初期化
+    if ( ISVAR( "BootCount.Array" ) == 0 ){
+        BootCount.Array = IARRAY
+    }
+    BootCount.Main()
+}
+//}}}
+//{{{
+// 終了処理---------------------------------------------------------
+AutoUnload.system_BootCount {
+    ERASEVAR( 'BootCount.Result' )
+}
+//}}}
+//{{{
+// ステータス関数---------------------------------------------------
+Status.BootCount {
+    "BootCount.Result = %(BootCount.Result)"
+}
+//}}}
+//{{{
+// ユーザがいつも何時に返ってくるか取得する関数。-------------------
+// BootCount.Result = いつも返ってくる時間
+// BootCount.Result が25なら使用できる状態ではない。
+// 同一回数の場合は遅い時間が優先される。
+BootCount.Main {
+    // 今まで起動した時間をすべて格納する配列。その幅。50を指定すれば、50回まで起動した時間を保存する。
+    _BootCount.ArrayMaxSize = 50
+    // 最小起動回数。これ未満の場合、計算不可能とする。
+    _BootCount.MinBoot = 6
+    // 最小カウント数。 個別の時間の起動回数がこの回数以下の場合カウントしない。
+    _BootCount.MinHour   = 4
+
+    // 現在の時間を配列に追加。
+    BootCount.Array = ( BootCount.Array , hour )
+
+    // 配列サイズが上限を超えた場合、若いモノから削除。
+    while ARRAYSIZE( BootCount.Array ) > _BootCount.ArrayMaxSize {
+        BootCount.Array[0] = IARRAY
+    }
+
+    // 0 - 23 までを配列に分ける。
+    checkHour = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+    foreach BootCount.Array ; _check {
+        checkHour[_check]++
+    }
+
+    // 全体の起動回数が一定以上の場合処理する。
+    if ARRAYSIZE( BootCount.Array ) >= _BootCount.MinBoot  {
+        //最も大きい数字を確保する。
+        BootCount.Result = 0
+        _count   = 0
+        foreach checkHour ; _hour {
+            // 現在確保した数字より大きくて また 最小起動回数を上回るものをリザルトに上書きする。
+            if _hour >= BootCount.Result && _hour >= _BootCount.MinHour {
+                BootCount.Result = _count
+            }
+            _count++
+        }
+    }
+}
+//}}}
+
+
+
+
+
+
+
+
