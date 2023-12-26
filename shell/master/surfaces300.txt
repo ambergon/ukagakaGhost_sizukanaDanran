@@ -6,22 +6,331 @@ descript
 }
 
 
-//300
-//run onceを使えば MODE_CloseBookを省略できるが
-//talkで話しかけるたびにbookopenが呼ばれてしまうのでこのまま。
+// 赤面差分を別に作る。
+sakura.surface.alias 
+{
+
 
 
 //{{{
+// 通常差分 : 300 - 328---------------------------------------------
+// A カラム
+不満,[300]
+にへら,[301]
+怒り,[302]
+目閉じ,[303]
+笑顔,[304]
+脱力,[305]
+困る,[306]
+驚き,[307]
+//None,[]
+
+// B カラム
+あはは,[308]
+怒ったぞ,[309]
+やだー,[310]
+//None,[]
+微笑,[311]
+疑い,[312]
+不安,[313]
+どうかな,[314]
+うーん,[315]
+
+// C カラム
+嫌!,[316]
+しょうがないなー,[317]
+//None,[]
+困ったなー,[318]
+困ったなーA,[319]
+退屈,[320]
+どうしよっかなー,[321]
+否定,[322]
+じとー,[323]
+
+// D カラム
+半目,[324]
+//None,[]
+上機嫌,[325]
+ニカッ,[326]
+//None,[]
+//None,[]
+//None,[]
+泣き始め,[327]
+うわっ,[328]
+//}}}
+//{{{
+// 赤面差分 : 329 - 357---------------------------------------------
+// A カラム
+不満/赤面,[329]
+にへら/赤面,[330]
+怒り/赤面,[331]
+目閉じ/赤面,[332]
+笑顔/赤面,[333]
+脱力/赤面,[334]
+困る/赤面,[335]
+驚き/赤面,[336]
+//None/赤面,[]
+
+// B カラム
+あはは/赤面,[337]
+怒ったぞ/赤面,[338]
+やだー/赤面,[339]
+//None/赤面,[]
+微笑/赤面,[340]
+疑い/赤面,[341]
+不安/赤面,[342]
+どうかな/赤面,[343]
+うーん/赤面,[344]
+
+// C カラム
+嫌!/赤面,[345]
+しょうがないなー/赤面,[346]
+//None/赤面,[]
+困ったなー/赤面,[347]
+困ったなーA/赤面,[348]
+退屈/赤面,[349]
+どうしよっかなー/赤面,[350]
+否定/赤面,[351]
+じとー/赤面,[352]
+
+// D カラム
+半目/赤面,[353]
+//None/赤面,[]
+上機嫌/赤面,[354]
+ニカッ/赤面,[355]
+//None/赤面,[]
+//None/赤面,[]
+//None/赤面,[]
+泣き始め/赤面,[356]
+うわっ/赤面,[357]
+//}}}
+//{{{
+// 汗  差分 : 358 - 386---------------------------------------------
+// A カラム
+不満/汗,[358]
+にへら/汗,[359]
+怒り/汗,[360]
+目閉じ/汗,[361]
+笑顔/汗,[362]
+脱力/汗,[363]
+困る/汗,[364]
+驚き/汗,[365]
+//None/汗,[]
+
+// B カラム
+あはは/汗,[366]
+怒ったぞ/汗,[367]
+やだー/汗,[368]
+//None/汗,[]
+微笑/汗,[369]
+疑い/汗,[370]
+不安/汗,[371]
+どうかな/汗,[372]
+うーん/汗,[373]
+
+// C カラム
+嫌!/汗,[374]
+しょうがないなー/汗,[375]
+//None/汗,[]
+困ったなー/汗,[376]
+困ったなーA/汗,[377]
+退屈/汗,[378]
+どうしよっかなー/汗,[379]
+否定/汗,[380]
+じとー/汗,[381]
+
+// D カラム
+半目/汗,[382]
+//None/汗,[]
+上機嫌/汗,[383]
+ニカッ/汗,[384]
+//None/汗,[]
+//None/汗,[]
+//None/汗,[]
+泣き始め/汗,[385]
+うわっ/汗,[386]
+//}}}
+
+
+
+//	ふつう,[0]
+}
+
+
+// 胴体/表情付き。
+//{{{
 // MODE_TalkingYou 300 - 399----------------------------------------
 surface300-399 {
-    // 胴体
     element0,base,status/TalkingYou.png,0,0
     //本を閉じっぱなしに
     element10,base,book/BookOpen/book_00150.png,0,0
 }
 //}}}
+
+
+// デフォルト
+surface.append300 {
+}
+surface.append301 {
+    element1,overlay,p005b/じっ.png,0,0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//{{{
+//// 作業テーブルメモ
+//a0 : 不満
+//a1 : にへら
+//a2 : 怒り
+//a3 : 目閉じ
+//a4 : 笑顔
+//a5 : 脱力
+//a6 : 困る
+//a7 : 驚き
+//a8 : None
+//b0 : あはは
+//b1 : 怒ったぞ
+//b2 : やだー
+//b3 : None
+//b4 : 微笑
+//b5 : 疑い
+//b6 : 不安
+//b7 : どうかな
+//b8 : うーん
+//c0 : 嫌!
+//c1 : しょうがないなー
+//c2 : None
+//c3 : 困ったなー
+//c4 : 困り/そらし
+//c5 : 退屈
+//c6 : どうしよっかなー
+//c7 : 否定
+//c8 : じとー
+//d0 : 半目
+//d1 : None
+//d2 : 上機嫌
+//d3 : ニカッ
+//d4 : None
+//d5 : None
+//d6 : None
+//d7 : 泣き始め
+//d8 : うわっ
+//}}}
+//{{{
+//// デフォルトネーム
+//照れ困り,[301]
+//困り笑い,[302]
+//怒り,[303]
+//閉じ,[304]
+//笑顔,[305]
+//脱力,[306]
+//困る,[307]
+//驚き,[308]
+//None,[309]
+//----,[310]
+//照れ笑い,[311]
+//照れ怒り,[312]
+//呆れ,[313]
+//困惑,[314]
+//微笑,[315]
+//不安,[316]
+//驚き弱,[317]
+//照れ目伏せ,[318]
+//----,[319]
+//衝撃,[320]
+//照れ,[321]
+//困り笑み視線,[322]
+//照れ困り視線,[323]
+//困り笑い視線,[324]
+//視線そらし伏せ,[325]
+//困り笑い,[326]
+//呆れ2,[327]
+//----,[328]
+//半目,[329]
+//照れ目閉じ,[330]
+//上機嫌,[331]
+//笑い,[332]
+//困り笑み,[333]
+//照れ驚き,[334]
+//困り目閉じ,[335]
+//衝撃涙,[336]
+//衝撃2,[337]
+//}}}
+//{{{
+//// 旧版 
+//////対話状態で使用するsurface。胴体が必要。
+//surface.append301 {
+//    element1,overlay,face/じっ.png,0,0
+//}
+//surface.append302 {
+//    element1,overlay,face/疑い.png,0,0
+//}
+//surface.append303 {
+//    element1,overlay,face/泣き顔.png,0,0
+//}
+//surface.append304 {
+//    element1,overlay,face/泣き始め.png,0,0
+//}
+//surface.append305 {
+//    element1,overlay,face/驚き.png,0,0
+//}
+//surface.append306 {
+//    element1,overlay,face/月の微笑み.png,0,0
+//}
+//surface.append307 {
+//    element1,overlay,face/嫌.png,0,0
+//}
+//surface.append308 {
+//    element1,overlay,face/困り笑い.png,0,0
+//}
+//surface.append309 {
+//    element1,overlay,face/困り笑い2.png,0,0
+//}
+//surface.append310 {
+//    element1,overlay,face/困る.png,0,0
+//}
+//surface.append311 {
+//    element1,overlay,face/視線そらし.png,0,0
+//}
+//surface.append312 {
+//    element1,overlay,face/笑顔.png,0,0
+//}
+//surface.append313 {
+//    element1,overlay,face/照れ笑い.png,0,0
+//}
+//surface.append314 {
+//    element1,overlay,face/怒り.png,0,0
+//}
+//surface.append315 {
+//    element1,overlay,face/微笑み.png,0,0
+//}
+//surface.append316 {
+//    element1,overlay,face/不満.png,0,0
+//}
+//surface.append317 {
+//    element1,overlay,face/呆れ.png,0,0
+//}
+//surface.append318 {
+//    element1,overlay,face/目閉じ.png,0,0
+//}
+//surface.append319 {
+//    element1,overlay,face/脱力.png,0,0
+//}
+//}}}
 ////{{{
-//// 瞬きをしないようにしている?
+//// 瞬き処理は多分いらない。
 //surface.append300-399 {
 //    random eye you close 
 //	animation0.interval,random,30
@@ -30,70 +339,6 @@ surface300-399 {
 //	animation0.pattern2,overlayfast,-1,60,0,0
 //}
 ////}}}
-
-
-
-////対話状態で使用するsurface。胴体が必要。
-surface.append301 {
-    element1,overlay,face/じっ.png,0,0
-}
-surface.append302 {
-    element1,overlay,face/疑い.png,0,0
-}
-surface.append303 {
-    element1,overlay,face/泣き顔.png,0,0
-}
-surface.append304 {
-    element1,overlay,face/泣き始め.png,0,0
-}
-surface.append305 {
-    element1,overlay,face/驚き.png,0,0
-}
-surface.append306 {
-    element1,overlay,face/月の微笑み.png,0,0
-}
-surface.append307 {
-    element1,overlay,face/嫌.png,0,0
-}
-surface.append308 {
-    element1,overlay,face/困り笑い.png,0,0
-}
-surface.append309 {
-    element1,overlay,face/困り笑い2.png,0,0
-}
-surface.append310 {
-    element1,overlay,face/困る.png,0,0
-}
-surface.append311 {
-    element1,overlay,face/視線そらし.png,0,0
-}
-surface.append312 {
-    element1,overlay,face/笑顔.png,0,0
-}
-surface.append313 {
-    element1,overlay,face/照れ笑い.png,0,0
-}
-surface.append314 {
-    element1,overlay,face/怒り.png,0,0
-}
-surface.append315 {
-    element1,overlay,face/微笑み.png,0,0
-}
-surface.append316 {
-    element1,overlay,face/不満.png,0,0
-}
-surface.append317 {
-    element1,overlay,face/呆れ.png,0,0
-}
-surface.append318 {
-    element1,overlay,face/目閉じ.png,0,0
-}
-surface.append319 {
-    element1,overlay,face/脱力.png,0,0
-}
-
-
-
 
 
 

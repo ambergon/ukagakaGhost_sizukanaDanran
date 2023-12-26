@@ -24,7 +24,7 @@ icon.minimize,iconX.ico
 
 
 
-readme.ReadMe.md
+readme,ReadMe.md
 readme.charset,UTF-8
 sakura.seriko.alignmenttodesktop,bottom
 

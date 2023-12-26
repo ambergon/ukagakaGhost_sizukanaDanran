@@ -28,9 +28,9 @@ AutoUnload.function_BreakTime {
 //{{{
 // 休憩開始関数 : Checkは分単位-------------------------------------
 CheckMinute.BreakTime {
-    // 休憩時間外で休憩時間の指定が0で無ければ。
-    // Notifyを考えるとこのような形になってしまった。
+    // 休憩時間外
     if ( BreakTime.Bool == 0 ) {
+        // 休憩時間 が0以外で指定の時間ならば。
         if ( hour == BreakTime.CheckHour && minute == BreakTime.CheckMin && BreakTime.Max != 0 ){
             BreakTime.Bool = 1
             BreakTime.Count  = BreakTime.Max

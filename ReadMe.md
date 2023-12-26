@@ -17,12 +17,6 @@
 
 
 ## 機能
-#### グーグルカレンダー連携
-設定することで、今日・今週の予定を表示することが可能です。
-
-- [【伺か/SSP】ゴーストとグーグルカレンダーを連携させ、今日の予定を教えてもらう。 -- 異風堂々](https://ambergonslibrary.com/ukagaka/8900/)
-
-
 #### 天気予報の取得
 地域を設定することで、今日明日の天気を拾うことができます。
 
@@ -34,7 +28,7 @@
 
 
 #### ファイルランチャー機能
-json/mp3以外の拡張子のファイルをD&Dするとそれぞれのキーに設定することができます。
+mp3以外の拡張子のファイルをD&Dするとそれぞれのキーに設定することができます。
 SPACEを押して離した後に指定したキーを押すと呼び出します。
 ウィンドウ関係が怪しいのか、このゴーストがフォアグラウンドになっていてもキー反応を拾わないことが時々あります。
 
@@ -45,33 +39,16 @@ SPACEを押して離した後に指定したキーを押すと呼び出します
 キャンセルはESCを押すことで可能です。
 
 
-#### クリップボード機能
-現在調整中の機能。
-spaceを押した後にbackspaceを押して、特定の変数の中身をクリップボードにコピーします。
-
-
 ## オート機能
 #### 天気予報機能
 起動後3分後に通知されます。
 
 
-#### グーグルカレンダー連携。
-起動後6分後に通知されます。
 
-
-## 今後
-本を閉じる動作をもうちょっと自然にしたいです。
-
-
-
-## 試験機能
-#### うかどんChrome拡張連携
-こちらの連携機能として、名前を呼んだ際に、投稿IDをクリップボードにコピーする機能を導入してみました。<br>
-[GitHub - ambergon/chromeExtension_ukagakaClockWorkUkadonForSSP](https://github.com/ambergon/chromeExtension_ukagakaClockWorkUkadonForSSP)
-
-textcopy.dllをお借りしました。<br>
-[ClearBrain Systems](http://koumei.la.coocan.jp/cbs/software/)
-
+## 削除した機能
+#### グーグルカレンダー連携
+- [【伺か/SSP】ゴーストとグーグルカレンダーを連携させ、今日の予定を教えてもらう。 -- 異風堂々](https://ambergonslibrary.com/ukagaka/8900/)
+プラグインへ機能を移行した。-> [GitHub - ambergon/ukagakaPlugin_GoogleCalendar](https://github.com/ambergon/ukagakaPlugin_GoogleCalendar)
 
 
 

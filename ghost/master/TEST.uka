@@ -2,8 +2,8 @@
 
 AutoLoad.TEST {
     // 存在しなければ
-    if ISVAR( "" ) == 0 {
-    }
+    //if ISVAR( "" ) == 0 {
+    //}
 }
 
 AutoUnload.TEST {
@@ -11,24 +11,48 @@ AutoUnload.TEST {
 }
 
 
-
-
-
-//"CPU消費具合:%property[system.cpu.load]"
+// 試したりした機能。
+//{{{
+// CPU消費具合
 //_cpu = "%property[system.cpu.load]"
 //_cpu
+//}}}
+//{{{
+// メール送信
+//"送信\![notifyplugin,MailBox,OnSendMail,AUTO,%(year),%(mouth),%(day),送信者名,Auto,メール本文]"
+//}}}
+//{{{
+//// メールをすべて削除する。
+//// "\![raiseplugin,MailBox,OnGetAllMailID]"
+//OnAllMailID {
+//    _array = SPLIT(reference[0], ":", 0)
+//    _text = "all delete"
+//    foreach _array ; _check {
+//        _text = _text + "\![notifyplugin,MailBox,OnDeleteMail,%(_check)]"
+//    }
+//    _text
+//}
+//}}}
+//{{{
+//// 3ヶ月先までを想定して95日毎日メールを送ってみる。
+//// MailBox.SendEveryDay()
+//MailBox.SendEveryDay {
+//    _i = 0
+//    _text = "サンプルメール送信95日分"
+//    while _i <= 95 {
+//        FUNCTIONEX( "./dll/ukagakaSaori_CalcCalendar.dll" , year , month , day , 0 , 0 , _i )
+//        _text = _text + "\![notifyplugin,MailBox,OnSendMail,auto,%(valueex0),%(valueex1),%(valueex2),琥珀,送信テスト%(_i)日目,本文]"
+//        _i = _i + 1
+//    }
+//    _text 
+//}
+//}}}
 
-//送信\![notifyplugin,MailBox,OnSendMail,0,%(year),%(mouth),%(day),送信者名,メールタイトル,メール本文]
-//送信\![notifyplugin,MailBox,OnSendMail,0,2023,12,25,送信者名,メールタイトル,メール本文]
-//送信%(year),%(mouth),%(day)
-//"送信\![notifyplugin,MailBox,OnSendMail,0,2023,12,25,_,晴らせぬ恨み晴らします,> _ENTER <]"
 
 // 返す内容がある時だけ表示される。---------------------------------
 // 無ければ通常トーク等
 TEST.test {
-    //""
 }
-
 
 
 // SSTP から送信してみるサンプル。

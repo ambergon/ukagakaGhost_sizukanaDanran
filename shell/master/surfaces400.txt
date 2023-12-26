@@ -5,18 +5,15 @@ descript
     version,1
 }
 
-
-//MODE_ReturnBookOpen
-
-
-
+//{{{
+// MODE_ReturnBookOpen 400 - 499------------------------------------
 surface400-499 {
-    //run once eye to book
+    // 視線を本に戻す処理は 100 番台がやってくれる。
     element0,base,status/ReturnBookOpen.png,0,0
 }
-
-
-//book open
+//}}}
+//{{{
+// 本を開く処理-----------------------------------------------------
 //開き続ける為に最後を長く
 surface.append400-500 {
 	animation500.interval,runonce
@@ -173,4 +170,6 @@ surface.append400-500 {
 	animation500.pattern150,overlay,4000,1,0,0
 	animation500.pattern151,overlay,-1,10000,0,0
 }
+//}}}
+
 

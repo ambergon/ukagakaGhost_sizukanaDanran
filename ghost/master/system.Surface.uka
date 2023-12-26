@@ -112,7 +112,8 @@ CheckSecond.GearDown {
 // 第一引数 : surfaceに対応する表情名
 // FaceControl
 // "\0\s[%(fc('じっ'))]"
-// "\0\s[%(fc('照れ'))]"
+// evalを使って呼び出されるトークではfcに与えた引数が正常に展開されずに\s[0]になる。
+// また、MODE_TalkingYou でしか発生しえないトーク軍kに関してはデフォルトの展開手段で書くことにした。
 fc {
 
     // 現在の状態及び最終のsurfaceの出力
@@ -128,58 +129,58 @@ fc {
 	} elseif ( Surface.TalkMode == "MODE_CloseBook" ) {
 		_status = 200
 
-    // 表情を使用できるのは MODE_TalkingYou モードだけ。
 	} elseif ( Surface.TalkMode == "MODE_TalkingYou" ) {
 		_status = 300
+//{{{
+        // 今は合成しなくても良いだろう。
+        //if _face == "" {
+        //    _face = 0
+        //} elseif _face == "じっ" {
+        //    _face = 1
+        //} elseif _face == "疑い" {
+        //    _face = 2
+        //} elseif _face == "泣き顔" {
+        //    _face = 3
+        //} elseif _face == "泣き始め" {
+        //    _face = 4
+        //} elseif _face == "驚き" {
+        //    _face = 5
+        //} elseif _face == "月の微笑み" {
+        //    _face = 6
+        //} elseif _face == "嫌" {
+        //    _face = 7
+        //} elseif _face == "困り笑い" {
+        //    _face = 8
+        //} elseif _face == "困り笑い2" {
+        //    _face = 9
+        //} elseif _face == "困る" {
+        //    _face = 10
+        //} elseif _face == "視線そらし" {
+        //    _face = 11
+        //} elseif _face == "笑顔" {
+        //    _face = 12
+        //} elseif _face == "照れ笑い" {
+        //    _face = 13
+        //} elseif _face == "怒り" {
+        //    _face = 14
+        //} elseif _face == "微笑み" {
+        //    _face = 15
+        //} elseif _face == "不満" {
+        //    _face = 16
+        //} elseif _face == "呆れ" {
+        //    _face = 17
+        //} elseif _face == "目閉じ" {
+        //    _face = 18
+        //} elseif _face == "脱力" {
+        //    _face = 19
 
-        if _face == "" {
-            _face = 0
-        } elseif _face == "じっ" {
-            _face = 1
-        } elseif _face == "疑い" {
-            _face = 2
-        } elseif _face == "泣き顔" {
-            _face = 3
-        } elseif _face == "泣き始め" {
-            _face = 4
-        } elseif _face == "驚き" {
-            _face = 5
-        } elseif _face == "月の微笑み" {
-            _face = 6
-        } elseif _face == "嫌" {
-            _face = 7
-        } elseif _face == "困り笑い" {
-            _face = 8
-        } elseif _face == "困り笑い2" {
-            _face = 9
-        } elseif _face == "困る" {
-            _face = 10
-        } elseif _face == "視線そらし" {
-            _face = 11
-        } elseif _face == "笑顔" {
-            _face = 12
-        } elseif _face == "照れ笑い" {
-            _face = 13
-        } elseif _face == "怒り" {
-            _face = 14
-        } elseif _face == "微笑み" {
-            _face = 15
-        } elseif _face == "不満" {
-            _face = 16
-        } elseif _face == "呆れ" {
-            _face = 17
-        } elseif _face == "目閉じ" {
-            _face = 18
-        } elseif _face == "脱力" {
-            _face = 19
+        ////} elseif _face ==  {
+        //} else {
+        //    _face = 0
+        //}
 
-        //} elseif _face ==  {
-        } else {
-            _face = 0
-        }
-
-        _status = _status + _face
-
+        //_status = _status + _face
+//}}}
 	} elseif ( Surface.TalkMode == "MODE_ReturnBookOpen" ) {
 		_status = 400
 	}

@@ -26,7 +26,17 @@ OnKeyPress {
         //create update file
         } elseif ( _KEY == "u" ) {
             _text = "更新ファイルを作成\![execute,createupdatedata]\e"
+
+        // 各種変数の状態確認。
+        } elseif ( _KEY == "s" ) {
+            _text = InputKey.Status()
         }
+
+        // shellのチートシート
+        } elseif ( _KEY == "c" ) {
+            _text = "\0\j[file:///%( GHOSTPATH )../../shell/master/CheatSheet.png]開くよ～\e"
+
+  
 //}}}
 //{{{
     // [a-z] ショートカット機能-------------------------------------
@@ -51,8 +61,21 @@ OnKeyPress {
     _text
 }
 
-
-
+//{{{
+// Status. : 各種状態確認用関数を実装する。-------------------------
+// 専用メニューのある機能はここで確認しなくてよい。
+InputKey.Status {
+    StatusList    = GETFUNCLIST( "Status." )
+    _text = "【各種ステータス】\n\n"
+    for _i = 0 ; _i < ARRAYSIZE( StatusList ) ; _i++ {
+        _status = EVAL(StatusList[_i])
+        if ( _text != "") {
+            _text = _text + _status + "\n"
+        }
+    }
+    _text
+}
+//}}}
 
 
 
