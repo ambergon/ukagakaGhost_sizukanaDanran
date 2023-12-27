@@ -40,7 +40,6 @@ OnSecondChange {
             Time.SecondText = Time.SecondText + _one + "\n\n"
         }
     }
-
     //not notify
     if reference[3] == 1 {
         _text = Time.SecondText
@@ -52,14 +51,12 @@ OnSecondChange {
 //{{{
 // Time.MinuteFuncList.関数をまとめて実行する------------------------------
 OnMinuteChange {
-
     for _i = 0 ; _i < ARRAYSIZE( Time.MinuteFuncList ) ; _i++ {
         _one = EVAL(Time.MinuteFuncList[_i])
         if ( _one != "") {
             Time.MinuteText = Time.MinuteText + _one + "\n\n"
         }
     }
-
     //not notify
     if reference[3] == 1 {
         _text = Time.MinuteText
