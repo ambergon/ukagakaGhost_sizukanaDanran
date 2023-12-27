@@ -12,54 +12,69 @@
 //{{{
 // 起動処理---------------------------------------------------------
 AutoLoad.system_Time {
-    CheckSeconds    = GETFUNCLIST( "CheckSecond." )
-    CheckMinutes    = GETFUNCLIST( "CheckMinute." )
-    CheckHours      = GETFUNCLIST( "CheckHour."   )
+    Time.SecondFuncList    = GETFUNCLIST( "CheckSecond." )
+    Time.MinuteFuncList    = GETFUNCLIST( "CheckMinute." )
+    Time.HourFuncList      = GETFUNCLIST( "CheckHour."   )
+
+    Time.SecondText = ""
+    Time.MinuteText = ""
 }
 //}}}
 //{{{
 // 終了処理---------------------------------------------------------
 AutoUnload.system_Time {
-    ERASEVAR( 'CheckSeconds' )
-    ERASEVAR( 'CheckMinutes' )
-    ERASEVAR( 'CheckHours' )
+    ERASEVAR( 'Time.SecondFuncList' )
+    ERASEVAR( 'Time.MinuteFuncList' )
+    ERASEVAR( 'Time.HourFuncList' )
+
+    ERASEVAR( 'Time.SecondText' )
+    ERASEVAR( 'Time.MinuteText' )
 }
 //}}}
 //{{{
 // CheckSecond.関数をまとめて実行する。-----------------------------
 OnSecondChange {
-    _secondText = ""
-    for _i = 0 ; _i < ARRAYSIZE( CheckSeconds ) ; _i++ {
-        _text = EVAL(CheckSeconds[_i])
-        if ( _text != "") {
-            _secondText = _secondText + _text + "\n\n"
+    for _i = 0 ; _i < ARRAYSIZE( Time.SecondFuncList ) ; _i++ {
+        _one = EVAL(Time.SecondFuncList[_i])
+        if ( _one != "") {
+            Time.SecondText = Time.SecondText + _one + "\n\n"
         }
     }
-    _secondText
-}
-//}}}
-//{{{
-// CheckMinutes.関数をまとめて実行する------------------------------
-OnMinuteChange {
+
     //not notify
     if reference[3] == 1 {
-        _minuteText = ""
-        for _i = 0 ; _i < ARRAYSIZE( CheckMinutes ) ; _i++ {
-            _text = EVAL(CheckMinutes[_i])
-            if ( _text != "") {
-                _minuteText = _minuteText + _text + "\n\n"
-            }
-        }
-        _minuteText
+        _text = Time.SecondText
+        _text 
+        Time.SecondText = ""
     }
 }
 //}}}
 //{{{
-// CheckHours.関数をまとめて実行する--------------------------------
+// Time.MinuteFuncList.関数をまとめて実行する------------------------------
+OnMinuteChange {
+
+    for _i = 0 ; _i < ARRAYSIZE( Time.MinuteFuncList ) ; _i++ {
+        _one = EVAL(Time.MinuteFuncList[_i])
+        if ( _one != "") {
+            Time.MinuteText = Time.MinuteText + _one + "\n\n"
+        }
+    }
+
+    //not notify
+    if reference[3] == 1 {
+        _text = Time.MinuteText
+        _text 
+        Time.MinuteText = ""
+    }
+}
+//}}}
+//{{{
+// Time.HourFuncList.関数をまとめて実行する--------------------------------
+// hour は notify が発生しない。
 OnHourTimeSignal {
     _hourText = ""
-    for _i = 0 ; _i < ARRAYSIZE( CheckHours ) ; _i++ {
-        _text = EVAL(CheckHours[_i])
+    for _i = 0 ; _i < ARRAYSIZE( Time.HourFuncList ) ; _i++ {
+        _text = EVAL(Time.HourFuncList[_i])
         if ( _text != "") {
             _hourText = _hourText + _text + "\n\n"
         }
