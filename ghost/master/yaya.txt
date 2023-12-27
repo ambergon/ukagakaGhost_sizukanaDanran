@@ -17,33 +17,29 @@ dicdir, yaya
 
 
 //system
-//  関数のまとまりであり、ユーザーから認知されない機能
+//  関数のまとまりであり、ユーザーから認知されない機能。
 //function
-//  ユーザーから実際に認識される機能
-
+//  ユーザーから実際に認識される機能。
+//talk
+//  主にバルーンに表示するテキストが格納されている辞書。
 dic, function.BreakTime.uka
 dic, function.ShortCut.uka
-dic, function.Weather.uka
 dic, function.Timer.uka
+dic, function.Weather.uka
 dic, system.Base.uka
 dic, system.BootCount.uka
-dic, system.Other.uka
 dic, system.FileDropped.uka
 dic, system.KeyPress.uka
 dic, system.Menu.uka
 dic, system.Mouse.uka
-dic, talk.Boot.uka
-dic, talk.Close.uka
-dic, talk.Chain.uka
-dic, talk.uka
+dic, system.Other.uka
 dic, system.Surface.uka
 dic, system.Time.uka
 dic, system.Translate.uka
+dic, talk.Boot.uka
+dic, talk.Close.uka
+dic, talk.HN.uka
 dic, TEST.uka
-
-
-
-
 
 
 

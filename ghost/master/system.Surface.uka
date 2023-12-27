@@ -8,6 +8,61 @@
 // 表情や状態を管理する関数。
 
 
+//{{{
+// 表情テスト-------------------------------------------------------
+// / 赤面 / 汗
+Surface.Test {
+    "\s[普通]"
+//{{{
+    // A カラム-----------------------------------------------------
+    "\s[不満]"
+    "\s[にへら]"
+    "\s[怒り]"
+    "\s[目閉じ]"
+    "\s[笑顔]"
+    "\s[脱力]"
+    "\s[困る]"
+    "\s[驚き]"
+//}}}
+//{{{
+    // B カラム-----------------------------------------------------
+    "\s[あはは]"
+    "\s[怒ったぞ]"
+    "\s[やだー]"
+    //None]
+    "\s[微笑]"
+    "\s[疑い]"
+    "\s[不安]"
+    "\s[どうかな]"
+    "\s[うーん]"
+//}}}
+//{{{
+    // C カラム-----------------------------------------------------
+    "\s[嫌!]"
+    "\s[しょうがないなー]"
+    //None]
+    "\s[困ったなー]"
+    "\s[困ったなーA]"
+    "\s[退屈]"
+    "\s[どうしよっかなー]"
+    "\s[否定]"
+    "\s[じとー]"
+//}}}
+//{{{
+    // D カラム-----------------------------------------------------
+    "\s[半目]"
+    //None]
+    "\s[上機嫌]"
+    "\s[ニカッ]"
+    //None]"
+    //None]"
+    //None]"
+    "\s[泣き始め]"
+    "\s[うわっ]"
+//}}}
+}
+//}}}
+
 
 
 
@@ -25,6 +80,15 @@ AutoLoad.system_Surfece {
     //状態が維持される最大秒数
     Surface.MaxSec = 120 
     //Surface.MaxSec = 180 
+
+    // 各種 GearUp 連動関数
+    // GearUpFunction では発言できない。
+    // 呼ばれるタイミングで既にギアが上がっている。
+    GearUpFunction = GETFUNCLIST( "GearUp." )
+    // 各種 GearDown 連動関数
+    // 呼ばれるタイミングで既にギアが下がっている。
+    // 発言してはならない。
+    GearDownFunction = GETFUNCLIST( "GearDown." )
 }
 //}}}
 //{{{
@@ -34,6 +98,9 @@ AutoUnload.system_Surfece {
     ERASEVAR( 'Surface.Sec' )
     ERASEVAR( 'Surface.AddSec' )
     ERASEVAR( 'Surface.MaxSec' )
+
+    ERASEVAR( 'GearUpFunction' )
+    ERASEVAR( 'GearDownFunction' )
 }
 //}}}
 //{{{
@@ -47,19 +114,29 @@ OnSurfaceRestore {
 //}}}
 //{{{
 // 刺激に対して     : 1段階ギアを上げる。---------------------------
+// 発言より先に読んでおくこと。
 Surface.GearUp {
 
     // 顔を上げる。
     if Surface.TalkMode == "MODE_ReadingBook" || Surface.TalkMode == "MODE_ReturnBookOpen" {
         Surface.TalkMode = "MODE_FaceUp"
+        for _i = 0 ; _i < ARRAYSIZE( GearUpFunction ) ; _i++ {
+            EVAL( GearUpFunction[_i] )
+        }
 
     // 本を閉じる。
     } elseif Surface.TalkMode == "MODE_FaceUp" {
         Surface.TalkMode = "MODE_CloseBook"
+        for _i = 0 ; _i < ARRAYSIZE( GearUpFunction ) ; _i++ {
+            EVAL( GearUpFunction[_i] )
+        }
 
     // 話を聞く
     } elseif Surface.TalkMode == "MODE_CloseBook" {
         Surface.TalkMode = "MODE_TalkingYou"
+        for _i = 0 ; _i < ARRAYSIZE( GearUpFunction ) ; _i++ {
+            EVAL( GearUpFunction[_i] )
+        }
 
     // 最高レベル。維持
     } elseif Surface.TalkMode == "MODE_TalkingYou" {
@@ -92,11 +169,19 @@ CheckSecond.GearDown {
         Surface.Sec = 3
         "\0\s[%(fc)]\b[-1]"
 
+        for _i = 0 ; _i < ARRAYSIZE( GearDownFunction ) ; _i++ {
+            EVAL( GearDownFunction[_i] )
+        }
+
 
     // 本に視線を戻す。
     }elseif ( Surface.Sec == 0  && Surface.TalkMode == "MODE_FaceUp" ) {
         Surface.TalkMode = "MODE_ReadingBook"
         "\0\s[%(fc)]\b[-1]"
+
+        for _i = 0 ; _i < ARRAYSIZE( GearDownFunction ) ; _i++ {
+            EVAL( GearDownFunction[_i] )
+        }
 
 
     // 読書状態へ戻る
@@ -104,6 +189,10 @@ CheckSecond.GearDown {
         Surface.TalkMode = "MODE_ReturnBookOpen"
         Surface.Sec = 3
         "\0\s[%(fc)]\b[-1]"
+
+        for _i = 0 ; _i < ARRAYSIZE( GearDownFunction ) ; _i++ {
+            EVAL( GearDownFunction[_i] )
+        }
     }
 }
 //}}}
@@ -111,12 +200,8 @@ CheckSecond.GearDown {
 // 現在のギアに応じてSurface番号を出力してくれる関数。--------------
 // 第一引数 : surfaceに対応する表情名
 // FaceControl
-// "\0\s[%(fc('じっ'))]"
-// evalを使って呼び出されるトークではfcに与えた引数が正常に展開されずに\s[0]になる。
-// また、MODE_TalkingYou でしか発生しえないトーク軍kに関してはデフォルトの展開手段で書くことにした。
 fc {
-
-    // 現在の状態及び最終のsurfaceの出力
+    // 現在の状態のsurfaceの出力
     _status = 000
     _face = _argv[0]
 
@@ -131,56 +216,8 @@ fc {
 
 	} elseif ( Surface.TalkMode == "MODE_TalkingYou" ) {
 		_status = 300
-//{{{
-        // 今は合成しなくても良いだろう。
-        //if _face == "" {
-        //    _face = 0
-        //} elseif _face == "じっ" {
-        //    _face = 1
-        //} elseif _face == "疑い" {
-        //    _face = 2
-        //} elseif _face == "泣き顔" {
-        //    _face = 3
-        //} elseif _face == "泣き始め" {
-        //    _face = 4
-        //} elseif _face == "驚き" {
-        //    _face = 5
-        //} elseif _face == "月の微笑み" {
-        //    _face = 6
-        //} elseif _face == "嫌" {
-        //    _face = 7
-        //} elseif _face == "困り笑い" {
-        //    _face = 8
-        //} elseif _face == "困り笑い2" {
-        //    _face = 9
-        //} elseif _face == "困る" {
-        //    _face = 10
-        //} elseif _face == "視線そらし" {
-        //    _face = 11
-        //} elseif _face == "笑顔" {
-        //    _face = 12
-        //} elseif _face == "照れ笑い" {
-        //    _face = 13
-        //} elseif _face == "怒り" {
-        //    _face = 14
-        //} elseif _face == "微笑み" {
-        //    _face = 15
-        //} elseif _face == "不満" {
-        //    _face = 16
-        //} elseif _face == "呆れ" {
-        //    _face = 17
-        //} elseif _face == "目閉じ" {
-        //    _face = 18
-        //} elseif _face == "脱力" {
-        //    _face = 19
-
-        ////} elseif _face ==  {
-        //} else {
-        //    _face = 0
-        //}
-
         //_status = _status + _face
-//}}}
+
 	} elseif ( Surface.TalkMode == "MODE_ReturnBookOpen" ) {
 		_status = 400
 	}
@@ -188,6 +225,39 @@ fc {
     _status
 }
 //}}}
+
+//{{{
+// ステータス関数---------------------------------------------------
+Status.Surface {
+    "SurfaceMode = %(Surface.TalkMode)"
+}
+//}}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
