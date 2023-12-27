@@ -30,13 +30,13 @@ OnKeyPress {
         // 各種変数の状態確認。
         } elseif ( _KEY == "s" ) {
             _text = InputKey.Status()
-        }
 
         // shellのチートシート
         } elseif ( _KEY == "c" ) {
             _text = "\0\j[file:///%( GHOSTPATH )../../shell/master/CheatSheet.png]開くよ～\e"
 
-  
+
+        }
 //}}}
 //{{{
     // [a-z] ショートカット機能-------------------------------------
