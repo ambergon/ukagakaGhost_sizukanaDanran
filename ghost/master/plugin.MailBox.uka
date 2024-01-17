@@ -1,0 +1,136 @@
+
+
+
+
+
+
+
+
+
+
+//{{{
+// 起動処理---------------------------------------------------------
+AutoLoad.plugin_MailBox {
+    // 開発時のMailBox.Version
+    MailBox.Dev = "v1.0.2"
+    ExistPlugin.MailBox = 0
+    // 一度のみ発生するイベントの管理
+    ExistPlugin.Once    = 0
+
+    Load.MailBox()
+}
+//}}}
+//{{{
+// 終了処理---------------------------------------------------------
+AutoUnload.plugin_MailBox {
+    ERASEVAR( 'MailBox.Dev' )
+    ERASEVAR( 'MailBox.Version' )
+    ERASEVAR( 'ExistPlugin.MailBox' )
+    ERASEVAR( 'MailBox.Once' )
+
+    Unload.MailBox()
+}
+//}}}
+//{{{
+// Version 管理関数-------------------------------------------------
+OnExistPluginMailBox {
+    //ExistPlugin.MailBox = 1
+    //// プラグインの存在が通知された時ストックを追加する。
+    //MailBox.Once = 1
+    //if reference[0] == "" {
+    //    MailBox.Version = "OLD"
+    //    //MailBox.Version = "v1.0.1以下"
+    //} else {
+    //    MailBox.Version = reference[0]
+    //}
+    //"\C\![notifyplugin,MailBox,OnSendMail,Auto,%(year),%(month),%(day),琥珀,メール追加,内容]"
+}
+//}}}
+//{{{
+// ステータス関数---------------------------------------------------
+Status.MailBox {
+    if ExistPlugin.MailBox != 0 {
+        "開発者のMailBox.Version=%(MailBox.Dev)\n貴方のMailBox.Version=%(MailBox.Version)"
+    }
+}
+//}}}
+//{{{
+// 起動して最初のHourでメールを送信する。---------------------------
+CheckHour.MailBox {
+    // カウントが一以上あれば。
+    if MailBox.Once > 0 && MailBox.Version != "OLD" {
+        MailBox.Once = 0
+        // 次があるか確認する。
+        _req = EVAL( "MailBox.Mail" + TOINT( MailBox.Count + 1 ) )
+        if _req != "" {
+            MailBox.Count++
+            _text = "\![notifyplugin,MailBox,OnSendMail,Auto,%(year),%(month),%(day),琥珀,%(_req)]"
+            _text
+        }
+    }
+}
+//}}}
+
+Load.MailBox {
+    // 現在どこまで話したか記憶するカウント
+    if ISVAR( "MailBox.Count" ) == 0 {
+        MailBox.Count = 0
+    }
+    // 1からスタート
+    // 置換が入る為、「。」などは使わないこと。
+    // タイトル,本文
+    MailBox.Mail1 = "初めまして,メールを始めました"
+    MailBox.Mail2 = "ちゃんと届いていますか?,お返事ください。"
+    //MailBox.Mail1 = ""
+    //MailBox.Mail1 = ""
+    //MailBox.Mail1 = ""
+
+}
+
+//{{{
+// セーブデータに残らないように消す。-------------------------------
+Unload.MailBox {
+    // セーブデータに残らないようにする。
+    _Count = 1
+    while 1 {
+        _null = EVAL( "MailBox.Mail" + _Count )
+        // なくなれば終了。
+        if _null == "" {
+            break
+        }
+        ERASEVAR( "MailBox.Mail" + _Count )
+        _Count++
+    }
+}
+//}}}
+
+
+
+//## サンプル関数
+//{{{
+//// メールをすべて削除する。
+//// "\![raiseplugin,MailBox,OnGetAllMailID]"
+//OnAllMailID {
+//    _array = SPLIT(reference[0], ":", 0)
+//    _text = "all delete"
+//    foreach _array ; _check {
+//        _text = _text + "\![notifyplugin,MailBox,OnDeleteMail,%(_check)]"
+//    }
+//    _text
+//}
+//}}}
+//{{{
+// 3ヶ月先までを想定して95日毎日メールを送ってみる。
+// MailBox.SendEveryDay()
+MailBox.SendEveryDay {
+    _i = 0
+    _text = "サンプルメール送信95日分"
+    while _i <= 95 {
+        FUNCTIONEX( "./dll/ukagakaSaori_CalcCalendar.dll" , year , month , day , 0 , 0 , _i )
+        _text = _text + "\![notifyplugin,MailBox,OnSendMail,auto,%(valueex0),%(valueex1),%(valueex2),琥珀,送信テスト%(_i)日目,本文]"
+        _i = _i + 1
+    }
+    _text 
+}
+//}}}
+

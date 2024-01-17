@@ -1,0 +1,51 @@
+
+
+
+
+name: Ukagaka Auto Release Create
+run-name: ${{ github.actor }} s Ukagaka Auto Release Create
+
+
+# ブランチにpushが入った時に処理した方が楽かもしれないが、リリースのタグやタイトルの処理が楽になる。
+on: 
+  push:
+    # タグがpushされたときにトリガ
+    # git push origin v1...
+    tags:
+      - 'v*'
+    # branches:
+    #   - master
+
+
+
+jobs:
+  Make Zip Push Release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # 余計なファイルを除外する。
+      - run: zip -r SizukanaDanran.zip ./ 
+        -x ./.git\* ./.github\* .gitignore 
+        ./Memo.md 
+        ./ghost/master/var\* 
+        ./ghost/master/profile\* 
+        ./shell/master/PSD.psd 
+        ./shell/master/CheatSheet.png 
+        ./shell/master/CheatSheetDefault.png 
+        ./shell/master/CheatSheetDefaultName.png"
+
+
+      - run: echo "TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      # - run: echo "${TAG_NAME}"
+      # - run: echo "${{ env.TAG_NAME }}"
+      - run: gh release create ${{ env.TAG_NAME }} SizukanaDanran.zip -n note -t ${{ env.TAG_NAME }} --target version
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+
+
+
+
+
+
+

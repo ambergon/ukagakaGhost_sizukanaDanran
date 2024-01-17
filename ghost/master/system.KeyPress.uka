@@ -61,21 +61,5 @@ OnKeyPress {
     _text
 }
 
-//{{{
-// Status. : 各種状態確認用関数を実装する。-------------------------
-// 専用メニューのある機能はここで確認しなくてよい。
-InputKey.Status {
-    StatusList    = GETFUNCLIST( "Status." )
-    _text = "【各種ステータス】\n\n"
-    for _i = 0 ; _i < ARRAYSIZE( StatusList ) ; _i++ {
-        _status = EVAL(StatusList[_i])
-        if ( _text != "") {
-            _text = _text + _status + "\n"
-        }
-    }
-    _text
-}
-//}}}
-
 
 
