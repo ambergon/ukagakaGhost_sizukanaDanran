@@ -20,7 +20,7 @@ AutoLoad.talk_HN {
     }
     // 一度のサイクルで行う意味のあるトークの上限
     HN.ModeCountMax = 6
-    Load.HN()
+    HN.Load()
 }
 //}}}
 //{{{
@@ -28,7 +28,7 @@ AutoLoad.talk_HN {
 AutoUnload.talk_HN {
     ERASEVAR( 'HN.ModeCount' )
     ERASEVAR( 'HN.ModeCountMax' )
-    Unload.HN()
+    HN.Unload()
 }
 //}}}
 //{{{
@@ -69,9 +69,9 @@ GearUp.NH {
     }
 }
 //}}}
-//{{{
+
 // Load    HN : 頭撫でトークを格納----------------------------------
-Load.HN {
+HN.Load {
 
     // 無ければ
     if ISVAR( "HN.TalkCount" ) == 0 {
@@ -119,17 +119,17 @@ Load.HN {
 
 
 
-    // 表情前
-    HN30 = "東方だとSWING HOLIC (from SOUND HOLIC)ってところからSwing Jazz(?)アレンジが結構出るよね。あそこのはどれも好きだな。"
-    HN30 = "そういえばゲーム曲が好きになったのは、ボーカルが入っていなくて、作業しながら聞いても集中できたからなんだよね。今でこそボーカルのある曲も聞いてるけど最初は駄目だったな。"
-    HN30 = ""
-    HN30 = ""
-    HN30 = ""
-    HN30 = ""
-    HN30 = ""
-    HN30 = ""
-    HN30 = ""
-    HN30 = ""
+    //// 表情前
+    //HN30 = "東方だとSWING HOLIC (from SOUND HOLIC)ってところからSwing Jazz(?)アレンジが結構出るよね。あそこのはどれも好きだな。"
+    //HN30 = "そういえばゲーム曲が好きになったのは、ボーカルが入っていなくて、作業しながら聞いても集中できたからなんだよね。今でこそボーカルのある曲も聞いてるけど最初は駄目だったな。"
+    //HN30 = ""
+    //HN30 = ""
+    //HN30 = ""
+    //HN30 = ""
+    //HN30 = ""
+    //HN30 = ""
+    //HN30 = ""
+    //HN30 = ""
     //HN32 = ""
 //\_a[OnOpenHttp,]\_a
 //https://www.nicovideo.jp/watch/nm4606641
@@ -145,10 +145,10 @@ Load.HN {
 
 
 }
-//}}}
+
 //{{{
 // Unload  HN : 頭撫でトークを削除----------------------------------
-Unload.HN {
+HN.Unload {
 
     // セーブデータに残らないようにする。
     _Count = 1

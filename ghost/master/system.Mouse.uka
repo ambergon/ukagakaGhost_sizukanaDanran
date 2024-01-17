@@ -106,10 +106,8 @@ MouseDoubleClick_0Book {
 MouseDoubleClick_0 {
     _test = TEST.test()
     if _test == "" {
-        test = ""
-
-    //} elseif xx == yy {
+    } else {
+        _test
     }
-    _test
 }
 

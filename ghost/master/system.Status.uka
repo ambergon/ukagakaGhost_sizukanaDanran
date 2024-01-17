@@ -16,7 +16,7 @@ AutoUnload.system_Status {
 // 専用メニューのある機能はここで確認しなくてよい。
 InputKey.Status {
     StatusList    = GETFUNCLIST( "Status." )
-    _text = "【各種ステータス】\n\n"
+    _text = "【各種ステータス】\n"
     for _i = 0 ; _i < ARRAYSIZE( StatusList ) ; _i++ {
         _status = EVAL(StatusList[_i])
         if ( _text != "") {
